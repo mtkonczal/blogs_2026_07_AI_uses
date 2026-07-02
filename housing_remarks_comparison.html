@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remarks Comparison: Claude Opus 4.8 vs Claude Fable 5</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a5a5a;
+    --rule: #d8d4cc;
+    --bg: #faf8f4;
+    --col-bg: #ffffff;
+    --opus: #8a4f24;
+    --fable: #1f4e79;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.55;
+  }
+  .page { max-width: 1500px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+  .masthead { border-bottom: 3px double var(--ink); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .masthead h1 {
+    font-size: 1.7rem; margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+  }
+  .masthead p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  .assessment {
+    background: var(--col-bg);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--ink);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.97rem;
+  }
+  .assessment h2 { margin: 0 0 0.6rem; font-size: 1.15rem; }
+  .assessment .byline { color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+  .assessment ol { padding-left: 1.3rem; margin: 0.75rem 0 0; }
+  .assessment li { margin-bottom: 0.85rem; }
+  .assessment li:last-child { margin-bottom: 0; }
+  .assessment strong.tag { font-variant: small-caps; letter-spacing: 0.02em; }
+
+  .columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 980px) { .columns { grid-template-columns: 1fr; } }
+
+  .col {
+    background: var(--col-bg);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .col-header {
+    position: sticky; top: 0; z-index: 2;
+    padding: 0.85rem 1.5rem;
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .col-header h2 { margin: 0; font-size: 1.15rem; letter-spacing: 0.01em; }
+  .col-header p { margin: 0.15rem 0 0; font-size: 0.8rem; opacity: 0.85; }
+  .opus .col-header { background: var(--opus); }
+  .fable .col-header { background: var(--fable); }
+
+  .doc { padding: 1.5rem 1.75rem 2rem; font-size: 0.95rem; }
+  .doc h1 { font-size: 1.35rem; margin: 0 0 0.5rem; line-height: 1.25; }
+  .doc h2 { font-size: 1.08rem; margin: 1.6rem 0 0.5rem; border-bottom: 1px solid var(--rule); padding-bottom: 0.25rem; }
+  .doc p { margin: 0 0 0.9rem; }
+  .doc hr { border: none; border-top: 1px solid var(--rule); margin: 1.25rem 0; }
+  .doc em.docnote { color: var(--muted); }
+  .doc ul { padding-left: 1.25rem; margin: 0 0 0.9rem; }
+  .doc li { margin-bottom: 0.4rem; }
+  .doc a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); }
+  .doc a:hover { text-decoration-color: var(--ink); }
+  .doc .sources { font-size: 0.85rem; color: var(--muted); }
+  .doc .sources h2 { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <h1>Two Drafts, One Brief: Remarks to Community Activists and Campaigners</h1>
+    <p>Same prompt, same materials (the report text, the run-through transcript, the blog draft), same web access. Left: Claude Opus 4.8. Right: Claude Fable 5.</p>
+  </header>
+
+  <section class="assessment">
+    <h2>Main Differences Between the Two Drafts</h2>
+    <p class="byline">Assessment written by Claude Fable 5, the author of the right-hand draft. Both models worked from identical prompts and identical materials, so the differences below are choices, not information gaps. I have tried to be honest about where the Opus 4.8 draft is stronger.</p>
+    <ol>
+      <li><strong class="tag">State of play on the ROAD Act.</strong> This is the biggest substantive split. My draft stresses that the bill is <em>not law</em>: the Senate passed it 89&ndash;10, the House passed an amended version 396&ndash;13 on May 20, and as of June 10 the chambers are in a standoff over the stripped investor-divestiture provision, with Warren calling the House change an attempt to kill the bill. That sets up the activist ask: the endgame is live and pressure matters now. The Opus 4.8 draft reads passage as essentially accomplished and pivots to "this is a supply bill; the income side is the unfinished business, and that's where our work comes in." That pivot is a genuinely effective rhetorical bridge into ESP's agenda, arguably better than mine as a connective move, but it underplays the fact that the bill could still die, which is the thing a room of campaigners can actually act on.</li>
+      <li><strong class="tag">Which provisions get claimed, and verification risk.</strong> I highlighted provisions progressives have specifically claimed and that I verified against current reporting: the 350+ home corporate-investor purchase ban with million-dollar penalties, Section 8 streamlining, homelessness funding flexibility, rental assistance preserved for roughly 400,000 rural families, and small-dollar mortgage provisions. Opus 4.8 cites a $200 million Innovation Fund, HUD model zoning codes framed as the first federal land-use engagement since the 1920s, and CDBG money newly usable to construct affordable housing. Those are punchier claims, but at least one is risky: my research indicated the House version dropped the CDBG production incentives (the Build Now Act), and I could not confirm the Innovation Fund survived the House amendment. Its line that the bill has "no real new money for vouchers" is defensible, but "does almost nothing on the income side" sits awkwardly next to the voucher and rural rental-assistance provisions that advocates like NLIHC have praised. If you deliver the Opus version, verify those three claims against the House-passed text first.</li>
+      <li><strong class="tag">Geography of the crisis.</strong> Opus 4.8 builds the "not just coastal" argument on a single memorable statistic: the income needed to afford a typical rural home roughly doubling from about $36,000 to $75,000. My draft spreads the point across more terrain: cost burdens up in 88 of the 100 largest metros since 2019, the worst burdens now in Florida metros and Las Vegas, the fastest rent growth in the Midwest, rural renters cost-burdened at urban rates, and homelessness falling in big cities last year while still rising in rural and suburban communities. The single number is easier to remember; the broader sweep survives more scrutiny and gives organizers from more kinds of places a statistic about their own backyard. There's a real tradeoff there and it depends on the room.</li>
+      <li><strong class="tag">Numbers under the incomes frame.</strong> Both drafts run the same core argument from the report (a healthy market reaches down to about 60 percent of area median income; below that, people need support no matter what we build). My draft adds the income-side statistics underneath it: NLIHC's 7.2 million missing affordable homes and the $28-an-hour housing wage against the $7.25 minimum wage. Opus 4.8 runs the argument clean, without those numbers, and instead spends the words on the Mamdani "debates versus delivers" quote, which I only used in spirit. Mine is more evidenced; Opus's is more quotable.</li>
+      <li><strong class="tag">Format and small accuracy choices.</strong> Opus 4.8 appends a notes-and-sources section inside the file, which is genuinely useful for prep and fact-checking; I kept the file clean for the podium and delivered the sourcing in the chat summary instead. One small but telling divergence: Opus uses the report's first-time homebuyer median age of 35, which is internally consistent with the paper; I deliberately cut that statistic because NAR's latest profile puts the median first-time buyer at 40, and I didn't want a number on stage that conflicts with the most-cited industry figure. Voice and architecture are otherwise similar in both drafts: four numbered moves, two minutes each, closing on social housing and tenant protections framed as shock protection that is also supply-compatible. Opus's "seatbelt, not the engine" line for tenant protections is the best single phrase in either draft.</li>
+    </ol>
+  </section>
+
+  <div class="columns">
+
+    <!-- ============ OPUS 4.8 ============ -->
+    <article class="col opus">
+      <div class="col-header">
+        <h2>Claude Opus 4.8</h2>
+        <p>Claude_4_8_opus_remarks_community_activists.md</p>
+      </div>
+      <div class="doc">
+        <h1>Remarks to Community Activists and Campaigners</h1>
+        <p><em class="docnote">~10 minutes. Spoken draft, in Mike's voice. Pacing notes in italics. Sources at the bottom for fact-checking; not meant to be read aloud.</em></p>
+        <hr>
+        <p>Thanks for having me. I want to do four quick things in about ten minutes, and then I want to leave you with language you can actually use when you walk out of here.</p>
+
+        <h2>1. What just happened in Washington</h2>
+        <p><em class="docnote">(~2 min)</em></p>
+        <p>Let me start with the Road to Housing Act, because it's a big deal and you're going to get asked about it.</p>
+        <p>A few weeks ago the House passed the 21st Century ROAD to Housing Act, 396 to 13. The Senate had already passed it 89 to 10. This is the largest federal housing bill in decades, and it's genuinely bipartisan, Tim Scott and Elizabeth Warren.</p>
+        <p>I want to point you to the progressive wins in it, because they're real and they're worth claiming. First, the federal government is getting back into land use for the first time since the 1920s. HUD will publish model zoning codes, so the next time there's a fight in your town over missing middle housing or parking minimums, there's a federal template behind you. Second, there's a $200 million Innovation Fund that rewards the places that actually reform zoning and show more homes getting built, not just the places that promise to. Third, and this one matters, Community Development Block Grant money can now be used to build new affordable housing. That was not allowed before. And the ban on the biggest institutional investors, the ones already sitting on hundreds of single-family homes, buying up even more of them survived. I'll be honest with you, the House pulled some of the teeth out, the piece that would have forced them to sell what they hold. But the core is still there.</p>
+        <p>Here's the part to carry out of the room. This is a supply bill, and a partial one. It does almost nothing on the income side. No repeal of the cap on public housing, no social housing, no tenant protections, no real new money for vouchers. So the wins are real, and the unfinished business is the entire second half of the problem. That's exactly where our work comes in.</p>
+
+        <h2>2. The crisis is real, it's broad, and it's not a coastal story anymore</h2>
+        <p><em class="docnote">(~2 min)</em></p>
+        <p>Second thing. I want to put some numbers on the table, because they're staggering and people forget them.</p>
+        <p>One in three Americans say they're worried about falling behind on rent or the mortgage. As of last summer, the Census Bureau counted nearly 7 million renters and almost 5 million homeowners actually behind on their payments. More than 21 million renter households, close to half of all renters, are spending more than a third of their income just on housing. Since 2000, real home prices are up about 65 percent. The typical first-time buyer is now 35 years old. And in a recent poll, 62 percent of Americans said buying a home just isn't realistic for them.</p>
+        <p>If you talk to young people, it's the whole ballgame. Half of voters under 30 say housing is their single biggest affordability worry. More than health care, more than education, more than groceries, more than all of it combined.</p>
+        <p>Now here's what's changed, and it's why I think the politics are moving under our feet. For years this was framed as a problem for a few expensive blue cities, San Francisco, New York, Boston. That's over. The data now show the affordability crisis is accelerating fastest in rural America. A buyer in a rural community used to need to earn about $36,000 to afford a typical home. Now it's around $75,000. That more than doubled in a few years, and rural prices have been climbing faster than in the cities and the suburbs. So when somebody tells you this is a problem for coastal elites, you tell them the fastest-growing piece of it is in small towns and the countryside.</p>
+
+        <h2>3. How we approach it: broken markets and broken incomes</h2>
+        <p><em class="docnote">(~2 min)</em></p>
+        <p>Third, how we think about this, because the frame is the most useful thing I can hand you.</p>
+        <p>We argue that affordability problems come from two places at once: broken markets and broken incomes. Hold both in your head at the same time.</p>
+        <p>The market is broken because we simply have not built enough. Depending on whose estimate you take, the country is short somewhere between one and eight million homes, and most of that shortage is exactly where people want to live. So yes, we take the build-more-housing argument seriously. We push it further than most people do, into building codes and into how construction actually gets financed, because financing is the next wall you hit right after zoning.</p>
+        <p>But here's the second half. Even if the market worked perfectly, even if we built every home we needed, there's a floor the market will never reach on its own. The research suggests that in a healthy market you can get housing down to where someone earning about 60 percent of the local median income can find a decent place. That's real, and it's a lot. But it does nothing for the person at 50 percent, or 30, or 20, or zero. That family needs support no matter how many homes we build. If you want to actually get your hands around homelessness and the deepest cost burdens, building alone will not get you there. You have to stabilize incomes too.</p>
+        <p>So the whole argument of our report is this: building more housing and protecting renters are not enemies. They're complements. More supply makes protections and vouchers work better. Stronger incomes mean more people can actually get into the homes we build. As Mamdani put it when he launched his housing plan, the real choice isn't between buildings and people. It's between a government that debates and a government that delivers.</p>
+
+        <h2>4. Close: social housing and tenant protections, the two you can organize around</h2>
+        <p><em class="docnote">(~3 min)</em></p>
+        <p>Let me close with the two pieces I think are most useful for you specifically: social housing and tenant protections.</p>
+        <p><strong>Social housing first.</strong> When people hear "public housing," they picture the old neglected towers. Throw that picture out. The model we're talking about is closer to what they do across Europe, and it's already running here. Think of it as a public alternative to private equity. A public agency runs a revolving loan fund. It lends to developers at low rates, it buys land, sometimes it rescues a stalled project, and in exchange the homes stay permanently affordable. Because it charges a little interest, the fund grows over time and recycles into the next project.</p>
+        <p>Why should you care? For the two reasons that run through everything I'm telling you today. One, it brings supply on, and it does it when the private market won't. When the Fed raises rates and private builders pull back, a public agency can keep building. That's countercyclical, and it's how you start to break the boom-bust cycle that keeps us short of homes. Two, those homes are insulated from market shocks, permanently. They don't get flipped and they don't get bid up. And the best part for organizing: it is already working, in red places and blue places. Montgomery County, Maryland set up a fund that has a few hundred homes built and more than 2,600 in the pipeline. Chattanooga and Atlanta are copying it. This is not theory. You can point at it, and you can fight for one in your own state, because states have both the money and the power to override local zoning to make it happen.</p>
+        <p><strong>Now tenant protections.</strong> We focus on two: rent stabilization and just cause eviction. And I want to give you the right way to talk about them, because the wrong way drags you into a fight you don't need.</p>
+        <p>Be honest about what they do. Rent stabilization does not make housing cheap. Only building does that. What protections do is protect people against shocks. When a wildfire or a flood wipes out a chunk of a region's housing, rents on whatever's left spike, and some landlords use that moment to push existing tenants out and cash in. That is exactly when rent stabilization and just cause keep families in their homes. Think of it as resilience. It's the seatbelt, not the engine.</p>
+        <p>And the second thing to say, every single time: these do not have to slow down building. We design them so they don't. New buildings are exempt for 15 years, which means a developer running the numbers never even sees the rule. California has had this since 2019 with no measurable hit to construction. So when someone tells you that you have to choose between protecting tenants and building homes, the answer is no, you don't, and here's the design that proves it.</p>
+        <p>That's the whole message. Build more, and protect the people the market leaves behind. Not one or the other. Both.</p>
+        <p>Thank you.</p>
+        <hr>
+        <div class="sources">
+          <h2>Notes and sources (for fact-checking, not for reading aloud)</h2>
+          <p><strong>Road to Housing Act</strong></p>
+          <ul>
+            <li>House passed the amended 21st Century ROAD to Housing Act 396&ndash;13 on May 20, 2026; Senate passed it 89&ndash;10 in March 2026. (<a href="https://financialservices.house.gov/news/documentsingle.aspx?DocumentID=411126">House Financial Services Committee</a>; <a href="https://www.npr.org/2026/03/12/nx-s1-5742566/senate-bipartisan-housing-bill-investors-ban">NPR</a>; <a href="https://www.nar.realtor/news/real-estate-news/modified-21st-century-road-to-housing-act-passes-in-the-house">NAR</a>)</li>
+            <li>Progressive elements: HUD model zoning/land-use guidelines (first federal land-use engagement since Hoover's 1921 committee), $200M Innovation Fund, CDBG now usable to construct new affordable housing, institutional-investor purchase restriction (350+ single-family-home owners). House dropped the Senate's 7-year forced-divestiture requirement. (<a href="https://bipartisanpolicy.org/issue-brief/whats-in-the-21st-century-road-to-housing-act/">Bipartisan Policy Center, House amendment explainer</a>; <a href="https://www.banking.senate.gov/newsroom/minority/scott-warren-release-21st-century-road-to-housing-act-legislative-package-to-boost-housing-supply-and-bring-down-costs">Senate Banking</a>)</li>
+            <li>Left out: Faircloth repeal, social/public housing, tenant protections, major new voucher funding (none appear in the BPC summary).</li>
+          </ul>
+          <p><strong>Crisis numbers</strong> (all from the report draft, <em>Building Affordability</em>)</p>
+          <ul>
+            <li>1 in 3 worried about falling behind; ~7M renters / 4.7M homeowners behind (June 2025, Census HPS); 21M+ renter households cost-burdened; real home prices +~65% since 2000; median first-time buyer age 35; 62% say buying is unrealistic; half of under-30 voters rank housing their top affordability worry (NYT/Siena).</li>
+            <li>Supply gap of 1.2M&ndash;8.2M homes (Table 1 in the report).</li>
+          </ul>
+          <p><strong>Crisis spreading to rural areas</strong></p>
+          <ul>
+            <li>Affordability crisis accelerating fastest in rural America; rural buyers now need ~$75,000 vs ~$36,000 pre-pandemic to afford a typical home; rural prices rising faster than urban/suburban (Redfin analysis). (<a href="https://www.marketplace.org/story/2025/11/21/housing-affordability-crisis-accelerates-fastest-in-rural-areas">Marketplace</a>; <a href="https://www.naco.org/news/rural-housing-affordability-approaches-crisis">NACo</a>)</li>
+          </ul>
+          <p><strong>Broken markets / broken incomes, social housing, tenant protections</strong> &mdash; all drawn from the report draft (<code>the_report_text.md</code>): the 60% AMI healthy-market figure and the floor below it (Resnikoff); Montgomery County Housing Production Fund (268 built, 2,677 in pipeline, Atlanta and Chattanooga following); rent stabilization modeled on California's 2019 Tenant Protection Act with a 15-year new-construction exemption; just-cause eviction. The Mamdani quote is from his late-May housing-plan launch.</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ FABLE 5 ============ -->
+    <article class="col fable">
+      <div class="col-header">
+        <h2>Claude Fable 5</h2>
+        <p>remarks_community_activists.md</p>
+      </div>
+      <div class="doc">
+        <h1>Remarks to Community Activists and Campaigners</h1>
+        <p><em class="docnote">Roughly 10 minutes. Section timings in brackets.</em></p>
+        <hr>
+        <p>Thank you all. I want to do four things in the next ten minutes. I want to tell you what's actually happening in Washington with the biggest housing bill in a generation. I want to convince you that the housing crisis has come to wherever you organize, even if it wasn't there ten years ago. I want to give you the framework we use at Economic Security Project, broken markets and broken incomes, because I think it'll help you in your campaigns. And I want to leave you with two things you can take home and fight for: social housing and tenant protections.</p>
+
+        <h2>What's happening with the ROAD to Housing Act [~2 min]</h2>
+        <p>So first, Washington. Congress is closer to passing major housing legislation than it has been in my entire career. The 21st Century ROAD to Housing Act is a genuinely bipartisan package, led in the Senate by Tim Scott, a Republican, and Elizabeth Warren, a Democrat. Read that sentence again. It passed the Senate 89 to 10 in March. Warren has called it the most significant legislation to bring down housing costs in more than 30 years.</p>
+        <p>And there's real progressive substance in there that people fought for. The bill bars large corporate investors, the ones holding 350 or more single-family homes, from buying up more of them, with penalties up to a million dollars a violation. That's Warren's fight against Wall Street landlords, in a bill a Republican Senate passed. It streamlines Section 8 vouchers so they actually work for families. It gives communities more flexibility on homelessness funding. It protects rental assistance for roughly 400,000 rural families. It pushes lenders back into small-dollar mortgages, the kind that working families in cheaper markets actually need. And it has more than forty provisions aimed at building more housing, from manufactured homes to zoning reform.</p>
+        <p>Now here's where you come in. In May, the House passed its own version, 396 to 13. But the House stripped out the requirement that corporate investors eventually sell their build-to-rent homes to actual families, and it dropped permanent disaster recovery housing funding, which advocates had made a top priority. Warren has said, flatly, that gutting the investor provision is an attempt to kill the bill. So right now the two chambers are staring at each other. The lesson is not that Washington is hopeless. The lesson is that we are one push away from the first major housing law in a generation, and the final shape of it depends on who's making noise in these last weeks. That's you.</p>
+
+        <h2>The crisis is real, and it's everywhere [~2 min]</h2>
+        <p>Why does this matter so much right now? Because the numbers are staggering, and I want you to have them.</p>
+        <p>Over 21 million renter households are cost-burdened, paying more than 30 percent of their income on housing. That's nearly half of all renters in America. Harvard's housing center says it's the worst on record. Since 2000, rents are up more than 20 percent after inflation, and home prices are up roughly 65 percent. One in three Americans is worried about falling behind on the rent or the mortgage. And depending on whose estimate you use, we are short somewhere between one and eight million homes. People argue about the methodology. Nobody argues about the direction.</p>
+        <p>But here's the thing I really want you to take home. We used to talk about this as a San Francisco problem, a New York problem, a problem for rich coastal cities. That story is dead. Renter cost burdens rose in 88 of the 100 largest metro areas between 2019 and 2024. Some of the highest burdens in the country are now in Florida metros and Las Vegas. The fastest rent growth right now is in the Midwest, in places like Milwaukee and Cleveland. Rural renters are now cost-burdened at essentially the same rate as urban renters. And homelessness, which is up more than a quarter since 2020, fell in the big cities last year but kept rising in rural and suburban communities.</p>
+        <p>So when someone tells you housing is somebody else's crisis, a big-city crisis, they're working from a ten-year-old map. This is your county commission's problem. It's your state legislature's problem. It's the defining economic anxiety of this moment, everywhere.</p>
+
+        <h2>Broken markets and broken incomes [~2 min]</h2>
+        <p>Now, how do we think about fixing it? At Economic Security Project we diagnose affordability problems through two lenses: broken markets and broken incomes. Our new report, Building Affordability, which I wrote with Ned Resnikoff and Becky Chao, applies both to housing. I want you to hold these two ideas at once, because each one alone fails.</p>
+        <p>Broken markets means there simply isn't enough housing where people want to live. So yes, we take the supply arguments seriously. End exclusionary zoning. Fix outdated building codes. But we push further: if supply matters this much, government shouldn't just get out of the way, it should get in the game. That means public options in housing, and it means tackling financing and construction costs directly, because zoning is only the first chokepoint.</p>
+        <p>Broken incomes means this: even in a healthy housing market, one with enough homes, research suggests the market reaches people down to about 60 percent of an area's median income. But people live at 50 percent. At 30. At 20. At zero. No amount of building reaches them on its own. There's a shortage of more than 7 million affordable homes for the lowest-income renters. A full-time worker needs about $28 an hour to afford a modest one-bedroom in this country. The federal minimum wage is $7.25. That gap is not a supply problem. It's an income problem, and it needs vouchers that work like cash, and it needs protections.</p>
+        <p>The basic premise of our whole agenda is that building more housing and protecting renters are not in conflict. They are complementary. More supply makes tenant protections work better. Stronger incomes mean more people can actually live in what we build. The old fight between the supply people and the tenant people is ending, and the campaigns winning right now, from New York to Minneapolis, are the ones that figured that out.</p>
+
+        <h2>What you can do with this: social housing and tenant protections [~3 min]</h2>
+        <p>Let me close with the two pieces of this you can run with locally.</p>
+        <p>First, social housing. Forget the stereotype of public housing. Think of this as a public alternative to private equity. Montgomery County, Maryland set up a Housing Production Fund: a revolving public fund that invests in mixed-income apartment buildings, owns them, and recycles the returns into the next project. Hundreds of units built, thousands more in the pipeline, and the model has already spread to Atlanta and Chattanooga. This is not a federal moonshot. A county did this. Your county could do this.</p>
+        <p>And here's why it matters for resilience, not just supply. When the Fed raises interest rates, private apartment construction stalls, and the shortage gets worse right when we can least afford it. A public fund can keep building through the downturn. It's both more supply and a shock absorber. Your transit agency and even the post office sit on prime land that could hold housing; BART in the Bay Area has already put more than 4,000 homes next to its stations. Every community has land like that.</p>
+        <p>Second, tenant protections. Our report focuses on two: rent stabilization for older buildings, and just cause eviction. Here's how I'd talk about them. These are insurance against shocks. When a wildfire or a flood wipes out part of the housing stock, or inflation spikes, landlords can jack up rents on everyone left standing, and people who did nothing wrong lose their homes. Stabilization and just cause keep people housed through the storm. After the Los Angeles fires, nobody needed that explained to them.</p>
+        <p>And, this is crucial, they're designed to bring supply on, not choke it off. Our rent stabilization proposal only covers buildings older than 15 years, so it never enters the math on financing new construction. California capped rent hikes this way in 2019 with no discernible hit to building. The research on just cause laws finds the same: no reduction in housing production. So when someone tells you it's protections or supply, pick one, you can tell them the evidence says otherwise, and so does the politics. The coalitions that pair them are the ones winning.</p>
+        <p>So that's the message. The crisis is real and it's in your backyard now. The answer is to build and to protect, at the same time, because each makes the other work. There's a bill in Congress one push from the finish line, and there are models, in Montgomery County and Chattanooga and Sacramento, that your city can copy next year. We wrote this report to be a toolbox. Take it home and use it. Thank you.</p>
+      </div>
+    </article>
+
+  </div>
+</div>
+</body>
+</html>
