@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hearing Rebuttal Brief — May 14, 2026</title>
+<style>
+  :root {
+    --con: #8b1a1a;
+    --prog: #1a4f8b;
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --rule: #d8d4ca;
+    --ink: #1c1c1c;
+    --muted: #4a4a4a;
+    --accent: #8b6914;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 32px 28px 80px;
+    line-height: 1.55;
+  }
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 26px;
+    margin: 0 0 4px;
+  }
+  .subhead {
+    font-size: 15px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 20px;
+  }
+  .tab-btn {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background: #e8e3d3;
+    color: var(--muted);
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px 4px 0 0;
+    letter-spacing: 0.4px;
+  }
+  .tab-btn:hover { background: #ddd6c0; color: var(--ink); }
+  .tab-btn.active {
+    background: var(--ink);
+    color: #f5f1e6;
+    border-color: var(--ink);
+  }
+  .tabpanel { display: none; }
+  .tabpanel.active { display: block; }
+
+  nav.toc {
+    background: #f1ede2;
+    border-left: 4px solid #b8a878;
+    padding: 12px 18px;
+    margin: 4px 0 28px;
+    font-size: 14px;
+  }
+  nav.toc strong { display: block; margin-bottom: 6px; }
+  nav.toc a {
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: 14px;
+  }
+  nav.toc a:hover { text-decoration: underline; }
+
+  section.witness {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  section.witness h2 {
+    font-size: 22px;
+    margin: 0 0 4px;
+    color: var(--con);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+  }
+  .affil {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 16px;
+  }
+  .frame {
+    font-size: 14px;
+    background: #f9f3ef;
+    border-left: 3px solid var(--con);
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
+  .frame strong { color: var(--con); }
+  .point {
+    margin: 22px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .point:last-of-type { border-bottom: none; }
+  .claim {
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--con);
+    margin: 0 0 8px;
+  }
+  .claim::before {
+    content: "▸ Their claim: ";
+    font-weight: normal;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .quote {
+    font-size: 13.5px;
+    color: var(--muted);
+    border-left: 2px solid #ccc;
+    padding: 2px 12px;
+    margin: 6px 0 10px;
+    font-style: italic;
+  }
+  .response {
+    background: #eef3f9;
+    border-left: 4px solid var(--prog);
+    padding: 12px 16px;
+    margin-top: 8px;
+  }
+  .response h4 {
+    margin: 0 0 6px;
+    color: var(--prog);
+    font-size: 15px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .response ul {
+    margin: 6px 0 0 0;
+    padding-left: 20px;
+  }
+  .response li { margin-bottom: 6px; }
+  .zinger {
+    font-weight: bold;
+    color: var(--prog);
+  }
+  .crosscut {
+    background: #1c1c1c;
+    color: #f5f1e6;
+    padding: 22px 26px;
+    border-radius: 4px;
+    margin: 30px 0;
+  }
+  .crosscut h2 {
+    margin: 0 0 10px;
+    color: #f5d76e;
+    font-size: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 6px;
+  }
+  .crosscut ul { padding-left: 22px; }
+  .crosscut li { margin-bottom: 10px; }
+  .crosscut strong { color: #f5d76e; }
+
+  /* DEEP DIVE */
+  .deep-section {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 22px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .deep-section h2 {
+    font-size: 22px;
+    color: var(--ink);
+    margin: 0 0 4px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+  }
+  .deep-section .lede {
+    font-size: 15.5px;
+    color: var(--muted);
+    margin: 8px 0 18px;
+    font-style: italic;
+  }
+  .deep-section h3 {
+    font-size: 17px;
+    color: var(--prog);
+    margin: 22px 0 6px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .deep-section p { margin: 8px 0; }
+  .their-frame {
+    background: #f7eeed;
+    border-left: 4px solid var(--con);
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 14.5px;
+  }
+  .their-frame::before {
+    content: "Their frame: ";
+    font-weight: bold;
+    color: var(--con);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .pithy {
+    background: #fff8dc;
+    border-left: 4px solid var(--accent);
+    padding: 10px 14px;
+    margin: 14px 0;
+    font-size: 15px;
+  }
+  .pithy::before {
+    content: "Pithy line: ";
+    font-weight: bold;
+    color: var(--accent);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+  table.data {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  table.data th, table.data td {
+    border: 1px solid var(--rule);
+    padding: 6px 10px;
+    text-align: left;
+  }
+  table.data th {
+    background: #efebdd;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+  }
+  table.data td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .callout {
+    border: 1px solid var(--rule);
+    background: #f4f0e0;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 14.5px;
+  }
+  .callout strong { color: var(--accent); }
+  .literature {
+    font-size: 13px;
+    color: var(--muted);
+    background: #f5f5f0;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 3px;
+    border-left: 2px solid var(--rule);
+  }
+  .literature strong { color: var(--ink); }
+  ul.tight li { margin-bottom: 4px; }
+
+  /* RED TEAM */
+  .redteam-section {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 22px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .redteam-section h2 {
+    font-size: 21px;
+    color: var(--ink);
+    margin: 0 0 4px;
+    border-bottom: 2px solid var(--prog);
+    padding-bottom: 6px;
+  }
+  .your-claim {
+    background: #eef3f9;
+    border-left: 4px solid var(--prog);
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .your-claim::before {
+    content: "Your claim";
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--prog);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .their-counter {
+    background: #f7eeed;
+    border-left: 4px solid var(--con);
+    padding: 12px 16px;
+    margin: 12px 0;
+  }
+  .their-counter h4 {
+    margin: 0 0 6px;
+    color: var(--con);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .their-counter .who {
+    font-weight: bold;
+    color: var(--con);
+    font-style: normal;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .their-counter p { margin: 6px 0; }
+  .evidence-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .evidence-tag.documented {
+    background: #2c5f2d;
+    color: white;
+  }
+  .evidence-tag.inferred {
+    background: #8a7a4a;
+    color: white;
+  }
+  .evidence-tag.canned {
+    background: #6c6c6c;
+    color: white;
+  }
+  .your-comeback {
+    background: #fff8dc;
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 12px 0 18px;
+  }
+  .your-comeback::before {
+    content: "Your comeback";
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .legend {
+    background: #f4f0e0;
+    border: 1px solid var(--rule);
+    padding: 10px 14px;
+    margin: 14px 0 20px;
+    font-size: 13px;
+  }
+  .legend strong { display: block; margin-bottom: 6px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .legend span.evidence-tag { margin: 0 6px 0 0; }
+
+  /* REVENUE VS SPENDING */
+  .rs-section {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 22px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .rs-section h2 {
+    font-size: 21px;
+    color: var(--ink);
+    margin: 0 0 4px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6px;
+  }
+  .rs-section h3 {
+    font-size: 16px;
+    color: var(--prog);
+    margin: 20px 0 6px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+  .col-con {
+    background: #f7eeed;
+    border-left: 4px solid var(--con);
+    padding: 14px 16px;
+    border-radius: 0 3px 3px 0;
+  }
+  .col-prog {
+    background: #eef3f9;
+    border-left: 4px solid var(--prog);
+    padding: 14px 16px;
+    border-radius: 0 3px 3px 0;
+  }
+  .col-con h4, .col-prog h4 {
+    margin: 0 0 8px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .col-con h4 { color: var(--con); }
+  .col-prog h4 { color: var(--prog); }
+  .col-con ol, .col-prog ol { padding-left: 20px; margin: 6px 0; }
+  .col-con li, .col-prog li { margin-bottom: 8px; font-size: 14px; }
+
+  .chart-wrap {
+    margin: 18px 0;
+    padding: 18px 16px 12px;
+    background: #fdfdf9;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .chart-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--ink);
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .chart-caption {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+  svg.chart {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+  }
+
+  /* Horizontal bar chart for OECD */
+  .hbar-chart {
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .hbar-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 50px;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+    padding: 2px 0;
+  }
+  .hbar-row.us {
+    background: #fff8dc;
+    font-weight: bold;
+    padding: 4px 4px;
+    border-radius: 2px;
+  }
+  .hbar-row.avg {
+    background: #f0f0e8;
+    font-style: italic;
+    padding: 4px 4px;
+    border-radius: 2px;
+  }
+  .hbar-label {
+    text-align: right;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+  .hbar-track {
+    height: 16px;
+    background: #efebdd;
+    border-radius: 2px;
+    position: relative;
+  }
+  .hbar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6b8db5, #1a4f8b);
+    border-radius: 2px;
+  }
+  .hbar-row.us .hbar-fill {
+    background: linear-gradient(90deg, #b86a3a, #8b1a1a);
+  }
+  .hbar-row.avg .hbar-fill {
+    background: linear-gradient(90deg, #888, #555);
+  }
+  .hbar-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  /* Waterfall-style bars */
+  .waterfall {
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .waterfall-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 70px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .waterfall-label {
+    font-size: 13px;
+  }
+  .waterfall-track {
+    height: 20px;
+    background: #efebdd;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .waterfall-fill {
+    height: 100%;
+    background: var(--con);
+    opacity: 0.85;
+  }
+  .waterfall-value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  .verdict {
+    background: #1c1c1c;
+    color: #f5f1e6;
+    padding: 18px 22px;
+    border-radius: 4px;
+    margin: 20px 0;
+    border-left: 5px solid #f5d76e;
+  }
+  .verdict h3 {
+    color: #f5d76e !important;
+    margin: 0 0 8px !important;
+  }
+  .verdict p { color: #f5f1e6; margin: 6px 0; }
+  .verdict strong { color: #f5d76e; }
+
+  @media (max-width: 700px) {
+    .two-col { grid-template-columns: 1fr; }
+    .hbar-row { grid-template-columns: 100px 1fr 50px; }
+    .waterfall-row { grid-template-columns: 150px 1fr 60px; }
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--muted);
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    section.witness, .deep-section { box-shadow: none; page-break-inside: avoid; }
+    .point { page-break-inside: avoid; }
+    .tabs { display: none; }
+    .tabpanel { display: block !important; page-break-before: always; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Hearing Rebuttal Brief</h1>
+  <div class="subhead">House Oversight Subcommittee on Economic Growth, Energy Policy, and Regulatory Affairs — "Reducing America's National Debt: Rooting Out Federal Waste, Fraud, and Overregulation" — May 14, 2026</div>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab-btn active" data-tab="redteam" role="tab">Anticipated Responses</button>
+  <button class="tab-btn" data-tab="deepdive" role="tab">Cross-cutting themes</button>
+  <button class="tab-btn" data-tab="rebuttal" role="tab">Witness-by-Witness</button>
+</div>
+
+<!-- ============================================ -->
+<!-- TAB 1: WITNESS-BY-WITNESS                    -->
+<!-- ============================================ -->
+<div id="rebuttal" class="tabpanel" role="tabpanel">
+
+<nav class="toc">
+  <strong>Witnesses (majority):</strong>
+  <a href="#beach">Beach (Fiscal Lab / EPIC)</a>
+  <a href="#hte">Holtz-Eakin (American Action Forum)</a>
+  <a href="#rauh">Rauh (Hoover / Stanford GSB)</a>
+</nav>
+
+<!-- ====================== BEACH ====================== -->
+<section class="witness" id="beach">
+  <h2>1. William W. Beach — "Reducing America's National Debt"</h2>
+  <div class="affil">Executive Director, Fiscal Lab on Capitol Hill; Sr. Fellow, Economic Policy Innovation Center; former BLS Commissioner.</div>
+
+  <div class="frame">
+    <strong>Overall frame:</strong> Congress has abandoned a "Hamiltonian Norm" of fiscal prudence. Mandatory spending is the central pressure. Small steps — COLA changes, tighter means-testing, regulatory freezes, expanded private retirement accounts, fraud bills — can help restore confidence. The frame treats deficits primarily as a <em>spending</em> story and largely sets revenue aside.
+  </div>
+
+  <div class="point">
+    <p class="claim">Federal deficits average 6.1% of GDP through 2036 vs. a 3.8% historical average; we have abandoned the "Hamiltonian Norm" of repaying debt after emergencies.</p>
+    <div class="quote">"This Norm provides a solid foundation for economic growth… recent Congresses have abandoned the Hamiltonian Norm with little prospect of returning to it."</div>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">This is a revenue story, not a spending story.</span> CBO's own decomposition shows that absent the 2001/2003 Bush tax cuts, their extensions, the 2017 TCJA, and the 2025 OBBBA extension, the debt-to-GDP ratio today would be roughly stable. Beach's "Hamiltonian Norm" was broken in 2001 — by tax cuts, not by spending.</li>
+        <li>Federal revenue at 17.5–17.8% of GDP is <em>below</em> what every comparable advanced economy raises and below what an aging population manifestly requires. CBO projects revenues stay flat as a share of GDP while the over-65 population grows ~40%. That gap is a political choice to under-tax, not profligate spending.</li>
+        <li>The "Hamiltonian Norm" framing also leaves out a central part of Hamilton's own argument: Hamilton's case for federal debt assumption was that <em>well-managed debt is a national blessing</em> that builds capital markets and state capacity. He raised <em>taxes</em> to fund it.</li>
+        <li><span class="zinger">Bipartisan deficit-reduction history is one-sided:</span> Clinton raised top rates and ran surpluses; Obama let upper-income Bush cuts expire and deficits fell sharply 2010–2015. Every recent Republican administration has cut taxes and widened deficits.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Public debt above 90% of GDP causes slower growth — citing Reinhart, Rogoff, Alesina, BIS — and we are now living through that slowdown.</p>
+    <div class="quote">"economists have argued that high and rapidly rising debt leaches funds from private investment… especially when publicly held debt rises above 90 percent of gross domestic product."</div>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">The "90% threshold" claim is dead.</span> Herndon, Ash & Pollin (UMass, 2013) found the Reinhart–Rogoff result rested on an Excel coding error, country-weighting choices, and selective data exclusions. With the error corrected, the cliff at 90% disappears entirely. Reinhart and Rogoff themselves walked back the threshold claim.</li>
+        <li>Causality runs the other way. Slow growth produces high debt (denominator effect + automatic stabilizers), not the reverse. See Irons & Bivens (EPI), Pescatori, Sandri & Simon (IMF 2014).</li>
+        <li>Japan has carried gross debt above 200% of GDP for two decades with deflation, not crisis. The UK held debt above 100% of GDP for most of the 19th century — its highest-growth century.</li>
+        <li>The 2022–2026 slowdown Beach attributes to debt is much more parsimoniously explained by Fed tightening from 0% to 5.5%, post-COVID demand normalization, and tariff drag from the Trump administration's 2025 trade war.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Switch the Social Security COLA from CPI-W to CPI-U because CPI-U is more accurate and will save money.</p>
+    <div class="quote">"The CPI-W, created after World War I, is an outdated and increasingly poor measurement of price changes faced by seniors."</div>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">This is a benefit cut dressed up as technical reform.</span> If the CPI-U measure produces lower COLAs, the only reason it "saves money" is that retirees lose purchasing power every year, compounded over a 20+ year retirement. A 0.3 pp annual shortfall compounded is roughly a 6% benefit cut by year 20.</li>
+        <li>The evidence on senior inflation runs in the opposite direction. <span class="zinger">BLS's experimental CPI-E (Elderly) generally runs <em>higher</em> than both CPI-W and CPI-U</span> because seniors spend more on medical care and housing, which inflate faster. An accuracy-based reform would point toward CPI-E, which would <em>raise</em> benefits.</li>
+        <li>Social Security benefits already replace less of pre-retirement income than in any other wealthy country. Median benefits are ~$1,900/month. There is no "scrub the index" reform; this is a transfer from retirees to bondholders.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Continue tightening means-tested transfer programs that "grew substantially during the pandemic."</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The pandemic expansions Beach implicitly targets — expanded SNAP, the 2021 expanded CTC, expanded EITC, ARPA Medicaid maintenance — produced the <span class="zinger">largest one-year decline in child poverty on record (5.2% to 5.6% in 2021 per Census SPM)</span>. The 2022 expiration of the CTC alone pushed millions of children back into poverty.</li>
+        <li>"Tightening" criteria typically means adding administrative burden that pushes <em>eligible</em> people off rolls. CBPP, Heather Hahn (Urban), and Pamela Herd's work on administrative burden show this consistently — denial of benefits to eligible recipients is a feature, not a bug, of these "tightenings."</li>
+        <li>Means-tested spending excluding Medicaid is ~2% of GDP and not the driver of any fiscal trajectory. The testimony itself acknowledges that mandatory health and Social Security are the larger budget story.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">A regulatory freeze would boost growth, lower inflation, and reduce 10-year deficits by $1.4 trillion (Sheppard & Beach).</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>This relies on a highly contested dynamic scoring model with elasticities outside the mainstream. CBO, JCT, and most academic estimates of regulatory cost-benefit show <span class="zinger">benefits exceed costs by roughly 5-to-1 in OMB's own retrospective reviews</span> across administrations.</li>
+        <li>"Regulatory cost" estimates almost universally <em>exclude benefits</em>: cleaner air, fewer workplace deaths, safer drugs, stable banks. The 2008 financial crisis cost ~$22 trillion (GAO) — that was the bill for prior deregulation.</li>
+        <li>The Trump-era regulatory rollback record is a natural experiment: weaker enforcement of worker safety has produced rising workplace fatality rates; EPA rollbacks are projected (by EPA's own analysis) to cause thousands of premature deaths annually.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Expand "Trump Accounts" and private retirement accounts because young workers don't trust Social Security.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>Young workers don't trust Social Security in large part because <span class="zinger">they have spent decades hearing from policymakers and commentators that it won't be there</span>. The Trustees' projections show benefits would be ~77% of scheduled even with zero changes after 2034. Lifting the payroll tax cap on earnings above $400K alone closes ~60% of the long-term gap.</li>
+        <li>Privatization shifts market risk onto individual workers, who fare poorly as investors (Madrian, Choi, Mitchell). The 2000 and 2008 crashes would have wiped out cohorts retiring at the wrong moment.</li>
+        <li>"Trump Accounts" — direct federal seed deposits into private brokerage accounts — are a backdoor subsidy to the financial-services industry (asset-management fees) and have no claim to fiscal responsibility; they <em>add</em> to deficits.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Inflation since 2021 was driven by stimulus spending and "hurts the bottom 50% most"; they have not regained purchasing power.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The empirical literature is now settled: <span class="zinger">Autor, Dube & McGrew (2023) and Acemoglu's follow-ups show real wages at the bottom of the distribution rose faster than for the top during 2021–2024</span>, compressing the wage distribution by about 25% of the rise in inequality since 1980.</li>
+        <li>Inflation was global and concentrated in tradable goods (energy, autos, food) where US fiscal policy is not the dominant driver. The eurozone, UK, Canada, and Korea — none of which had ARP-scale stimulus — saw comparable inflation peaks.</li>
+        <li>The counterfactual is the slow, unequal recovery of 2009–2015, where bottom-quintile incomes did <em>not</em> recover for nearly a decade. ARP and the recovery package prevented that and got prime-age employment back to pre-pandemic levels faster than any postwar recovery.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Negative convenience yields on long Treasuries show markets are pricing in fiscal risk.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>Long-Treasury demand is shaped by the Fed's QT program, regulatory changes to bank capital requirements (SLR), and shifting foreign reserve allocations after sanctions on Russia — not fiscal "credibility."</li>
+        <li>If markets really feared US default, we would see it in CDS spreads and the dollar. <span class="zinger">The dollar's reserve share is ~58%; CDS spreads on US sovereign debt remain near AAA peers.</span></li>
+        <li>The most recent yield-curve stress (Apr 2025) coincided exactly with the Trump tariff announcement, not with any spending decision — markets were pricing trade-policy risk, not entitlements.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== HOLTZ-EAKIN ====================== -->
+<section class="witness" id="hte">
+  <h2>2. Douglas Holtz-Eakin — "Federal Debt: Sources, Threats, and Strategies"</h2>
+  <div class="affil">President, American Action Forum; former CBO Director (2003–2005).</div>
+
+  <div class="frame">
+    <strong>Overall frame:</strong> Three points — structural imbalances drive debt, debt threatens growth and stability, the fix must include entitlement reform, tax reform (broaden base/lower rates), waste/fraud reduction, and a statutory regulatory budget. A careful and serious case; the substantive point of disagreement is that the policy prescription nevertheless arrives at reductions in Social Security and Medicare growth.
+  </div>
+
+  <div class="point">
+    <p class="claim">"There is simply no durable debt fix without reforms that cause Social Security and Medicare to grow closer to the rate of nominal GDP."</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">There is a durable debt fix without benefit cuts: raise revenue on the people who have captured the gains of the last 40 years.</span> Lifting the payroll cap, taxing capital gains as ordinary income, restoring the corporate rate, ending the 199A pass-through deduction, and a financial transactions tax together raise more than enough to stabilize debt-to-GDP while strengthening — not cutting — Social Security and Medicare.</li>
+        <li>Medicare cost growth is not a "structural" budget problem — it is a <em>healthcare-system</em> problem. The US spends 17% of GDP on health vs. 11% in peer countries with comparable or better outcomes. Drug pricing (extend IRA Part D negotiation, accelerate the pipeline), Medicare Advantage upcoding reform (MedPAC estimates $80B+/year in overpayment), and site-neutral payments could close most of Medicare's long-term gap.</li>
+        <li>Holtz-Eakin frames "entitlement reform" as inevitable. It is not. Other rich democracies provide more generous old-age and health benefits without fiscal collapse. They tax more.</li>
+        <li>Social Security's "shortfall" is 1.3% of GDP over 75 years. A modest payroll-tax adjustment closes it. Calling it an "unsustainable trajectory" overstates a fixable, well-defined problem.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Standard of living doubling time slowed from 29 years (1960–2000) to 56 years — the cost of high debt and slow productivity.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">The productivity slowdown began in 1973 and has nothing to do with federal debt</span>, which was at a postwar low through the mid-1990s. Conflating these is bad economic history.</li>
+        <li>The clearest empirical drivers of slower productivity growth are: declining R&D investment as a share of GDP, weaker antitrust enforcement and rising market concentration (Philippon, Eeckhout), under-investment in public infrastructure, and a 40-year decline in worker bargaining power. CHIPS, IRA, and IIJA were the first serious public-investment response in a generation — and the current administration is dismantling them.</li>
+        <li>"Debt crowds out investment" is a closed-economy claim that has been undermined empirically for 30 years. US interest rates are determined in global capital markets, and private investment was at record lows during the lowest-rate decade in US history.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">"Global lenders will demand higher interest rates… Lenders will cut off the United States."</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The bond-vigilante prediction has been a recurring forecast for roughly 30 years. <span class="zinger">Warnings of an imminent debt crisis have been a fixture of fiscal-hawk testimony since at least the early 2010s</span>; in the intervening 15 years the 10-year Treasury yield has averaged below 3%.</li>
+        <li>The US is not Greece. It borrows in its own currency, has the world's deepest capital markets, and provides the global reserve asset. The relevant comparators are Japan and the UK, both of which have run higher debt loads without crisis.</li>
+        <li>The most credible near-term threat to dollar dominance is not entitlement spending but tariff-driven dollar weaponization and political pressure on Fed independence. Both are policy choices being made now, in real time, by the same political environment that frames the fiscal-credibility concern.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">"Broad base, low rates" tax reform is the right principle; not taxing tips is bad policy; Section 199A is distortionary and merits reform.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>Agreed on tips and on 199A — both are distortionary giveaways. <span class="zinger">The piece the testimony leaves out is that TCJA itself and its 2025 OBBBA extension are the single largest contributors to projected debt growth.</span> CBO scored the OBBBA extension at roughly $4.6T over 10 years.</li>
+        <li>"Broad base, low rates" has empirically meant lower revenue, not equivalent revenue. The 2017 Act lost ~$1.9T per CBO; the corporate side did not pay for itself (CRFB, JCT, Tax Policy Center).</li>
+        <li>A genuinely pro-growth, broad-base reform would: tax capital income at labor rates, repeal stepped-up basis, restore a 28% corporate rate, and adequately fund IRS enforcement (which OBBBA cut, costing >$1 in revenue per $1 saved).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Congress should enact a permanent statutory regulatory budget modeled on Trump's two terms.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>A "regulatory budget" by definition caps benefits along with costs. It is a mechanism for limiting the public sector's ability to address market failures — climate, financial stability, consumer protection — regardless of the cost-benefit math.</li>
+        <li>Trump's "2-for-1" framework rested on a White House guidance document, not analysis. <span class="zinger">OMB and academic reviews found it suppressed net-beneficial rules</span> (Hahn et al., Coglianese).</li>
+        <li>The deregulatory record speaks: rollback of methane rules, vehicle efficiency standards, financial stability rules, and workplace safety rules each have measurable mortality and macro-financial costs that don't appear in Holtz-Eakin's accounting.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Waste and fraud are "the key to the debt reform kingdom" — politically, voters won't accept benefit cuts unless they trust government is spending wisely.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The testimony itself acknowledges that the "waste and fraud" argument functions in part as a <span class="zinger">political prerequisite for benefit cuts</span> rather than as a standalone budget strategy. It also recognizes that the dollar amounts (~$180B in improper payments, of which most is documentation error rather than theft) are small relative to mandatory spending.</li>
+        <li>The bulk of GAO-flagged "improper payments" are eligibility documentation gaps, not fraud — and the leading single program for improper payments is Medicare Advantage upcoding by private insurers (MedPAC). Real fraud-fighting starts there.</li>
+        <li>The administration's own actions undercut the fraud frame: gutting IRS enforcement, firing Inspectors General, and weakening the CFPB and oversight functions of HHS all <em>reduce</em> the government's ability to detect waste and fraud.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RAUH ====================== -->
+<section class="witness" id="rauh">
+  <h2>3. Joshua D. Rauh — "Reducing America's National Debt"</h2>
+  <div class="affil">George P. Shultz Senior Fellow, Hoover Institution; Ormond Family Professor of Finance, Stanford GSB; former Chief Economist, CEA (2019–2020).</div>
+
+  <div class="frame">
+    <strong>Overall frame:</strong> Four moves — (1) condition federal subsidies (muni-bond tax exemption) on state pension/Medicaid discipline; (2) deepen OBBBA's Medicaid restrictions including work requirements, FMAP cuts, per-capita caps/block grants; (3) change Census income statistics to count in-kind transfers (which would lower measured poverty from ~12% toward ~3%); (4) make federal-debt costs visible to households via a GAO "household interest dashboard." More technical in framing than the other prepared statements; the practical effect is to shift substantial cost and risk onto states and beneficiaries.
+  </div>
+
+  <div class="point">
+    <p class="claim">Net interest already consumes 25.4% of non-Social-Security revenues; under modest rate increases, interest would consume 46–120% of non-SS revenues by 2036–2056.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The "share of non-Social-Security revenues" framing is a presentational choice that affects how alarming the headline looks. <span class="zinger">Excluding the $1.4T in dedicated payroll-tax revenue shrinks the denominator and inflates the share.</span> Net interest as a share of <em>total</em> federal revenue is ~17%, and as a share of GDP is ~3.2%.</li>
+        <li>Rauh's "stress test" of "+1 percentage point per decade" on interest rates is not a forecast — it's a hypothetical chosen to produce alarming numbers. CBO's actual forecast holds rates roughly stable.</li>
+        <li>If the concern is the interest line, the fastest deficit reduction comes from <em>raising revenue</em>, which Rauh never proposes. The 2017+2025 tax cuts added more to projected interest than any other single policy decision in the budget.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">The total federal "fiscal gap" — debt plus unfunded SS/Medicare — is ~$120 trillion, about 4x GDP.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">"Unfunded liabilities" of SS/Medicare are not debts in any accounting sense.</span> They are projections of program costs minus dedicated revenues over an infinite or 75-year horizon. Congress can adjust both inputs and outputs at any time.</li>
+        <li>By the same accounting Rauh uses, the federal government also has trillions in <em>uncounted assets</em>: future income-tax receipts on a growing economy, the seigniorage value of dollar issuance, federal land and mineral rights, and the present value of federal R&D returns. Single-entry "liabilities" accounting is misleading.</li>
+        <li>Every advanced economy has a "fiscal gap" by this construction. Norway, Germany, Canada — all show enormous projected old-age liabilities. None are in crisis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Build on OBBBA Medicaid reforms: community engagement (work requirements 80 hr/month), provider-tax limits, eligibility redeterminations, and consider FMAP cuts, block grants, or per-capita caps.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">Medicaid work requirements have been tried and they fail on their own terms.</span> Arkansas (2018–2019) and Georgia Pathways (2023–present) produced no measurable increase in employment — the Arkansas evaluation (Sommers, Goldman, Blendon, et al., NEJM 2019) found zero employment effect. They strip coverage from eligible workers through paperwork. ~18,000 Arkansans lost coverage in 5 months before courts intervened.</li>
+        <li>Per-capita caps and block grants are coverage cuts by another name. CBO has scored similar proposals at <span class="zinger">7–15 million people losing Medicaid coverage</span>. The 90% ACA expansion match is not a budget loophole — it is the deliberate policy that enabled 40 states to cover working adults. Eliminating it triggers a massive coverage cliff.</li>
+        <li>Provider taxes are how states finance the non-federal share. Capping them <em>does not save federal money</em>; it shifts the political pain to states, most of which will respond by cutting eligibility or provider rates. This is a federal-to-state cost shift, not a real fiscal improvement.</li>
+        <li>The OBBBA Medicaid changes are projected by CBO to leave <span class="zinger">10+ million additional people uninsured over the decade</span>. The "savings" come almost entirely from people losing coverage, not from efficiency gains.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Medi-Cal cost per enrollee rose ~12% in real terms with no improvement in quality scores; therefore Medicaid is inefficient.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>Medi-Cal cost growth reflects <em>real changes in the patient mix</em> — older enrollees, more behavioral-health needs post-pandemic, more long-term services and supports — and provider rate updates needed to retain access in a state with severe healthcare workforce shortages.</li>
+        <li>Quality scores on CAHPS surveys reflect <em>provider availability and patient experience</em>, which are constrained by Medi-Cal reimbursement rates that remain below Medicare and far below commercial rates. The remedy is more spending on access, not less.</li>
+        <li>The "no improvement in quality" framing ignores the obvious counterfactual: covered Californians have access to care at all. The <span class="zinger">Oregon Health Insurance Experiment — which Rauh himself cites — found Medicaid sharply reduces depression, catastrophic medical debt, and unmet need.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Finkelstein et al. (Oregon) find low-income adults value Medicaid at only 20–50 cents per dollar of spending — therefore the federal subsidy rate (90% under ACA) is far higher than the welfare it produces.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>This reading of <span class="zinger">the Finkelstein paper leaves out most of what the authors say.</span> The 20–50¢ figure is the <em>private willingness-to-pay by enrollees</em>; it explicitly excludes (a) the value to uninsured spillover beneficiaries (uncompensated care reductions), (b) the value to hospitals and providers, (c) reductions in medical bankruptcy that affect creditors, and (d) the social value of reduced mortality and morbidity. Finkelstein and co-authors say this directly.</li>
+        <li>Insurance always has a "willingness to pay < cost" gap because enrollees are risk-averse but young/healthy in expectation; this is true of commercial insurance too. It is not a unique indictment of Medicaid.</li>
+        <li>By the same logic Rauh would have to recommend abolishing employer-sponsored health insurance, which carries a $300B+/year tax subsidy with similar WTP dynamics.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Managed-care Medicaid hides massive fraud because CMS only checks capitation-rate calculations, not whether services were delivered. Minnesota fraud is the canary.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>This is a legitimate program-integrity concern and there is room for bipartisan agreement on improving MCO audit standards. <span class="zinger">But the policy implication is more oversight of private managed-care companies — not cutting beneficiary coverage.</span></li>
+        <li>The largest single source of federal healthcare fraud is <em>Medicare Advantage upcoding</em> by private insurers — MedPAC estimates ~$80B/year, dwarfing Medicaid managed-care concerns. If we are serious about provider-side fraud, MA risk-adjustment reform is the first move.</li>
+        <li>Rauh's framing — that fraud justifies "a larger state share of benefit financing" — is a non sequitur. States have plenty of incentive to police fraud now; the actual constraint is state staffing and audit capacity, much of which the current administration is cutting.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Census should count in-kind transfers (Medicaid, Medicare, etc.) as income; doing so would lower measured poverty from ~12% to ~3% — citing Gramm, Ekelund, & Early (2022).</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li><span class="zinger">The Gramm/Ekelund/Early book has been heavily criticized by mainstream poverty researchers</span> (Burkhauser is on it; Wimer, Fox, Smeeding, Meyer/Sullivan are not). The "12% to 3%" claim depends on valuing Medicaid at <em>provider cost</em> rather than at enrollee willingness-to-pay — the opposite of the valuation approach the same testimony embraces in the Finkelstein section. The two valuations cannot both be the right one.</li>
+        <li>Valuing Medicaid at $10,570/year as "income" treats a household with a chronically ill member as <em>richer</em> than an identical healthy household — because the sick household receives more medical care. This is incoherent as a measure of economic well-being. Medical need is not income.</li>
+        <li>The Supplemental Poverty Measure already counts cash-equivalent in-kind transfers (SNAP, housing, WIC) and refundable tax credits (EITC, CTC). It is the correct modern poverty measure. The reason Census reports both is to preserve a comparable historical series, not because the Census is hiding success.</li>
+        <li>The practical implication of the proposal is clear: <span class="zinger">if measured poverty is shifted to "really" 3%, the rhetorical case for sustaining the safety net is substantially weakened</span>. That is what the measurement change accomplishes.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Condition the federal tax exemption on municipal bond interest on states meeting pension funding standards; pair with explicit no-bailout language.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>This is an <span class="zinger">extraordinary federal overreach into state fiscal sovereignty</span> — conditioning a long-standing tax provision on policy choices that the Constitution leaves to states. The municipal bond exemption was last seriously contested in the 19th century (<em>Pollock</em>, 1895); using it as policy leverage would invite massive litigation.</li>
+        <li>The structural push to convert defined-benefit plans to defined-contribution plans transfers investment risk to public-sector workers (teachers, nurses, firefighters) and consistently raises lifetime costs to public employers (Munnell, Boivie, NIRS). It looks like a "reform" only if you ignore who bears the new risk.</li>
+        <li>State pension funding ratios have improved with strong market returns post-2020 — the system Rauh describes as in crisis is, by Federal Reserve data he cites, in materially better shape than at any point in the last 15 years.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="point">
+    <p class="claim">Federal debt is making housing unaffordable: it adds ~$515/month and $185,300 over 30 years to a median mortgage; by 2056, mortgages could nearly double.</p>
+    <div class="response">
+      <h4>Progressive Response</h4>
+      <ul>
+        <li>The "$515/month from federal debt" headline depends on a chain of contested assumptions: a 4 basis-points-per-percentage-point debt sensitivity (Rauh chooses the high end of the literature), 100% pass-through to mortgage rates, and a counterfactual where debt-to-GDP stayed at 2006 levels. <span class="zinger">Move any of these to mainstream values and the effect shrinks by 50–75%.</span></li>
+        <li>Housing affordability in the US is overwhelmingly a <em>supply</em> problem driven by local zoning, land-use restrictions, and construction productivity. The states with the worst affordability (CA, NY, MA) have low debt and high incomes — the binding constraint is housing supply, not Treasury yields.</li>
+        <li>If we are pricing the household cost of federal policy, we should also price: tariffs ($1,200/household/year per Tax Foundation/Yale Budget Lab), benefit losses from OBBBA Medicaid changes, and student-loan interest savings forgone. The "household dashboard" Rauh proposes should be comprehensive or it's just selective scorekeeping.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div><!-- /tab 1 -->
+
+<!-- ============================================ -->
+<!-- TAB 2: CROSS-CUTTING DEEP DIVE                -->
+<!-- ============================================ -->
+<div id="deepdive" class="tabpanel" role="tabpanel">
+
+<section class="crosscut">
+  <h2>The Argument in One Page</h2>
+  <p>The three prepared statements share a common structure: (1) deficits are a serious problem; (2) the pressure is on the spending side — specifically Social Security, Medicare, and Medicaid; (3) revenue is treated as essentially fixed; (4) the proposed fix involves benefit changes, regulatory rollback, and shifting cost toward states. This is a familiar framing in fiscal-hawk analysis, refined over the past 25 years, that reaches predictable conclusions.</p>
+  <p>The progressive response is not to deny the deficit exists. It is to <strong>change the explanation of how we got here, the diagnosis of who is paying the price, and the menu of available solutions.</strong> Each section below addresses one piece of that frame.</p>
+</section>
+
+<nav class="toc">
+  <strong>Deep dive — sections:</strong><br>
+  <a href="#dd1">1. The Revenue Side of the Ledger</a>
+  <a href="#dd2">2. "Mandatory Spending" Is Two Different Stories</a>
+  <a href="#dd3">3. The 90% Threshold Claim</a><br>
+  <a href="#dd4">4. The Long Track Record of Bond-Crisis Predictions</a>
+  <a href="#dd5">5. What "Waste, Fraud, and Abuse" Measures</a><br>
+  <a href="#dd6">6. Regulatory "Budgets" and Benefit Caps</a>
+  <a href="#dd7">7. Federalism and the Cost-Shift Question</a>
+  <a href="#dd8">8. Measurement Choices and Policy Consequences</a><br>
+  <a href="#dd9">9. A Fuller History of How We Got Here</a>
+  <a href="#dd10">10. A Credible Progressive Alternative</a>
+</nav>
+
+<!-- ====================== DD1: REVENUE ====================== -->
+<section class="deep-section" id="dd1">
+  <h2>1. The Revenue Side of the Ledger</h2>
+  <p class="lede">The claim that "we have a spending problem, not a revenue problem" is a framing choice as much as an accounting fact. It is the foundational frame of the prepared statements. Once revenue is put on equal footing, the rest of the argument looks very different.</p>
+
+  <div class="their-frame">
+    Beach: "Revenues have averaged 17.3 percent of GDP since 1976." Holtz-Eakin: "Revenue will grow at roughly the pace of nominal GDP… raising taxes would only temporarily narrow the deficit." Rauh: "At both the federal and state levels, the key challenge is spending, not revenue."
+  </div>
+
+  <h3>The Real Picture</h3>
+  <p>The United States federal government raises about 17.5% of GDP in revenue. Total US tax revenue (federal + state + local) is about 27% of GDP. The OECD average is 34%. France, Germany, Denmark, and the Nordics all raise 40%+. Every comparable advanced economy has an aging population. None of them are in fiscal crisis. <span class="zinger">The thing that is exceptional about the United States is not the spending — it is how little we tax.</span></p>
+
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Country (2023 total tax revenue, % of GDP)</th>
+        <th class="num">Share</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Denmark</td><td class="num">44.1%</td></tr>
+      <tr><td>France</td><td class="num">43.8%</td></tr>
+      <tr><td>Italy</td><td class="num">42.8%</td></tr>
+      <tr><td>Germany</td><td class="num">38.0%</td></tr>
+      <tr><td>OECD average</td><td class="num">33.9%</td></tr>
+      <tr><td>UK</td><td class="num">33.5%</td></tr>
+      <tr><td>Canada</td><td class="num">33.2%</td></tr>
+      <tr><td><strong>United States</strong></td><td class="num"><strong>25.2%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Where the deficit actually came from since 2001</h3>
+  <p>The Congressional Budget Office in January 2001 projected that, under then-current law, the federal government would run cumulative <em>surpluses</em> of $5.6 trillion over 2002–2011 — large enough to retire the entire publicly held federal debt. Every dollar of debt accumulated since then is the result of deliberate policy choices. CRFB's decomposition of the deviation from that path attributes the lion's share to the 2001 and 2003 Bush tax cuts and their extensions, two wars, the Great Recession (and its automatic stabilizers), the 2017 TCJA, COVID, and the 2025 OBBBA extension of TCJA.</p>
+
+  <table class="data">
+    <thead>
+      <tr><th>Major contributor to debt accumulation since 2001</th><th>Approximate cumulative cost ($T)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bush tax cuts (2001/2003) + extensions through 2017</td><td class="num">~8.0</td></tr>
+      <tr><td>Iraq/Afghanistan wars (incl. long-term VA care, interest)</td><td class="num">~6.5</td></tr>
+      <tr><td>Great Recession + financial-crisis response</td><td class="num">~3.5</td></tr>
+      <tr><td>TCJA (2017) — 10-year revenue loss</td><td class="num">~1.9</td></tr>
+      <tr><td>COVID response (CARES + ARP combined)</td><td class="num">~5.5</td></tr>
+      <tr><td>OBBBA (2025) tax extension + new cuts</td><td class="num">~4.6</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px; color:var(--muted);">Sources: CRFB, CBO Cost Estimates, JCT, Watson Institute (Costs of War project). Figures are approximate cumulative.</p>
+
+  <p><strong>Two of the largest three contributors are tax cuts.</strong> The third — wars — was deficit-financed by political choice. None of these are central to the diagnosis offered in the prepared statements.</p>
+
+  <h3>A revenue package that would stabilize debt-to-GDP without cutting benefits</h3>
+  <p>The Tax Policy Center, CBO, and CBPP have all scored equivalent packages. A representative "stabilize debt-to-GDP without cutting Social Security, Medicare, or Medicaid" package:</p>
+  <table class="data">
+    <thead>
+      <tr><th>Policy</th><th class="num">10-yr revenue ($T)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Let upper-income provisions of TCJA/OBBBA expire (above $400K)</td><td class="num">~1.6</td></tr>
+      <tr><td>Tax capital gains and dividends as ordinary income above $1M</td><td class="num">~0.7</td></tr>
+      <tr><td>Repeal stepped-up basis at death for large estates</td><td class="num">~0.4</td></tr>
+      <tr><td>Lift Social Security payroll cap on wages above $400K</td><td class="num">~1.4 (SS-dedicated)</td></tr>
+      <tr><td>Restore 28% corporate rate</td><td class="num">~1.3</td></tr>
+      <tr><td>Repeal Section 199A pass-through deduction</td><td class="num">~0.6</td></tr>
+      <tr><td>Tax billionaire unrealized gains (Wyden / mark-to-market)</td><td class="num">~0.5</td></tr>
+      <tr><td>Restore + expand IRS enforcement funding</td><td class="num">~0.4</td></tr>
+      <tr><td><strong>TOTAL (illustrative)</strong></td><td class="num"><strong>~6.9</strong></td></tr>
+    </tbody>
+  </table>
+  <p>This raises more revenue than the entire OBBBA tax extension cost, falls almost entirely on the top 1–2%, and would stabilize debt-to-GDP without a single dollar of benefit cuts.</p>
+
+  <div class="pithy">The deficit has both spending and revenue drivers, but the revenue side is the one largely left out of the diagnosis today. We cut taxes during two wars, again after a tax cut that lost money, and again during the longest expansion since the 1990s. Asking retirees and Medicaid recipients to pay the resulting bill is one option; restoring revenue is another.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> CRFB "Reconciling Republican Rhetoric and Reality on the Deficit" (2024); CBO Long-Term Budget Outlook (March 2026); Tax Policy Center "TPC Revenue Tables"; CBPP "Policy Basics: Where Do Federal Tax Revenues Come From?"; OECD Revenue Statistics 2024; Watson Institute Costs of War.
+  </div>
+</section>
+
+<!-- ====================== DD2: TWO STORIES ====================== -->
+<section class="deep-section" id="dd2">
+  <h2>2. "Mandatory Spending" Is Two Different Stories</h2>
+  <p class="lede">The prepared statements largely treat Social Security and Medicare together as "entitlements." The two programs have different cost dynamics, different fixes, and different politics. Separating them clarifies the policy menu.</p>
+
+  <h3>Social Security: a demographic problem with a simple fix</h3>
+  <p>Social Security spending grows because the over-65 population is growing — that's it. Per-beneficiary benefits are indexed to wages, not to runaway costs. The 75-year actuarial shortfall is about 1.3% of GDP. That's a defined, well-known, fixable hole. The 2025 Trustees Report projects that even with zero changes, benefits would be paid at ~77% of scheduled levels after 2034 — not "bankruptcy," not a crisis.</p>
+
+  <p>The literature on solvency options is enormous. The Social Security Administration's Office of the Chief Actuary maintains a public menu of every credible reform proposal with its long-term solvency effect. A representative set:</p>
+  <table class="data">
+    <thead>
+      <tr><th>Policy option</th><th class="num">% of 75-yr shortfall closed</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Apply payroll tax to earnings above $400K (current law: cap ~$168K)</td><td class="num">~60%</td></tr>
+      <tr><td>Apply payroll tax to all earnings (eliminate cap, no benefit credit)</td><td class="num">~80%</td></tr>
+      <tr><td>Gradually raise the payroll-tax rate by 1.0 pp (split employer/employee)</td><td class="num">~50%</td></tr>
+      <tr><td>Tax investment income at 6.2% above high-income threshold</td><td class="num">~30%</td></tr>
+      <tr><td>(For reference) Raise full retirement age to 70</td><td class="num">~30% — but cuts benefits ~10–15% for everyone</td></tr>
+      <tr><td>(For reference) Chained CPI / CPI-U COLA</td><td class="num">~15% — pure benefit cut</td></tr>
+    </tbody>
+  </table>
+  <p>The progressive case: <span class="zinger">Lift the cap, restore solvency, expand benefits modestly for the lowest earners.</span> Social Security replaces ~40% of pre-retirement earnings for the median worker — the lowest replacement rate in the OECD. There is no fiscal reason to cut.</p>
+
+  <h3>Medicare: a healthcare system problem, not an entitlement problem</h3>
+  <p>Medicare per-beneficiary cost growth has tracked overall US healthcare cost growth for 50 years. The US spends about 17% of GDP on health, more than any peer, for outcomes that are mediocre at best. The "Medicare problem" is the "US healthcare cost problem" applied to retirees. The fix is on the cost side of the entire system, not the eligibility side of one program.</p>
+
+  <p>The biggest available levers:</p>
+  <ul>
+    <li><strong>Medicare Advantage overpayments.</strong> MedPAC's 2024 report estimates Medicare Advantage plans are overpaid by ~$83B/year through risk-score gaming and quality-bonus inflation. CMS's own actuaries project MA payments at 122% of traditional Medicare. Fixing risk adjustment alone closes a major share of the projected Medicare gap.</li>
+    <li><strong>Drug-price negotiation.</strong> The IRA gave Medicare authority to negotiate prices on a small set of drugs. CBO scored the first 10-drug round at ~$100B in savings over 10 years. Expanding negotiation to all Part D drugs and to biologics earlier would save several hundred billion more.</li>
+    <li><strong>Site-neutral payments.</strong> Medicare currently pays hospital outpatient departments more than independent physician offices for identical services. Equalizing payments saves ~$150B over 10 years (CBO) without affecting any patient.</li>
+    <li><strong>Hospital price transparency and antitrust.</strong> Hospital consolidation has driven prices up ~50% above competitive levels (Cooper, Craig, Gaynor, Van Reenen). Enforcing antitrust on hospital mergers slows Medicare cost growth indirectly.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>The key reframe:</strong> Medicare is not "growing faster than GDP because government is bad at running insurance." Medicare per-beneficiary spending growth has consistently <em>under-performed</em> commercial insurance growth since the 1980s. The problem is not that Medicare is inefficient — it is that the rest of the US healthcare system is.
+  </div>
+
+  <h3>Why "entitlement reform" framing matters</h3>
+  <p>Solving each problem on its own terms — payroll cap adjustments for Social Security, MA reform and drug pricing for Medicare — points toward politically popular fixes that don't require cuts to scheduled benefits. The umbrella "entitlement reform" framing makes broad benefit reductions a default conclusion rather than one option among several.</p>
+
+  <div class="pithy">Social Security has a well-defined arithmetic gap that can be closed by lifting one cap. Medicare carries the US-healthcare cost problem on its back; the lever there is paying private insurers and pharma less. Neither is well described as retirees claiming benefits they don't deserve.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> SSA Office of Chief Actuary "Solvency Provisions" (annually); 2025 Trustees Reports; MedPAC March 2024 and March 2025 Reports to Congress; Cooper, Craig, Gaynor, Van Reenen QJE 2019 "Price Ain't Right"; CBO "Options for Reducing the Deficit" 2024.
+  </div>
+</section>
+
+<!-- ====================== DD3: 90% MYTH ====================== -->
+<section class="deep-section" id="dd3">
+  <h2>3. The 90% Threshold Claim — Reinhart, Rogoff, and the Replication</h2>
+  <p class="lede">The "high debt slows growth, especially above 90% of GDP" claim, cited in the prepared testimony, rests on a result that did not survive replication. The threshold finding is no longer supported by the broader literature.</p>
+
+  <h3>What Reinhart-Rogoff (2010) claimed</h3>
+  <p>In a 2010 paper, Carmen Reinhart and Kenneth Rogoff reported that economic growth dropped sharply — to roughly zero or negative — when public debt exceeded 90% of GDP. The result was cited in every major austerity argument of the 2010s, from EU policy to Paul Ryan's budget proposals.</p>
+
+  <h3>What Herndon, Ash, and Pollin actually found in 2013</h3>
+  <p>Three economists at UMass-Amherst obtained the underlying spreadsheet and tried to replicate the result. They found three problems:</p>
+  <ol>
+    <li><strong>An Excel coding error</strong> that omitted Australia, Austria, Belgium, Canada, and Denmark from the average computation in the high-debt cell range.</li>
+    <li><strong>Selective data exclusion</strong> — early postwar years for Australia, Canada, and New Zealand were dropped despite high debt and high growth (which would have flattened the relationship).</li>
+    <li><strong>Country-weighting</strong> — averaging country-period observations rather than weighting by years, so one bad year for New Zealand counted as much as 19 years of UK data.</li>
+  </ol>
+  <p>Correcting all three problems eliminates the threshold result entirely. The "growth-killing cliff at 90%" is an artifact. Average growth for countries with debt above 90% of GDP is ~2.2%, not the ~−0.1% reported in the original paper.</p>
+
+  <h3>The follow-up literature has gone further</h3>
+  <ul>
+    <li><strong>Pescatori, Sandri, & Simon (IMF Working Paper, 2014):</strong> No evidence of a debt threshold. What matters is the <em>trajectory</em> of debt, not the level.</li>
+    <li><strong>Ash, Basu, & Dube (2017):</strong> Statistically demonstrate that reverse causation (slow growth → high debt-to-GDP) accounts for most of the apparent correlation.</li>
+    <li><strong>DeLong & Summers (2012, Brookings):</strong> In a depressed economy, deficit-financed investment can actually <em>reduce</em> the future debt-to-GDP ratio because of hysteresis effects — the long-run output gain exceeds the borrowing cost.</li>
+    <li><strong>Blanchard (AEA Presidential Address, 2019):</strong> When r &lt; g (interest rate below growth rate), the welfare cost of debt is far lower than standard textbook analysis assumes. This was the typical condition in the US through most of the post-WWII era.</li>
+  </ul>
+
+  <h3>Empirical counterexamples</h3>
+  <ul>
+    <li><strong>Japan:</strong> Gross debt has been above 200% of GDP for nearly two decades. No fiscal crisis, no inflation, no bond strike. Interest rates remained near zero for most of that period.</li>
+    <li><strong>United Kingdom:</strong> Held debt above 100% of GDP for most of the 19th century — the British industrial revolution. Held it above 250% of GDP after WWII, throughout the postwar growth miracle.</li>
+    <li><strong>United States:</strong> Held gross debt at 119% of GDP in 1946. The subsequent quarter-century was the highest-growth period in American history.</li>
+  </ul>
+
+  <p>The honest version of the debt-and-growth literature is: high debt accumulated for stupid reasons (Greece 2001–2009, Argentina) can correlate with slow growth. High debt accumulated for productive reasons (war, crisis response, public investment) doesn't.</p>
+
+  <div class="pithy">The "90% threshold" did not survive replication; the authors themselves walked back the threshold claim. By 2026, it is well outside the consensus of the empirical literature on debt and growth.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> Herndon, Ash, Pollin "Does High Public Debt Consistently Stifle Economic Growth?" Cambridge J. Econ. (2014); Reinhart & Rogoff response NYT/Krugman exchange April 2013; Pescatori, Sandri, Simon IMF WP 14/34 (2014); Blanchard "Public Debt and Low Interest Rates" AER 2019; DeLong & Summers Brookings Papers (2012).
+  </div>
+</section>
+
+<!-- ====================== DD4: BOND VIGILANTE ====================== -->
+<section class="deep-section" id="dd4">
+  <h2>4. The Long Track Record of Bond-Market Crisis Predictions</h2>
+  <p class="lede">Each of the prepared statements raises the prospect of a bond-market crisis. Predictions of an imminent crisis have been a fixture of fiscal commentary for roughly 30 years. The record of those predictions is worth putting on the table alongside the underlying argument.</p>
+
+  <div class="their-frame">
+    Holtz-Eakin: "Lenders will cut off the United States, and in the resulting economic crisis there will be forced cuts in spending and draconian tax increases." Beach: "Convenience yields on Treasury maturities is negative… financial markets have discounted the federal government's financial future." Rauh: "Global lenders will demand higher interest rates."
+  </div>
+
+  <h3>Track record of similar predictions over time</h3>
+  <p>Across the broader "fiscal hawk" institutional ecosystem — the Concord Coalition, Peterson Foundation, CRFB, American Action Forum, and others — versions of the bond-crisis prediction have been a recurring feature since at least the mid-1990s. The historical record:</p>
+  <ul class="tight">
+    <li>1995 — debt 47% of GDP — "fiscal crisis imminent." Subsequent decade: surpluses, falling rates.</li>
+    <li>2009 — debt 52% of GDP — "Greek-style crisis ahead." Subsequent decade: rates fell to record lows.</li>
+    <li>2013 — debt 71% of GDP — fiscal-hawk testimony predicting "bond market pressures will force action." Subsequent: rates kept falling.</li>
+    <li>2019 — debt 79% of GDP — "the most predictable crisis in American history." Subsequent: rates fell to 0.5% in 2020.</li>
+    <li>2026 — debt 100% of GDP — same fundamental warning, now updated.</li>
+  </ul>
+
+  <h3>Why the prediction keeps failing — structural reasons</h3>
+  <ol>
+    <li><strong>Monetary sovereignty.</strong> The US borrows in dollars, which it controls. A bond-market panic cannot trigger a default the way it did in Greece (which borrows in a currency it doesn't issue). The Fed is always the buyer of last resort.</li>
+    <li><strong>Reserve currency status.</strong> The dollar is ~58% of global FX reserves, ~88% of FX transactions, ~70% of cross-border lending. There is structural global demand for Treasuries as the safe asset.</li>
+    <li><strong>Depth of the Treasury market.</strong> ~$28T outstanding, near-perfect liquidity. There is no substitute. The Eurozone, UK, Japan, and China combined cannot offer a credible alternative deep safe asset.</li>
+    <li><strong>r &lt; g for most of the postwar period.</strong> When the real interest rate on government debt is below real GDP growth, debt-to-GDP stabilizes on its own even with primary deficits. Blanchard's 2019 AEA address is the canonical reference.</li>
+  </ol>
+
+  <h3>What actually moves long Treasury yields</h3>
+  <p>Not the fiscal trajectory in any first-order sense. Empirically the term structure is dominated by:</p>
+  <ul class="tight">
+    <li>Expected future short rates (Fed reaction function — by far the largest component).</li>
+    <li>Inflation expectations (which can be driven by tariffs, supply shocks, or wages).</li>
+    <li>The term premium — which has been quietly negative or low for most of the past 15 years.</li>
+    <li>Foreign demand shifts (China, Japan, OPEC reserve management).</li>
+    <li>Fed balance-sheet operations (QE compresses; QT widens).</li>
+  </ul>
+
+  <h3>The real near-term risks to Treasury demand</h3>
+  <p>If we are honest about what could trigger a 2025-style yield spike, it is not "entitlements." It is:</p>
+  <ul>
+    <li><strong>Tariff escalation.</strong> April 2025's yield spike was almost certainly the bond market reacting to dollar-weaponization risk and reshoring-driven inflation expectations, not to a SS/Medicare projection update.</li>
+    <li><strong>Fed independence pressure.</strong> Political demands that the Fed lower rates raise inflation risk premia and reduce the safety premium foreign reserve managers attach to Treasuries.</li>
+    <li><strong>Weaponization of dollar payments.</strong> Use of SWIFT exclusion and reserve freezes against Russia (2022) — and signals that other powers could face similar treatment — has accelerated diversification away from dollar reserves at the margin.</li>
+    <li><strong>Debt-ceiling brinksmanship.</strong> Repeated near-misses raise actual default risk in a way that revenue-loss tax cuts do not.</li>
+  </ul>
+  <p>Notably, several of these risks originate in the same political environment that produces the warnings about long-run fiscal credibility.</p>
+
+  <div class="pithy">A bond-crisis forecast that has held for 30 years without arriving deserves a model update, not another repetition. The structural features of US borrowing — reserve-currency status, market depth, monetary sovereignty — are doing more work than the framework allows.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> Blanchard AER 2019; Krugman "Bond Vigilantes: Still Missing" (NYT); CBO "How Changes in Interest Rates Could Affect the Budget" (2024); Brookings "What Drives Long-Term Treasury Yields?" Wessel & Sheiner; Gourinchas, Rey, Sauzet on dollar dominance.
+  </div>
+</section>
+
+<!-- ====================== DD5: WFA ====================== -->
+<section class="deep-section" id="dd5">
+  <h2>5. What "Waste, Fraud, and Abuse" Actually Measures</h2>
+  <p class="lede">The Holtz-Eakin testimony is candid that WFA functions, in part, as a political precondition for selling benefit changes. The dollar magnitudes involved are modest. But the rhetorical work is large — and the largest fraud categories sit outside where the prepared statements focus.</p>
+
+  <h3>What GAO actually measures</h3>
+  <p>The Government Accountability Office's $186B "improper payments" headline for FY2025 combines three very different things:</p>
+  <ol>
+    <li><strong>Documentation errors</strong> (most of the total): A payment was made, the recipient was eligible, but the documentation file is incomplete. The payment is "improper" in a procedural sense but no money was stolen.</li>
+    <li><strong>Underpayments</strong> (a non-trivial share): Eligible beneficiaries received less than they were owed. These are counted in the "improper" total even though they understate, rather than overstate, government spending.</li>
+    <li><strong>Actual fraud:</strong> Payments to ineligible recipients, billing for services not delivered, false claims. This is a much smaller share — single-digit percentages of the headline number in most programs.</li>
+  </ol>
+  <p>GAO itself is explicit about this distinction. The "WFA" rhetoric typically is not — the headline figure travels without the breakdown.</p>
+
+  <h3>Where the real fraud is</h3>
+  <ul>
+    <li><strong>Medicare Advantage upcoding — ~$83 billion per year (MedPAC, 2024).</strong> Private MA plans systematically code patients as sicker than they are to extract higher capitation payments. This is the single largest healthcare overpayment category in the federal budget, by orders of magnitude. The prepared statements do not focus on it.</li>
+    <li><strong>PPP loan fraud — ~$200 billion estimated by SBA OIG.</strong> A consequence of the 2020 program's emergency design to push money out the door rapidly with minimal verification — a feature, not an accident. Notably, pandemic-era spending is now part of what gets criticized for fiscal looseness.</li>
+    <li><strong>Tax evasion by high-income filers — ~$160B/year (Treasury, IRS).</strong> Roughly 70% of the federal tax gap comes from the top 10% of filers. Estimates by Sarin & Summers put the figure higher.</li>
+    <li><strong>Corporate tax avoidance via offshoring and pass-through gaming.</strong> JCT estimates revenue losses in the tens of billions per year that targeted enforcement could recover.</li>
+  </ul>
+
+  <h3>What the administration is actually doing</h3>
+  <p>Every action of the current administration cuts <em>against</em> serious anti-fraud capacity:</p>
+  <ul class="tight">
+    <li>IRS enforcement funding cut in OBBBA — JCT scored this as a net revenue loser. Every dollar of cut enforcement costs more than $1 in lost revenue, and proportionally hits high-income evaders most.</li>
+    <li>Inspectors General have been fired in multiple agencies, removing the institutional fraud-detection backbone.</li>
+    <li>CFPB enforcement of consumer financial fraud has been gutted.</li>
+    <li>SEC enforcement of securities fraud is at historical lows.</li>
+    <li>Medicare Advantage risk-adjustment auditing has been delayed by political pressure from MA plans.</li>
+  </ul>
+
+  <p>The honest interpretation: "waste, fraud, and abuse" rhetoric is currently disconnected from the actual fraud-reduction policy agenda — it functions largely as a political prelude to beneficiary-program changes. As the Holtz-Eakin testimony candidly states, "as a matter of politics, it seems unlikely that voters will accede to major changes in the social safety net unless they are confident their government is making every effort to use their tax dollars wisely elsewhere."</p>
+
+  <div class="pithy">A serious anti-fraud agenda would foreground Medicare Advantage upcoding, PPP, and tax enforcement — the categories where the dollars actually are. The political risk is that the WFA frame becomes a vehicle for administrative paperwork that pushes eligible families off Medicaid and SNAP, rather than recovering misdirected dollars.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> GAO "Payment Integrity Information Act of 2019 — Annual Reports"; MedPAC March 2024 Report; SBA OIG "COVID-19 Pandemic EIDL and PPP Loan Fraud Landscape" (2023); Sarin & Summers "Shrinking the Tax Gap" (2020); CBO "Effects of Increased IRS Funding" (2024).
+  </div>
+</section>
+
+<!-- ====================== DD6: REG BUDGET ====================== -->
+<section class="deep-section" id="dd6">
+  <h2>6. Regulatory "Budgets" Function as Caps on Benefits Too</h2>
+  <p class="lede">Beach and Holtz-Eakin both call for a permanent statutory regulatory budget. In practice, a cost-only cap operates as a cap on the government's ability to address market failures — including climate, financial stability, drug safety, and worker protection.</p>
+
+  <h3>The cost-benefit record</h3>
+  <p>OMB has been required by statute to publish a retrospective cost-benefit summary of major rules since 2002. The pattern across administrations of both parties:</p>
+  <ul class="tight">
+    <li>Aggregate benefits of major regulations exceed costs by roughly 4-to-1 to 8-to-1 in monetized terms.</li>
+    <li>The largest benefits come from air quality (Clean Air Act amendments), financial-stability rules, drug safety, and workplace safety.</li>
+    <li>Even with very conservative valuations of mortality, premature death avoided dominates the benefit column.</li>
+  </ul>
+  <p>The "regulatory cost" estimates that Beach and Holtz-Eakin cite typically <em>exclude benefits entirely</em>. A regulatory budget that caps "costs" without comparing to benefits would systematically prevent net-beneficial rules.</p>
+
+  <h3>The 2008 financial crisis as the bill for deregulation</h3>
+  <p>The repeal of Glass-Steagall, the CFTC's exemption of credit derivatives, the SEC's 2004 consolidated-supervised-entity rule that let investment banks raise leverage, the OCC's preemption of state predatory-lending laws — each of these was justified at the time on regulatory-cost grounds. The Government Accountability Office, IMF, and Treasury estimates of the cumulative GDP and household-wealth cost of the 2008 crisis range from $16T to $22T. <span class="zinger">That is the bill for "regulatory budgets" that don't count benefits.</span></p>
+
+  <h3>The Trump deregulatory record as natural experiment</h3>
+  <ul>
+    <li><strong>OSHA enforcement:</strong> Workplace fatality rates rose under reduced inspection regimes. BLS Census of Fatal Occupational Injuries shows a clear trend.</li>
+    <li><strong>EPA air-quality rules:</strong> EPA's own analysis projects thousands of premature deaths annually from rollbacks of methane and particulate rules.</li>
+    <li><strong>Vehicle efficiency:</strong> Rollback of CAFE standards increases consumer fuel costs and CO2 emissions; net welfare effect negative even in industry-friendly models.</li>
+    <li><strong>Financial-stability rules:</strong> Tailoring of post-Dodd-Frank rules for "mid-size" banks was a direct contributor to the SVB / Signature / First Republic failures in March 2023, which required the FDIC to invoke the systemic risk exception.</li>
+  </ul>
+
+  <h3>What a real "regulatory budget" looks like</h3>
+  <p>A serious framework would set <em>net-benefit</em> targets, not cost ceilings. CBO and OIRA could be required to publish annual estimates of <em>foregone net benefits</em> from regulations not promulgated due to caps. That would invert the political accountability — politicians would have to defend not regulating where benefits clearly exceeded costs.</p>
+
+  <p>The proposed framework is consistently the cost-only cap, not a net-benefit framework. The asymmetry is what makes the cap binding in one direction.</p>
+
+  <div class="pithy">A cost-only "regulatory budget" silently caps benefits as well. A serious cost-benefit framework would require annual reports on the harms of regulations not issued, alongside the costs of those that were.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> OIRA "Draft Report to Congress on the Benefits and Costs of Federal Regulations" (annual); Hahn & Tetlock "Has Economic Analysis Improved Regulatory Decisions?" J. Econ. Persp. 2008; GAO "Financial Regulatory Reform" (2013); Coglianese "The Limits of Regulatory Budgeting" Regulation 2018.
+  </div>
+</section>
+
+<!-- ====================== DD7: FEDERALISM ====================== -->
+<section class="deep-section" id="dd7">
+  <h2>7. Federalism and the Cost-Shift Question</h2>
+  <p class="lede">Several of the Rauh proposals — per-capita caps on Medicaid, FMAP reductions, provider-tax limits, SNAP state cost-sharing, conditioning the muni-bond exemption on pension policy — share a common feature: they shift federal commitments toward states. The underlying need does not change; what changes is whose budget carries the cost.</p>
+
+  <h3>The Medicaid cost-shift</h3>
+  <p>Every "Medicaid reform" Rauh endorses operates on the federal share of financing, not on what care costs or who needs it. The mechanics:</p>
+  <ul>
+    <li><strong>Per-capita caps:</strong> Federal payment per enrollee is capped at a growth rate below medical inflation. The federal government saves money; states either raise their own taxes, cut eligibility, or cut provider rates. CBO scored the 2017 BCRA per-capita cap proposal at ~$770B in federal savings and ~15M coverage losses.</li>
+    <li><strong>Block grants:</strong> Same idea, more aggressive. Eliminates the federal match entirely and gives states a fixed pot regardless of enrollment growth. States have no fiscal cushion in recessions when caseloads spike.</li>
+    <li><strong>Provider-tax limits:</strong> Provider taxes are how states finance the non-federal Medicaid share. Capping them does not save federal money — it forces states to find general fund money or cut. In practice, states cut.</li>
+    <li><strong>FMAP reductions (specifically for the ACA expansion population):</strong> The 90% federal match is what enabled 40 states to expand coverage. Cutting to "regular" FMAP would force most states to roll back expansion, eliminating coverage for ~20 million working adults.</li>
+    <li><strong>Work requirements:</strong> Administrative burden that knocks eligible people off the rolls (Arkansas's 2018 experience: ~18,000 lost coverage in 5 months, no employment effect, court ruling halting the program).</li>
+  </ul>
+
+  <p>Every one of these is "federal savings" only in the narrowest budget-scoring sense. The underlying medical need does not disappear. It reappears as state cuts, hospital uncompensated care, household medical debt, and worse health outcomes.</p>
+
+  <h3>The pension-policy proposal</h3>
+  <p>The Rauh testimony proposes conditioning the federal tax exemption on municipal bond interest on whether states adopt particular pension-funding rules. That is a significant use of federal tax leverage to shape state policy choices — and the same general mechanism has been objected to elsewhere when it has been applied to civil rights, education, or environmental policy.</p>
+  <p>It's also empirically targeted at a problem that has been shrinking. Federal Reserve data show state pension funding ratios have improved substantially since 2020. The post-COVID equity rally pushed average funding ratios from ~70% to ~80%+ at the system level. The notion that state pensions require federal coercion to be solvent is a 2010-era talking point that hasn't been updated for current data.</p>
+
+  <h3>The political logic</h3>
+  <p>Federal-to-state cost-shifting accomplishes several things at once:</p>
+  <ol>
+    <li>It scores as "federal savings" in CBO 10-year windows, even though total public spending barely changes.</li>
+    <li>It diffuses political accountability — state legislators get blamed for the eligibility cuts that federal policy forced.</li>
+    <li>It creates pressure for state-level tax competition: states under fiscal stress cut services rather than raise taxes, because their tax bases can migrate.</li>
+    <li>It creates a race to the bottom: states that maintain robust safety nets become tax-magnet states for in-migration, which intensifies fiscal stress.</li>
+  </ol>
+
+  <p>What is presented as federalism reform functions, in practice, as federal budget arithmetic pushing states toward policy choices the federal government has not enacted directly.</p>
+
+  <div class="pithy">"Per-capita caps" is, in effect, a cut to Medicaid by another name. The cost does not disappear — it surfaces in state budgets, emergency rooms, and household medical debt. When we discuss cost-shifting, we should be explicit about who ends up paying.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> CBO "H.R. 1628, Better Care Reconciliation Act of 2017" cost estimate; KFF "Medicaid Per Capita Cap" issue brief series; CBPP "Block Granting Medicaid Would Add to State Burdens" (recurring); Sommers et al. NEJM 2019 on Arkansas; Federal Reserve Z.1 Financial Accounts (pension funding ratios).
+  </div>
+</section>
+
+<!-- ====================== DD8: MEASUREMENT ====================== -->
+<section class="deep-section" id="dd8">
+  <h2>8. Measurement Choices Have Policy Consequences</h2>
+  <p class="lede">The Rauh testimony's most technical-sounding proposal — changing how Census measures income — would lower measured poverty from 12% to 3% on paper. The methodological choices behind that number are contested, and the policy implications would be substantial.</p>
+
+  <h3>What is proposed</h3>
+  <p>Direct Census to adopt a "comprehensive income" measure as its primary headline figure. Count Medicare and Medicaid <em>at provider cost</em> as household income. The cited authority is Gramm, Ekelund, & Early's 2022 book <em>The Myth of American Inequality</em>, which uses this method to argue US inequality is "much smaller than reported" and poverty is "essentially solved."</p>
+
+  <h3>The methodological issues</h3>
+  <ul>
+    <li><strong>An internal tension:</strong> The same prepared testimony cites Finkelstein's finding that low-income adults value Medicaid at 20–50¢ per dollar of spending — i.e., Medicaid is "worth" much less than provider cost. The Census proposal would count Medicaid at full provider cost. <span class="zinger">The two valuations are difficult to reconcile: Medicaid cannot be worth its full cost for income-counting purposes while being worth a fraction of it for welfare-evaluation purposes.</span></li>
+    <li><strong>Medical need is not the same as income.</strong> Two otherwise-identical households, one healthy and one with a chronically ill child, would register as different on this measure by $30,000+ because the second receives more medical services. That is hard to defend as a measure of economic well-being. Rent cannot be paid with Medicaid coverage.</li>
+    <li><strong>Asymmetric coverage of in-kind benefits.</strong> The method counts Medicaid (received largely by the poor) but does not similarly count the cash value of the employer health-insurance tax exclusion, the mortgage interest deduction, or stepped-up basis (all received largely by higher-income households). The asymmetry is built in.</li>
+  </ul>
+
+  <h3>The Supplemental Poverty Measure already exists</h3>
+  <p>The SPM, introduced by Census in 2011 on the recommendation of a National Academy of Sciences panel, already incorporates:</p>
+  <ul class="tight">
+    <li>SNAP, WIC, school lunch, LIHEAP (cash-equivalent in-kind transfers)</li>
+    <li>Housing subsidies</li>
+    <li>Refundable tax credits (EITC, CTC)</li>
+    <li>Out-of-pocket medical costs (subtracted)</li>
+    <li>Childcare and work-related expenses (subtracted)</li>
+    <li>Geographic cost-of-living adjustments</li>
+  </ul>
+  <p>What SPM does <em>not</em> count is medical insurance benefits as income, because — for the reasons above — those benefits are not fungible with cash and reflect medical need, not economic capacity. This is the modern mainstream consensus among poverty researchers (Wimer, Fox, Smeeding, Citro, Meyer, Sullivan).</p>
+
+  <h3>The policy consequences of this measurement change</h3>
+  <p>Adopting this measure would have several downstream effects on the policy debate:</p>
+  <ol>
+    <li><strong>It weakens the rhetorical case for the safety net.</strong> If headline poverty is 3%, the existing safety net appears largely successful on its face, and further investment looks unnecessary.</li>
+    <li><strong>It compresses measured inequality.</strong> The same method, applied to inequality measures (as Gramm, Ekelund, & Early do), implies inequality has barely risen since the 1960s — reducing the empirical case for redistributive policy.</li>
+    <li><strong>It can lock in current policy.</strong> Under the new measure, future cuts to the safety net would not register as increases in poverty, by construction — until the assumption is changed again.</li>
+  </ol>
+
+  <h3>The history of the debate</h3>
+  <p>The "include in-kind transfers at provider cost" approach has been raised periodically since the 1970s. Census, the National Academies, and the academic poverty community have repeatedly declined to adopt it on methodological grounds. The current revival reflects a renewed political moment rather than new evidence.</p>
+
+  <div class="pithy">Redefining the measurement is one way to shrink the apparent problem. Moving headline poverty from 12% to 3% by counting Medicaid coverage as income does not lift anyone out of poverty; it relabels them. Rent cannot be paid with Medicaid.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> Wimer, Fox, Garfinkel, Kaushal, Waldfogel "Trends in Poverty with an Anchored SPM" Demography 2016; Meyer & Sullivan "Annual Report on US Consumption Poverty" (annual); Citro & Michael "Measuring Poverty: A New Approach" NAS 1995; critical reviews of Gramm/Ekelund/Early in J. Econ. Lit. and elsewhere; CBO "Distribution of Household Income, 2022" (Nov 2025).
+  </div>
+</section>
+
+<!-- ====================== DD9: HONEST HISTORY ====================== -->
+<section class="deep-section" id="dd9">
+  <h2>9. A Fuller History of How We Got Here</h2>
+  <p class="lede">The prepared statements describe current debt largely as the product of "structural imbalances." A specific policy history sits underneath that phrase — particular tax cuts, particular wars, particular crisis responses. Putting that history on the record reframes the conversation.</p>
+
+  <h3>Debt-to-GDP, 1980 to today</h3>
+  <table class="data">
+    <thead>
+      <tr><th>Year</th><th class="num">Debt held by public, % GDP</th><th>Era / context</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1980</td><td class="num">25.5%</td><td>Pre-Reagan tax cuts</td></tr>
+      <tr><td>1992</td><td class="num">46.8%</td><td>End of Reagan/Bush — Reagan tax cuts, defense buildup</td></tr>
+      <tr><td>2000</td><td class="num">33.7%</td><td>End of Clinton — top rate increase, surpluses, projected debt paydown</td></tr>
+      <tr><td>2008</td><td class="num">39.3%</td><td>End of Bush II — Bush tax cuts, two wars, no offsetting revenue</td></tr>
+      <tr><td>2016</td><td class="num">76.4%</td><td>End of Obama — financial crisis response + extension of upper-income Bush cuts</td></tr>
+      <tr><td>2019</td><td class="num">79.2%</td><td>Pre-COVID — TCJA already adding to debt</td></tr>
+      <tr><td>2021</td><td class="num">98.4%</td><td>Post-COVID — CARES + ARP</td></tr>
+      <tr><td>2026</td><td class="num">~100%</td><td>OBBBA extends TCJA at full cost</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The administration-by-administration record</h3>
+  <p><strong>Bush 43:</strong> Took office with CBO projecting $5.6T in surpluses through 2011. Cut taxes twice (2001, 2003) with no pay-fors, launched two wars financed by borrowing, signed Medicare Part D without revenue offsets. Left office with debt at ~40% of GDP and rising sharply.</p>
+  <p><strong>Obama:</strong> Inherited a $1.4T deficit from financial crisis stabilization. ACA enacted with revenue offsets, scored by CBO as deficit-reducing. Deficits fell from 9.8% of GDP (2009) to 2.4% (2015). Then deficits rose again as the Bush tax cuts were largely extended in 2012.</p>
+  <p><strong>Trump 45 (first term):</strong> 2017 TCJA cut corporate rate from 35% to 21%, added ~$1.9T to the debt per CBO/JCT. Corporate tax revenues never recovered. COVID response (CARES, late-2020 packages) added another ~$3T.</p>
+  <p><strong>Biden:</strong> ARP added ~$1.9T (COVID recovery). IRA was approximately deficit-neutral with revenue offsets and was projected to reduce deficits in the second decade. CHIPS and IIJA added to discretionary spending, partly offset.</p>
+  <p><strong>Trump 47 (current):</strong> OBBBA extension of TCJA + new cuts: scored at ~$4.6T over 10 years. The single largest one-time addition to projected debt in the entire 25-year window — passed in 2025, currently being implemented.</p>
+
+  <h3>The pattern</h3>
+  <p>Across the past 25 years, Republican administrations have generally cut taxes and widened deficits, while Democratic administrations have generally raised some revenue and narrowed deficits. The proposals now on the table address the resulting debt primarily through reductions to benefits — leaving the revenue-side decisions of the last 25 years intact.</p>
+
+  <p>If the "Hamiltonian Norm" of repaying debt after emergencies is to be taken seriously, the relevant question is <strong>when it broke and what broke it.</strong> The most plausible answer is the 2001 tax cut. The norm that emergencies (war, recession, pandemic) get paid for with subsequent revenue increases has not been restored since. OBBBA is the most recent example.</p>
+
+  <div class="pithy">The deficit did not accumulate by accident. It was built by specific tax cuts, specific wars, and specific crisis responses. The "Hamiltonian Norm" did not lapse on its own; it was set aside, by policy choice, beginning in 2001.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> CBO historical budget data (Feb 2026); CRFB Decomposition of Debt by Policy Choice (2024); JCT TCJA cost estimate (2017); JCT OBBBA cost estimate (2025); Treasury "Estimated Impact of Tax Provisions on Federal Receipts" (annual).
+  </div>
+</section>
+
+<!-- ====================== DD10: ALTERNATIVE ====================== -->
+<section class="deep-section" id="dd10">
+  <h2>10. A Credible Progressive Alternative</h2>
+  <p class="lede">The proposals in the prepared statements would, over time, stabilize the debt — with the adjustment concentrated on Medicaid enrollees, Social Security recipients, and state-funded services. A different package can stabilize the debt with the adjustment concentrated on the income and wealth that have grown most rapidly over the past 40 years. It is worth laying out concretely.</p>
+
+  <h3>The 5-part progressive deficit package</h3>
+  <p>This is constructed from CBO, CBPP, Tax Policy Center, and JCT estimates. Numbers are 10-year, illustrative, and overlap-adjusted.</p>
+
+  <h4 style="margin-top:18px;color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">A. Revenue (~$5–7T over 10 years)</h4>
+  <ul class="tight">
+    <li>Let upper-income TCJA/OBBBA provisions expire (top rate, AMT, estate) — ~$1.6T</li>
+    <li>Tax capital gains/dividends as ordinary income above $1M — ~$0.7T</li>
+    <li>Restore stepped-up basis at death for large estates — ~$0.4T</li>
+    <li>Restore 28% corporate rate — ~$1.3T</li>
+    <li>Repeal Section 199A pass-through deduction — ~$0.6T</li>
+    <li>Tax billionaire unrealized gains (Wyden mark-to-market) — ~$0.5T</li>
+    <li>Restore + expand IRS enforcement funding — ~$0.4T (net of cost)</li>
+    <li>Financial transactions tax (10 bps) — ~$0.8T</li>
+  </ul>
+
+  <h4 style="margin-top:18px;color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">B. Healthcare cost containment (~$1.5–2T over 10 years)</h4>
+  <ul class="tight">
+    <li>Reform Medicare Advantage risk adjustment (close upcoding) — ~$300–400B</li>
+    <li>Expand IRA drug price negotiation (Part B; biologics earlier) — ~$300–500B</li>
+    <li>Site-neutral payment for hospital outpatient departments — ~$150B</li>
+    <li>Cap private commercial out-of-network billing — administrative savings, ~$50B</li>
+    <li>Public option / Medicare buy-in (deficit-reducing in CBO scoring of similar past proposals) — variable, ~$200–400B</li>
+  </ul>
+
+  <h4 style="margin-top:18px;color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">C. Social Security solvency (dedicated, not counted in deficit reduction)</h4>
+  <ul class="tight">
+    <li>Lift payroll cap on wages above $400K — closes ~60% of 75-year shortfall</li>
+    <li>Apply payroll tax to investment income above high-income threshold — closes another ~30%</li>
+    <li>Expand benefits modestly for lowest-earning retirees (recouped from revenue above)</li>
+  </ul>
+
+  <h4 style="margin-top:18px;color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">D. Defense and discretionary efficiencies (~$0.3–0.5T)</h4>
+  <ul class="tight">
+    <li>Reform unauditable DOD procurement and contracting practices; the DOD has failed every audit since the requirement began</li>
+    <li>End specific weapons programs cited as wasteful by GAO and CBO</li>
+    <li>Cancel direct-payment subsidies to fossil-fuel producers (~$15B/yr)</li>
+  </ul>
+
+  <h4 style="margin-top:18px;color:var(--accent);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">E. Productive public investment (offsetting modest cost)</h4>
+  <ul class="tight">
+    <li>Make the expanded Child Tax Credit permanent — CBPP/Columbia estimate cuts child poverty by ~40%</li>
+    <li>Sustain IRA, CHIPS, IIJA investments — they raise long-run growth and tax base</li>
+    <li>Invest in IRS, OSHA, EPA, CFPB enforcement capacity — most of these pay for themselves</li>
+  </ul>
+
+  <h3>What this package does</h3>
+  <ul>
+    <li><strong>Stabilizes debt-to-GDP</strong> at or below current levels over the 10-year window without cutting any beneficiary's check.</li>
+    <li><strong>Restores Social Security solvency</strong> over 75 years with progressive revenue rather than benefit cuts.</li>
+    <li><strong>Bends the Medicare cost curve</strong> through provider-side reforms rather than eligibility cuts.</li>
+    <li><strong>Reverses the inequality dynamic</strong> by raising effective tax rates on the top 1% to historical norms.</li>
+    <li><strong>Maintains public investment</strong> in growth-enhancing areas (R&D, infrastructure, semiconductors, clean energy).</li>
+  </ul>
+
+  <h3>The political point</h3>
+  <p>This package is not, on its face, a radical one. Most of these provisions are versions of policies that have passed Democratic-controlled chambers at some point in the last 15 years, or that are mainstream within the Democratic policy community. They are politically difficult but not technically difficult, and they do not require a new theory of public finance. They are absent from the prepared statements today because of a different judgment call about who should be asked to contribute.</p>
+
+  <p><strong>The fundamental choice in front of the committee is not "cut Social Security and Medicaid or let the debt crisis arrive."</strong> It is closer to: "restore historical levels of taxation on capital income and high earners, or reduce safety-net spending to preserve the lowest sustained federal revenue share in postwar US history." Framed that way, the choice looks different.</p>
+
+  <div class="pithy">There is a credible debt package that does not cut a single benefit, raises taxes only on the top 1%, restores Social Security solvency for 75 years, and tackles healthcare costs at the provider side. Its absence from today's panel reflects a difference in policy judgment rather than in technical feasibility.</div>
+
+  <div class="literature">
+    <strong>Literature:</strong> CBPP "Policy Basics: Federal Tax Expenditures"; Tax Policy Center "Major Tax Reform Options"; CBO "Options for Reducing the Deficit, 2025–2034" (Dec 2024); JCT scores of relevant provisions; Roosevelt Institute, EPI, and Niskanen Center on alternative deficit packages; SSA Office of Chief Actuary solvency menu.
+  </div>
+</section>
+
+</div><!-- /tab 2 -->
+
+<!-- ============================================ -->
+<!-- TAB 3: RED TEAM — HOW THEY'LL RESPOND        -->
+<!-- ============================================ -->
+<div id="redteam" class="tabpanel active" role="tabpanel">
+
+<section class="crosscut">
+  <h2>Anticipating Responses to the Prepared Testimony</h2>
+  <p>This tab walks through the specific claims in the prepared testimony, anticipates likely responses from each of the majority witnesses, and offers prepared comebacks. The three witnesses bring deep expertise to these arguments; the goal is to be ready for substantive engagement, not surprise.</p>
+
+  <p>The biggest pressure point is the <strong>waste/fraud reframing</strong>. Taking the committee's preferred concept — that "waste, fraud, and abuse" should be the entry point to fiscal seriousness — and pointing it at the OBBBA "time tax" on Medicaid families, the tax gap, Medicare Advantage overpayments, and reductions in IRS enforcement capacity turns that framing toward different targets. Expect the most substantive pushback there. The fraud sections below get the most space.</p>
+
+  <p>The three witnesses bring distinct strengths:</p>
+  <ul>
+    <li><strong>Beach</strong> tends to argue from dynamic-scoring models and broader literature claims. The strongest substantive engagement is on the policy specifics rather than the dynamic-scoring methodology.</li>
+    <li><strong>Holtz-Eakin</strong> is the most experienced engaging this exact literature in AAF analyses over many years. Expect partial agreement on individual points followed by reframing — particularly on MA risk-adjustment, where AAF has been on the record.</li>
+    <li><strong>Rauh</strong> is most comfortable in his specialty areas (state pensions, finance, Medicaid). He defends specific empirical claims with citations from his own and adjacent published work. The most fertile substantive engagement is on the policy <em>extensions</em> of his measurement findings. His prepared testimony focuses on Medicaid managed-care fraud and does not center Medicare Advantage.</li>
+  </ul>
+</section>
+
+<div class="legend">
+  <strong>Evidence tags used below:</strong>
+  <span class="evidence-tag documented">Documented</span> = paraphrase of a position the witness has previously published or testified to.
+  <span class="evidence-tag inferred">Inferred</span> = consistent with the witness's published work; not a direct quote.
+  <span class="evidence-tag canned">Standard</span> = a standard response in this debate space; any of the three might use it if pressed.
+</div>
+
+<nav class="toc">
+  <strong>Sections (following the testimony's flow):</strong><br>
+  <a href="#rt1">1. "OBBBA Was a Generational Mistake"</a>
+  <a href="#rt2">2. "The Entire Gap Is a Revenue Story"</a><br>
+  <a href="#rt3">3. "Without the Tax Cuts, Debt Would Be 55%"</a>
+  <a href="#rt4">4. The "Time Tax" IS the Waste</a><br>
+  <a href="#rt5">5. 10 Million Losing Health Coverage</a>
+  <a href="#rt6">6. Where the Real Fraud Is (Tax Gap, MA, IRS)</a><br>
+  <a href="#rt7">7. Regulatory Uncertainty Under This Administration</a>
+  <a href="#rt8">8. Personalized Regulation as Corruption</a><br>
+  <a href="#rt9">9. Fed Independence as Fiscal Risk</a>
+  <a href="#rt10">10. Anticipated Questions From Majority Members</a>
+</nav>
+
+<!-- ====================== RT1: OBBBA generational mistake ====================== -->
+<section class="redteam-section" id="rt1">
+  <h2>1. "OBBBA Was a Generational Mistake"</h2>
+
+  <div class="your-claim">
+    OBBBA added $3.4 trillion to deficits over the decade per CBO, while imposing cuts to healthcare, food, and income support, layered on top of tariffs. Bottom 20% loses $24B/yr; top 10% gains $190B. With tariffs added (Yale Budget Lab), bottom 70% lose ground; the bottom decile loses $2,160/yr (over 5% of income) while the top decile gains $9,670. You cannot take debt seriously by having Americans sacrifice so the already wealthy pay even less.
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's likely response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE's standard form, used repeatedly in AAF analysis of OBBBA: <em>"Letting the individual TCJA provisions expire on schedule would have meant a tax increase on every household earning above roughly $40,000. Whatever the distributional shorthand, the realistic counterfactual to OBBBA wasn't 'wealth tax pays for the safety net' — it was a middle-income tax hike on working families. OBBBA also included real reforms: work requirements, eligibility cleanup. These are program-integrity wins that the distributional tables don't credit."</em> He'll concede the headline $3.4T but argue that the alternative — letting TCJA expire — was politically and economically untenable.</p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's likely response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>Beach will attack the static distributional analysis: <em>"The Yale Budget Lab and CBO distributional tables score on a static basis. They don't capture the wage and employment effects of preserving the 21% corporate rate. Heritage CDA dynamic models show real wages rise meaningfully when corporate competitiveness is preserved — those gains flow to the bottom of the distribution. Static tables understate the working-family benefit."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's likely response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>Rauh will pivot from distribution to fiscal trajectory: <em>"Granted OBBBA added to the deficit. The forward question isn't 'should we have passed it' — that's done — but 'what do we do now given the debt level?' Reversing tax provisions in 2026 doesn't undo the interest already locked in. The path forward requires spending discipline regardless of how we got here."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>On HTE's "middle-class hike" framing:</strong> "The choice was never 'extend everything or raise taxes on $40K filers.' JCT scored a clean partial extension that preserves the individual provisions below $400K and lets the upper-income provisions expire. CBO has scored this. It was on the table. OBBBA rejected it and extended everything. The cliff framing is rhetorical."</li>
+      <li><strong>On Beach's static-vs-dynamic move:</strong> "JCT's own dynamic distributional tables include behavioral and macro effects. Even on the dynamic score, the bottom 70% loses under OBBBA plus tariffs. The dynamic adjustment doesn't close the distributional gap — it shrinks the static loss by 20–30%, not the 200%+ you'd need to flip the sign."</li>
+      <li><strong>On the tariff layer:</strong> "Holtz-Eakin's own AAF has written that the 2025 tariff regime is a tax on consumers concentrated at the bottom of the income distribution. When you combine OBBBA's income-tax cuts with tariffs at this scale, the package is a redistribution upward — not a debt-reduction strategy, not even a coherent tax-cut strategy. The distributional pattern is the policy."</li>
+      <li><strong>On Rauh's "what's done is done" pivot:</strong> "OBBBA was passed in 2025. It's not 'done' — it's still being implemented, and many provisions can be repealed or rescaled before they bind. Treating it as a fixed baseline is choosing to lock in the distributional outcome. That's a political choice dressed as an arithmetic one."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT2: Revenue story / 2012 vs 2025 ====================== -->
+<section class="redteam-section" id="rt2">
+  <h2>2. "The Entire Gap Is a Revenue Story" — 2012 Projection vs. 2025 Actuals</h2>
+
+  <div class="your-claim">
+    CBO in 2012 projected the 2025 deficit at 1.8% of GDP. Actual 2025 deficit: 5.8%. Programmatic (non-interest) spending came in <em>slightly below</em> the 2012 projection (19.9% vs 20.6% of GDP). Revenue came in more than 4 percentage points of GDP below projection (17.2% vs 21.6%). The entire gap is a revenue story. Today's deficits come from 25 years of tax cuts eroding the revenue base, not from new programs or runaway spending.
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>Beach will challenge the baseline directly. He has repeatedly argued in Heritage and EPIC papers that the postwar revenue average is ~17.3% of GDP. Likely line: <em>"The 2012 CBO projection assumed a return to revenue levels last sustained in the late 1990s — a regime that has never reappeared in any 10-year window since 2000, regardless of which party controlled the tax code. Treating that projection as the 'right' baseline assumes the answer. The historical norm for federal revenue is roughly where we are now."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>This is HTE's strongest reply — he was at CBO during the late-2000s cycle and has written about projection methodology in AAF analysis. He will partially concede and pivot: <em>"Yes, tax cuts narrowed revenue below the 2012 projection — I'm not denying the policy history. But that 2012 baseline also assumed wage and labor-force outcomes that did not materialize. Real median wage growth between 2012 and 2019 came in below CBO's path; the prime-age employment recovery was slower than projected. Part of the revenue 'shortfall' is cyclical underperformance, not tax policy. The CBPP decomposition you're citing doesn't separate these cleanly."</em></p>
+    <p>He will also try to flip the spending comparison: <em>"'Programmatic spending below projection' depends on what year you pick. Medicaid spending came in above the 2012 projection because of the ACA expansion ramp. The witness is cherry-picking aggregate spending while the composition shifted toward mandatory programs in ways that drove the long-run trajectory."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Rauh will pivot to the forward view: <em>"Whatever the 2012-vs-2025 comparison says, the relevant question is the forward trajectory. CBO's current Long-Term Budget Outlook shows mandatory spending growth driving the deficit through the 2030s. Even if every dollar of past tax cuts had been collected, the 2036 projection still shows a primary deficit because of demographic-driven mandatory growth. Past-tense decomposition doesn't change the forward math."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>On Beach's "the 2012 baseline was wrong":</strong> "The 2012 baseline assumed scheduled-law tax expirations that Congress chose not to honor. That's not optimism — that's projecting what current law says. When Congress repeatedly extends the Bush cuts, scheduled expirations don't happen, and revenue stays below baseline. That is exactly what 'policy choice eroded revenue' means. Beach is calling a tautology a baseline error."</li>
+      <li><strong>On HTE's wage-underperformance point:</strong> "Real wage underperformance hits both sides of the budget — slower revenue growth, but also higher mandatory spending on health and income support. CBPP's decomposition controls for this and still attributes the bulk of the gap to tax policy. The cyclical-vs-policy decomposition isn't ambiguous; HTE's appeal to ambiguity is rhetorical."</li>
+      <li><strong>On HTE's "Medicaid expansion above projection":</strong> "Medicaid above 2012 projection was funded by dedicated revenue under ACA, which is a separate ledger from the income-tax revenue line. Programmatic spending in aggregate came in slightly below 2012 projection — that's the headline. Disaggregating to single programs to find one above projection is also rhetorical."</li>
+      <li><strong>On Rauh's "look forward" pivot:</strong> "I am looking forward. The forward problem is that OBBBA extended the tax cuts that put us here. Repealing the upper-income portion of OBBBA closes about a third of the projected primary gap, immediately, without touching any beneficiary's check. The forward math works <em>better</em> with revenue restoration than without. Treating tax cuts as fixed and beneficiary spending as adjustable is the political choice we're contesting."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT3: 55% counterfactual ====================== -->
+<section class="redteam-section" id="rt3">
+  <h2>3. "Without the Bush and Trump Tax Cuts, Debt Would Be 55%"</h2>
+
+  <div class="your-claim">
+    CBPP estimates that without Bush and Trump tax cuts, debt-to-GDP would be ~55% rather than the ~100% it is today. Today's deficits come from 25 years of tax cuts eroding the revenue base. The obligations Congress already made are arriving on schedule — but the revenue to meet them was given away.
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE was CBO Director when the 2003 tax cut passed. He has spoken to this many times and will defend the record without ducking it: <em>"I led CBO during EGTRRA and JGTRRA. We scored them honestly. They were enacted. They added to debt. But they are not the sole story. Medicare Part D, two wars, the 2008 financial crisis, ARP, IRA, CHIPS, IIJA, OBBBA — every major bill of the last 25 years added to debt, under both parties. Singling out tax cuts as <em>the</em> cause requires choosing which decisions to count and which to ignore."</em></p>
+    <p>He'll also press on the counterfactual: <em>"The CBPP counterfactual assumes 100% of the static revenue would have been collected. JCT's own dynamic scoring of TCJA showed 20–30% feedback effects. The 55% number would more honestly be 65–70%, still high, but a far smaller policy share than the witness implies."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>Beach will go to his Heritage CDA dynamic methodology: <em>"The CBPP counterfactual is static. It assumes that without tax cuts, the economy would have produced the same GDP, the same wages, the same employment. That isn't how tax policy works. The 2001 and 2003 cuts increased capital formation, work effort, and small-business activity. Reverse them and you reverse some of the growth. The honest counterfactual requires dynamic adjustment, which CBPP refuses to do."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>Rauh won't directly contest the historical accounting. He'll pivot forward, which is his rhetorical strength: <em>"Granted the history. The relevant question for this committee isn't 'how did we get here' — it's 'what do we do now?' Reversing past tax cuts in 2026 doesn't unwind the interest already paid. The forward path requires constraining spending growth because that's where the marginal pressure is. Even fully restoring revenue to a pre-2001 regime doesn't close the demographic-driven Medicare gap in the 2030s."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>To Holtz-Eakin directly:</strong> "Granted both parties added to debt — but the magnitudes are not symmetric. CRFB's own decomposition puts Bush, TCJA, and OBBBA at around $14 trillion combined. Medicare Part D was about $1T. ACA was scored deficit-reducing. IRA was scored deficit-reducing. CHIPS and IIJA were partially offset. The structural deficit-wideners are heavily concentrated on one side. Doing arithmetic isn't 'singling out' — it's reading the cost estimates."</li>
+      <li><strong>On the dynamic counterfactual:</strong> "JCT's dynamic feedback estimates are 20–30%. Adjusting CBPP's 55% counterfactual for that gives roughly 65% debt-to-GDP — still 35 percentage points lower than current. The dynamic adjustment shrinks the policy share but doesn't undo it. And Heritage CDA's 60–100% feedback estimates are not the mainstream score; they've been rejected by JCT, CBO, TPC, and Penn-Wharton."</li>
+      <li><strong>On Beach's growth claim:</strong> "Real wage growth in the 2003–2007 window did not outpace the 1993–2000 window, when taxes were higher. The 'tax cuts boosted wages' empirical case is weak even before TCJA. After TCJA, corporate tax revenue collapsed and wage growth was indistinguishable from trend. There is no plausible dynamic adjustment large enough to flip this calculation."</li>
+      <li><strong>To Rauh's pivot:</strong> "I agree the forward path requires choices. The choice OBBBA made was to extend the tax cuts for another decade — locking in revenue loss going forward. Repealing the upper-income portion of OBBBA closes about a third of the projected primary deficit in the forward window. That's not relitigating the past — it's choosing not to compound the mistake."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT4: Time tax / work requirements ====================== -->
+<section class="redteam-section" id="rt4">
+  <h2>4. The "Time Tax" on Medicaid Families IS the Waste</h2>
+
+  <div class="your-claim">
+    OBBBA's design — forcing eligible Medicaid recipients to continuously refile paperwork, document hours, and re-verify income — is itself a giant "time tax" on working families. It is every bit as wasteful as the federal projects this committee has long criticized; it just shifts the waste onto households. CBO finds state-level work requirements push eligible workers off coverage because they don't know how the bureaucratic processes work. Hamilton Project research finds that the majority of SNAP and Medicaid recipients subject to work requirements are already in the labor force, but more than a third will periodically fall below the required hours threshold because of <em>volatile employer scheduling</em> — not because they stopped working.
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE has defended work requirements in AAF analysis with a structural argument: <em>"Program integrity is not 'waste.' It is the precondition for public legitimacy of Medicaid. Every employer-sponsored insurance plan requires monthly verification of eligibility — payroll tied to W-2 status. Asking Medicaid beneficiaries to demonstrate continued eligibility is no different from what the private workforce experiences. Calling this a 'time tax' is a category error that conflates legitimate eligibility administration with bureaucratic waste."</em></p>
+    <p>He will press the rhetorical reversal: <em>"If the witness's standard is that administrative burden is 'waste,' then the EITC's substantiation requirements, the SBA's loan documentation, the SNAP recertification process under every administration — all 'waste.' That standard would dismantle program integrity across the safety net."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>Rauh specifically endorses community-engagement (work) requirements in his prepared testimony. He has academic-style cover for this. Likely line: <em>"The Arkansas evaluation that critics cite as 'failed' was halted by court order after five months — not enough time to observe employment effects. The Sommers et al. NEJM study is one data point, on one state, over an abbreviated window. The Georgia Pathways program is ongoing and the evaluation is incomplete. Declaring work requirements 'failed' on the basis of an unfinished evidence base is premature."</em></p>
+    <p>He'll also defend the design: <em>"OBBBA includes hardship exemptions, recognizes caregiving responsibilities, and provides ramp-up periods. The witness's description treats it as bare-knuckle paperwork — that mischaracterizes the actual statute."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Beach will go to political economy: <em>"Voters expect that programs are administered to eligible recipients. Documentation requirements are the means by which we make that promise credible. Without verification, Medicaid drifts toward universal coverage, which is a different program with a different political coalition. The witness is conflating eligibility verification with bureaucratic obstruction."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>To HTE's "private insurance does this too" framing:</strong> "Employer-sponsored insurance verifies eligibility <em>once at enrollment</em>, via the payroll system, with the employer doing the administration. OBBBA's Medicaid standard requires the <em>beneficiary</em> to demonstrate work hours monthly, often without coordinated employer reporting, and with coverage cancellation as the penalty for paperwork failure. The two systems are not comparable. The Hamilton Project research is explicit: it's the volatility of low-wage scheduling that pushes eligible workers below thresholds — and it's the worker, not the employer or the program, who pays for that volatility."</li>
+      <li><strong>On Arkansas being 'incomplete evidence':</strong> "Five months in Arkansas pushed roughly 18,000 working adults off Medicaid coverage with no measurable employment effect — that's the Sommers et al. NEJM finding, peer-reviewed and replicated. The Georgia Pathways data through 2025 shows enrollment far below projection and equally minimal employment effect. The 'incomplete evidence' line is the standard move when the evidence runs against your policy."</li>
+      <li><strong>To Beach's "drift toward universal":</strong> "Medicaid covers a specific eligibility group: low-income working adults and families. The drift you're worried about isn't 'universal coverage' — it's the working poor accessing the coverage they qualify for. Calling administrative burden a defense against coverage drift is admitting the goal is to deny eligible people benefits."</li>
+      <li><strong>The reframe that lands:</strong> "This committee has spent years correctly criticizing federal projects that consume taxpayer time and money for no purpose. OBBBA's Medicaid paperwork is exactly that — a process that consumes <em>worker</em> time, denies coverage to eligible people, and produces no measurable employment gain. If we are serious about waste, this is waste. The fact that the cost falls on a single mother working two jobs instead of a federal contractor is not what makes it less wasteful — it's what makes it less visible."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT5: 10 million losing coverage ====================== -->
+<section class="redteam-section" id="rt5">
+  <h2>5. 10 Million Americans Lose Health Coverage Under OBBBA</h2>
+
+  <div class="your-claim">
+    CBO's analysis of OBBBA finds that more than 10 million Americans will lose health coverage. Most of those pushed off are not ineligible — they cannot bear the time-tax of paperwork while caring for children, seeking better-paying employment, or working multiple jobs to make ends meet. The KFF analysis confirms that participants lose coverage because they were unaware of how bureaucratic processes work or found them too difficult to navigate.
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE has criticized CBO's coverage-transition methodology in past AAF analysis. Likely line: <em>"CBO's coverage estimates assume that people who lose Medicaid eligibility do not transition to employer-sponsored or marketplace coverage. The actual transition rates are higher than CBO's model assumes. The '10 million' headline is a ceiling, not a realized outcome. Past Medicaid policy changes have routinely seen smaller realized coverage loss than CBO projected."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>Most likely to push back hardest, since Medicaid is his policy specialty. He has written defending the CBO methodology critique: <em>"CBO uses a static eligibility framework. It doesn't model state-level adjustments — when the federal match changes, states reweight benefit packages and eligibility tiers, which softens the coverage impact. The realized coverage outcomes from prior major Medicaid changes (DRA 2005, ACA 2010) tracked below CBO's initial projections."</em></p>
+    <p>He'll then deploy the Finkelstein move: <em>"And even accepting the headline coverage loss number — the Finkelstein WTP literature suggests the welfare loss per person of losing Medicaid coverage is far below cost. So '10 million lose coverage' overstates the social impact."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Beach will go to means-testing principles: <em>"Coverage adjustments under OBBBA target the able-bodied adult population subject to work requirements. The 10 million number sweeps in people who would lose coverage under <em>any</em> tightening of eligibility — including categories Congress has long agreed should be tightened."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>On the CBO methodology dispute:</strong> "CBO's coverage-transition methodology is the same one used to score Medicaid policy in every administration. The Republican majority accepted that score when they passed OBBBA — the bill went through with this estimate on record. Re-litigating the score after passage is post-hoc rationalization. And the realized coverage outcomes from Arkansas 2018 tracked CBO's prospective estimates closely; the empirical record supports the methodology."</li>
+      <li><strong>On the Finkelstein citation — important because the same testimony uses Finkelstein in two ways:</strong> "The Rauh testimony cites Finkelstein in two places that point in opposite directions. In one section, Finkelstein's WTP estimate is used to argue Medicaid is worth less than its cost — so a coverage loss matters less. In another section, on poverty measurement, Medicaid is valued at <em>full provider cost</em> as income — which is what drives the 12%-to-3% poverty result. The two valuations cannot both be correct. Either Medicaid is worth what it costs (in which case losing 10 million people from coverage is a major welfare hit) or it isn't (in which case it cannot be counted as income at full cost). The same evidence has to be used the same way in both places."</li>
+      <li><strong>On Beach's "able-bodied" framing:</strong> "The Hamilton Project research is explicit: the majority of the population subject to work requirements is already in the labor force. They are working — at low wages, with volatile schedules, often multiple jobs. Calling them 'able-bodied adults who need to work' is misdescribing the actual demographic. They are working; they just can't always document hours every month."</li>
+      <li><strong>The lock-in:</strong> "Ten million people losing health coverage is the official CBO score of OBBBA. Congress passed the bill with that score on the record. Revisiting the methodology after the fact is a request to move the goalposts. A new CBO score under different assumptions can be commissioned — but the score Congress voted on is the score on record."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT6: THE REAL FRAUD - MOST IMPORTANT SECTION ====================== -->
+<section class="redteam-section" id="rt6">
+  <h2>6. Where the Real Fraud Is — Tax Gap, Medicare Advantage, and the Gutting of the IRS</h2>
+
+  <p style="font-size:14px; color:var(--muted); font-style:italic; margin-top:-8px;">This is the load-bearing section of the prepared testimony. Taking the committee's preferred concept — that fiscal seriousness starts with waste/fraud — and pointing it at the largest empirical fraud categories shifts the framing toward different targets. Expect substantive pushback.</p>
+
+  <div class="your-claim">
+    If we are serious about waste, fraud, and abuse, we already know where it is. The annual tax gap (taxes legally owed but not paid) runs at roughly $700 billion per year, with the top 1% of earners alone accounting for more than $160 billion (IRS Publication 5869; Sarin/Treasury). Every $1 invested in IRS enforcement against high-income taxpayers returns at least $5 in revenue (IRS Publication 5901). Medicare Advantage plans are overpaid by an estimated $80–140 billion every year through upcoding and favorable selection; CRFB projects $1.3 trillion in MA overpayments over the coming decade. Yet the administration is gutting the IRS enforcement capacity the IRA built.
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>This is HTE's most sophisticated reply. He has actually written on MA risk-adjustment problems for AAF, so he can't credibly deny that piece. He will instead split the question — partial agreement on MA, pivot on IRS, and dispute the magnitudes throughout: <em>"AAF has been on record that Medicare Advantage risk adjustment needs reform. I won't pretend otherwise. But the way to do this is technical adjustment to the risk-score methodology — not a campaign against MA, which delivers care to 53% of Medicare beneficiaries at lower out-of-pocket cost. On the tax gap: the $700B figure has wide error bands, and the marginal return on IRS enforcement falls as you scale up. The 'every dollar returns five dollars' estimate is for the first dollar of additional enforcement at low baseline funding. It does not generalize."</em></p>
+    <p>He will also try to recapture the program-integrity language: <em>"There is no contradiction between caring about MA overpayments and caring about Medicaid eligibility verification. They are <em>both</em> program-integrity problems. The witness wants to address one while dismissing the other."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>The Rauh prepared testimony focuses on Medicaid managed-care fraud (the Minnesota case) and does not center Medicare Advantage. That asymmetry is worth raising. Likely response: <em>"I agree that Medicare Advantage upcoding is a real issue. So is Medicaid managed-care fraud — and the Minnesota case underscores that the structural problem applies across managed-care programs, not just MA. The policy response is improved audit standards for both, which is a bipartisan agenda. But this is independent of the eligibility-integrity reforms in OBBBA, which target a separate category — payments to people outside the eligibility group Congress intended."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Beach will defend the IRS cuts directly, which is the administration's position: <em>"The IRA-era IRS funding was used to expand audits in ways the agency itself didn't request. Right-sizing the IRS removes audit pressure that was being applied disproportionately to small businesses, partnerships, and complex middle-income filers. The witness conflates 'fewer agents' with 'less enforcement.' Smart enforcement, focused on the highest-return targets, can do more with less."</em></p>
+    <p>On MA, Beach is less specialized; he will likely defer or echo HTE.</p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>To HTE on diminishing IRS returns:</strong> "The CBO and Treasury analyses underlying the '$5 returned per $1 invested' are explicit that this is the marginal return at <em>current</em> enforcement levels, which are historically low. We are nowhere near the diminishing-return zone. JCT's score of OBBBA's IRS cuts found them to be a <em>net revenue loser</em> — more revenue forgone than dollars saved. That is the official score on the record. The IRS cuts are not 'right-sizing.' They are revenue-losing cuts that fall most heavily on the highest-income noncompliance."</li>
+      <li><strong>To HTE on MA — pinning the partial concession:</strong> "Glad we agree MA risk adjustment needs reform. CMS already has the administrative authority to tighten risk-score methodology and recover overpayments. The action has not happened, despite significant lobbying activity by MA insurers. If 'program integrity' is the principle, applying it to working Medicaid families while leaving large MA overpayments untouched is asymmetric, and the asymmetry undercuts the principle."</li>
+      <li><strong>To HTE's "both are program integrity":</strong> "They are both program-integrity problems — and the magnitudes are not comparable. CBO scored OBBBA's Medicaid work requirements at less than $200B in 10-year savings, almost entirely from coverage loss, not fraud recovery. CRFB scores MA overpayment fixes at $1.3T over the same window — six times the size. If program integrity is the priority, the math says fix MA first."</li>
+      <li><strong>To Rauh — the seam:</strong> "I'm glad to hear the witness agree on MA upcoding. His testimony as written addresses Medicaid managed-care fraud but not MA. Adding MA to that list, on the record, is the right move. Now the policy implication: improved audit standards for MA require CMS funding and authority, which this administration has cut. The current direction is the opposite of program integrity for the largest fraud target."</li>
+      <li><strong>To Beach on "smart enforcement":</strong> "The administration's IRS cuts did not preserve the high-income audit function. They cut the Global High Wealth program, the international tax enforcement unit, and the criminal investigations division. Wall Street Journal reporting (April 2026) documents tax noncompliance behavior shifting in response to perceived enforcement weakness. The 'IRS isn't going to catch me' line is a direct quote from filers responding to these cuts. That's not 'smart enforcement.' That's structural rollback of the federal fraud-detection capability."</li>
+    </ul>
+  </div>
+
+  <div class="your-comeback" style="background:#fff3b0; border-left-color:var(--accent);">
+    <strong style="display:block; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;">The closer to deploy on fraud</strong>
+    "If the committee is serious about waste, fraud, and abuse, I will vote with you tomorrow on a package that does the following: restores IRS enforcement funding the IRA put in place, with audit priority for high-income filers; mandates MA risk-adjustment reform with binding savings targets at the $80B+/year level MedPAC identifies; expands HHS OIG capacity for managed-care audits across Medicare and Medicaid; and protects Inspector General independence across federal agencies. That is a serious anti-fraud agenda. The package this committee is considering does the opposite — it weakens the institutions that detect fraud and instead burdens eligible beneficiaries with paperwork that has no measurable employment effect. Tell me which package is more serious about waste."
+  </div>
+</section>
+
+<!-- ====================== RT7: Regulatory uncertainty under Trump ====================== -->
+<section class="redteam-section" id="rt7">
+  <h2>7. Regulatory Uncertainty Under This Administration</h2>
+
+  <div class="your-claim">
+    We are living through the worst regulatory environment for business on record. Companies dislike bad regulations, but they hate regulatory <em>uncertainty</em>. The Baker-Bloom-Davis Economic Policy Uncertainty Index hit its highest readings on record in 2025, with the 2025–2026 average matched only by the months immediately following the COVID outbreak. No CEO making a capital expenditure decision today can be confident that next year's deal won't be the subject of tomorrow's investigation. That uncertainty has a cost.
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>Beach will attack the EPU Index as a measure: <em>"The Baker-Bloom-Davis index measures all economic policy uncertainty — fiscal, monetary, trade, regulatory, election-related. Attributing the 2025 spike to 'regulatory environment' specifically is a category error. The actual regulatory cost line — the OMB count of major rules — is falling. Compliance burden is down. Conflating tariff or fiscal uncertainty with regulatory burden lets the witness make a rhetorical case the data doesn't support."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE is most credible here because AAF has actually written critically on the 2025 tariff escalation. He will partially concede and split the issue: <em>"Tariff policy is creating real business uncertainty. AAF has been on record critically. But that is a trade-policy issue, not a regulatory one. The two are separable. The witnesses today are talking about <em>regulatory budgets</em> — caps on the formal rulemaking process. CEOs we talk to are pleased with the deregulatory direction on the rulemaking side, even where they're concerned about tariffs."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Less developed on this. Will likely defer: <em>"Uncertainty is a real cost — agreed. The relevant question is whether a statutory regulatory budget reduces or increases that uncertainty. I would argue it reduces it, by creating a clear cost ceiling and predictable rulemaking cadence."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>To Beach on EPU composition:</strong> "The EPU Index is decomposable. Its news-based component, its tax-expiration component, and its forecaster-disagreement component are all at or near record highs. This isn't a single noisy sub-index pulling the headline up. And the news-based sub-index, which is heavily regulatory and trade-policy weighted, has been at sustained highs through 2025. Selecting one sub-index is the move, but the data is robust across them."</li>
+      <li><strong>To HTE on splitting tariff vs. regulatory:</strong> "Glad to hear AAF has been critical on tariffs. But the witnesses' policy prescription is a 'regulatory budget' framework that doesn't constrain executive trade authority or the personalized use of federal leverage that's driving most of the uncertainty. Cost-counting frameworks are silent on the actual cause of CEO anxiety right now. The 'regulatory budget' is solving a problem businesses haven't been complaining about while ignoring the one they have."</li>
+      <li><strong>To Rauh on "clear cost ceiling":</strong> "A regulatory budget creates predictability about <em>how much</em> regulation can issue. It doesn't create predictability about <em>which</em> rules. And it does nothing about discretionary enforcement, executive orders, selective designations, or politicized agency staffing — which is where most of the current uncertainty originates. A regulatory budget is predictable rule volume in an unpredictable enforcement environment. That's not the predictability businesses are asking for."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT8: Personalized regulation ====================== -->
+<section class="redteam-section" id="rt8">
+  <h2>8. Personalized Regulation as Corruption</h2>
+
+  <div class="your-claim">
+    The administration has personalized regulation on behalf of its own interests — using federal power as leverage against specific companies and the people who run them. Intel: 10% federal equity stake, with the President bragging the CEO "walked in wanting to keep his job, and he ended up giving us $10 billion." Paramount/Skydance: $8.4B merger approved only after the company paid the President $16M to settle a personal lawsuit. Anthropic: designated a national-security supply-chain risk over disagreements about what its models could do for the government. Department of Energy canceled $7.6B in already-awarded clean-energy funding for 223 projects in October 2025, almost all in states that voted against the President.
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Beach will deflect by recategorizing these as executive actions rather than regulatory policy: <em>"These are individual executive branch decisions, not the formal regulatory rulemaking process the committee is considering today. The regulatory-budget framework addresses Federal Register rulemakings. The witness is conflating distinct categories of federal action."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>HTE is most likely to acknowledge concern but stay narrow — AAF has been critical of some of these examples in real time: <em>"I've expressed concern in AAF analysis about specific recent executive actions, including some the witness mentions. But the rule-of-law concerns those raise are separate from the merits of a statutory regulatory budget. Linking them is rhetorical."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Likely silent or generic. Rauh's testimony is narrowly focused on Medicaid and pensions; he is unlikely to defend the administration's regulatory targeting and will prefer to stay out of the cross-fire.</p>
+  </div>
+
+  <div class="your-comeback">
+    <ul>
+      <li><strong>To Beach on recategorization:</strong> "If we accept the framing that personal political leverage on companies isn't 'regulation' — that it lives outside the cost-benefit framework — then the regulatory-budget framework is silent on the actual federal action that's generating CEO anxiety. That's not a recommendation for the framework; it's an indictment of it. A regulatory framework that doesn't capture the use of federal power against specific firms is missing the part of regulation businesses are most worried about right now."</li>
+      <li><strong>To HTE on separating the issues:</strong> "Glad AAF has been critical. Now imagine your regulatory budget is law. How does it stop the Anthropic designation? It doesn't. How does it stop the politically targeted DOE cancellations? It doesn't. The framework you're advocating is silent on rule-of-law concerns. So when you tell businesses 'a regulatory budget will create predictability,' the businesses dealing with selective federal targeting know that's not the predictability they need."</li>
+      <li><strong>The closer on this section:</strong> "When federal commitments — already-awarded $7.6 billion in clean-energy projects — can be revoked based on the politics of the recipient's zip code, every infrastructure developer in the country prices that risk into their capital expenditure decisions. That's not a 'regulatory cost,' but it's a real cost, and the framework the witnesses propose doesn't address it. If we're serious about a pro-business policy environment, the priority isn't a 'regulatory budget.' It's restoring the principle that federal funding decisions follow law and evidence, not political loyalty."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT9: Fed independence as fiscal risk ====================== -->
+<section class="redteam-section" id="rt9">
+  <h2>9. Fed Independence as a Fiscal Concern</h2>
+
+  <div class="your-claim">
+    If we are serious about affordability and the national debt, we cannot stand by while the President exerts personal political pressure on members of the Federal Reserve — including criminal investigations against a sitting governor and the Fed Chair — alongside sustained public campaigns demanding the rate cuts he wants. This is a fiscal concern as much as a democratic one. Political pressure on the Fed creates a political instability premium. That premium raises rates on the national debt and on the credit cards, mortgages, auto loans, and small-business loans Americans use every day (Yale Budget Lab on the U.S. safe-harbor premium).
+  </div>
+
+  <div class="their-counter">
+    <h4>Holtz-Eakin's response <span class="evidence-tag documented">Documented</span></h4>
+    <p>HTE will partially agree — AAF has written supporting Fed independence in principle. He'll concede the principle, separate it from the policy debate, and try to neutralize: <em>"Fed independence is important. AAF has been clear on this. But Fed independence is structurally separate from the spending-vs-revenue debate we're having about long-run debt and deficits. Yes, political pressure on the Fed could create a premium — but the order-of-magnitude impact on Treasury yields is small relative to the trajectory effect of mandatory spending growth. The witness is bundling distinct issues."</em></p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Beach's response <span class="evidence-tag canned">Standard</span></h4>
+    <p>Beach will likely agree generically without engaging the specific examples — defending administration actions against the Fed governors would be uncomfortable territory: <em>"Fed independence within its mandate is appropriate. Where there are concerns about Fed actions or accountability, those are legitimate policy debates conducted through proper channels."</em> Expect him not to dig in here.</p>
+  </div>
+
+  <div class="their-counter">
+    <h4>Rauh's response <span class="evidence-tag inferred">Inferred</span></h4>
+    <p>Rauh as a finance scholar will agree on the principle: <em>"Fed independence has well-documented effects on inflation expectations and the term premium. Political-economy research is consistent on this. The witness's point about the safe-harbor premium is well taken — though I would be cautious about overstating the size of the channel."</em></p>
+  </div>
+
+  <div class="your-comeback">
+    <p>This is a section where the witnesses will mostly concede, so the comeback is about locking in the concession and using it:</p>
+    <ul>
+      <li><strong>On "bundling distinct issues":</strong> "I'm not bundling — I'm pricing. The Yale Budget Lab estimates that even a sustained 25 basis-point political-instability premium adds significantly to federal debt service over a decade. The witnesses' fiscal framework prices the demographic trajectory in great detail but doesn't price the cost of political pressure on the Fed at all. That's a glaring gap given how much of the current uncertainty originates there."</li>
+      <li><strong>On institutional responsibility:</strong> "The political environment most vocal about long-run debt is also the one currently pressuring the Fed's institutional independence. It is hard to credibly demand fiscal credibility from the bond market while undermining the institution most responsible for delivering it. A serious deficit agenda begins by defending the institutions whose independence underwrites US borrowing costs."</li>
+      <li><strong>The closing line:</strong> "Every basis point the political-instability premium adds is a fiscal cost. The administration is generating that cost in real time. A serious deficit agenda starts with not actively making the deficit worse."</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================== RT10: Hostile questions ====================== -->
+<section class="redteam-section" id="rt10">
+  <h2>10. Anticipated Questions From Majority Members</h2>
+  <p>Questions to expect from members of the majority, framed against the specific claims in the prepared testimony, with one-line responses:</p>
+
+  <h3>"You criticize OBBBA's distributional effects — but isn't the alternative just letting the tax cuts expire on the middle class?"</h3>
+  <p><strong>Trap:</strong> Pulls you into defending tax increases on $40K filers. <strong>Answer:</strong> "No — the alternative on the table during OBBBA was a clean partial extension that preserved the individual provisions below $400K and let the upper-income provisions expire. JCT scored that. CBO scored that. It was on the table and rejected. The choice OBBBA made was to extend the upper-income provisions and pay for them with cuts to Medicaid and SNAP. That's the choice I'm criticizing — not the existence of any tax cut for the middle class."</p>
+
+  <h3>"You say it's all a revenue story. But programmatic spending is going up as the population ages — how does revenue alone solve that?"</h3>
+  <p><strong>Answer:</strong> "Programmatic spending in 2025 came in <em>below</em> the 2012 CBO projection, not above. The deviation from the 2012 baseline is concentrated on the revenue line, not the spending line. Going forward, demographic-driven spending does rise — and that's why my package combines revenue restoration with healthcare cost containment focused on Medicare Advantage upcoding, drug pricing, and site-neutral payments. The forward problem is fixable from both sides without cutting any beneficiary's check."</p>
+
+  <h3>"Do you think we have a deficit problem?"</h3>
+  <p><strong>Trap:</strong> "No" makes you sound unserious; "yes" cedes the spending-focused framing. <strong>Answer:</strong> "Yes — and OBBBA made it materially worse by adding $3.4 trillion. Without 25 years of tax cuts, debt-to-GDP would be around 55 percent rather than 100 percent. The deficit is real. So is the fact that the people warning about it loudest in this room voted for the law that made it worse."</p>
+
+  <h3>"Would you cut anything?"</h3>
+  <p><strong>Trap:</strong> "No" makes you look like a free-lunch progressive. <strong>Answer:</strong> "Yes. I would cut Medicare Advantage upcoding, which costs $80–140 billion a year and is projected at $1.3 trillion over the decade. I would cut the 199A pass-through deduction, which is concentrated at the top. I would cut direct subsidies to fossil-fuel producers. I would cut DoD weapons programs GAO has flagged as wasteful. And I would restore IRS enforcement against high-income noncompliance, which raises five dollars for every dollar invested. There are real cuts to make — they're just not the cuts OBBBA made."</p>
+
+  <h3>"What about waste, fraud, and abuse — surely we can agree on cutting that?"</h3>
+  <p><strong>Answer (this is the pivot the testimony is designed for):</strong> "Absolutely. Let's start with Medicare Advantage upcoding at up to $140 billion a year, projected at $1.3 trillion over the decade by CRFB. Let's restore the IRS enforcement OBBBA cut — JCT scored those cuts as a net revenue loser. Let's recover the high-income tax gap, which Treasury estimates at $160 billion a year for the top 1% alone. Let's strengthen Inspectors General and managed-care audits at HHS. I will vote with this committee on any of those tomorrow. None of them are on the table today — and the reason has more to do with the political constituencies of the responsible parties than with the size of the dollars at stake."</p>
+
+  <h3>"Aren't Medicaid work requirements just basic accountability — making sure able-bodied adults work for their benefits?"</h3>
+  <p><strong>Answer:</strong> "The majority of Medicaid and SNAP recipients subject to work requirements are already in the labor force. Hamilton Project research is clear on this. The problem isn't that they aren't working — it's that volatile employer scheduling in service-sector work pushes their hours below the threshold for some months out of the year. Arkansas's 2018 experiment pushed 18,000 working adults off coverage in five months with no measurable increase in employment. The requirement didn't make anyone work more; it just made paperwork-burdened workers lose their health insurance. That's not accountability — that's the time tax I described."</p>
+
+  <h3>"CBO projections of 10 million losing coverage are speculative — most people will transition to other coverage, won't they?"</h3>
+  <p><strong>Answer:</strong> "CBO used the same coverage-transition methodology it uses across administrations. The Republican majority accepted that score when OBBBA was passed. The empirical record from Arkansas 2018 and Tennessee in the prior decade is that realized coverage losses tracked CBO's prospective estimates closely. We can litigate the methodology — but the score on the record is the score Congress voted on."</p>
+
+  <h3>"Is Social Security going bankrupt?"</h3>
+  <p><strong>Answer:</strong> "No. Even with zero changes, Social Security can pay roughly 77% of scheduled benefits after 2034. With a payroll-cap adjustment on earnings above $400K, it pays full benefits indefinitely. 'Bankrupt' is a scare word the program does not deserve."</p>
+
+  <h3>"Don't you care about future generations who'll inherit this debt?"</h3>
+  <p><strong>Answer:</strong> "Future generations will also inherit the safety net we build, the public investments we make, the climate we leave behind, and the inequality we tolerate. Cutting Medicaid and Social Security to leave a smaller bond market is a strange definition of intergenerational responsibility. The actual generational question is <em>who pays</em> — and the tax cuts the witnesses defended are a transfer from the future to current high-income filers."</p>
+
+  <h3>"You progressive economists were wrong about inflation in 2021 — why should we trust your fiscal judgment now?"</h3>
+  <p><strong>Answer:</strong> "The 2021–2022 inflation surge was global, driven primarily by supply shocks — energy, autos, food, shipping — affecting every advanced economy regardless of fiscal policy. Yes, ARP was on the high end of stimulus, and reasonable economists debated it at the time. But the alternative was the slow recovery of 2009–2015, which left bottom-quintile incomes stagnant for a decade. The autoworkers, retail workers, and construction workers whose real wages rose during 2021–2024 know which choice was right. And inflation has now reaccelerated in 2025 under tariffs — that's a fiscal-policy story this administration owns."</p>
+
+  <h3>"You're criticizing the President's pressure on the Fed, but isn't Fed accountability legitimate?"</h3>
+  <p><strong>Answer:</strong> "Accountability through legislative oversight is legitimate. Criminal investigations into sitting Fed governors and the Chair over monetary-policy disagreements are not. Yale Budget Lab estimates a sustained political-instability premium of even 25 basis points adds significantly to federal debt service. The administration is generating that fiscal cost in real time, while the witnesses warn about long-run deficits. A serious deficit agenda starts with not actively making the deficit worse."</p>
+
+  <h3>"Doesn't taxing capital reduce investment?"</h3>
+  <p><strong>Answer:</strong> "The empirical literature is mixed and effect sizes are small. Capital is highly mobile and largely allocated by global expected returns. Meanwhile, the rate at which capital is taxed in the US is far below labor income, which distorts allocation and is hard to justify on economic grounds. Restoring even modest parity raises significant revenue with limited investment effect."</p>
+
+  <h3>"Aren't you just for raising taxes?"</h3>
+  <p><strong>Answer:</strong> "I'm for raising taxes on the income and wealth that have captured the gains of the last 40 years. The top 1% share of national income has roughly doubled in that window. The bottom 50%'s share has fallen. Restoring something closer to historical tax rates on that captured income isn't 'just raising taxes' — it's basic distributional fairness combined with arithmetic."</p>
+</section>
+
+</div><!-- /tab 3 -->
+
+
+<footer>
+  Hearing preparation notes. Three tabs: anticipated counter-responses to the prepared testimony; cross-cutting themes across the majority witnesses' arguments and a credible alternative package; witness-by-witness substantive engagement. Citations are to publicly available analyses by CBO, OMB, OECD, CBPP, EPI, Tax Policy Center, JCT, MedPAC, CRFB, Brookings, and the peer-reviewed academic literature.
+</footer>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
+      document.querySelectorAll('.tabpanel').forEach(p => p.classList.toggle('active', p.id === target));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
