@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Companion: Acemoglu &amp; Restrepo, The Task Model of the Labor Share</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],
+      tags: 'none'
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+  :root{
+    --ink:#1c1a17;
+    --muted:#5c574f;
+    --faint:#8a8378;
+    --bg:#f7f4ee;
+    --paper:#fffdf8;
+    --rule:#e0dacd;
+    --accent:#7a2e1d;      /* oxblood */
+    --accent-soft:#f0e4de;
+    --blue:#274156;        /* slate blue for secondary accents */
+    --code:#efeadf;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:Charter,"Iowan Old Style",Georgia,"Times New Roman",serif;
+    font-size:18px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+  header.masthead{
+    border-bottom:2px solid var(--ink);
+    margin-top:40px;
+    padding-bottom:18px;
+  }
+  .kicker{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:33px;
+    line-height:1.18;
+    margin:0 0 12px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .dek{
+    color:var(--muted);
+    font-size:19px;
+    margin:0;
+    font-style:italic;
+  }
+  .papers{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:13.5px;
+    color:var(--muted);
+    margin-top:16px;
+    line-height:1.5;
+  }
+  .papers b{color:var(--ink);}
+
+  /* Tabs */
+  nav.tabs{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--rule);
+    margin-top:26px;
+    display:flex;
+    gap:2px;
+  }
+  nav.tabs button{
+    appearance:none;
+    border:none;
+    background:none;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14px;
+    font-weight:600;
+    color:var(--faint);
+    padding:15px 4px;
+    margin-right:26px;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+    letter-spacing:.01em;
+  }
+  nav.tabs button:hover{color:var(--ink);}
+  nav.tabs button.active{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+  nav.tabs .num{
+    color:var(--faint);
+    font-variant-numeric:tabular-nums;
+    margin-right:7px;
+  }
+  nav.tabs button.active .num{color:var(--accent);}
+
+  .panel{display:none;padding:34px 0 90px;}
+  .panel.active{display:block;}
+
+  h2{
+    font-size:25px;
+    font-weight:700;
+    margin:44px 0 6px;
+    letter-spacing:-0.01em;
+  }
+  h2:first-of-type{margin-top:8px;}
+  h3{
+    font-size:19px;
+    font-weight:700;
+    margin:30px 0 4px;
+  }
+  .sub{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:var(--accent);
+    font-weight:600;
+    margin:0 0 14px;
+  }
+  p{margin:0 0 16px;}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft);}
+  a:hover{border-bottom-color:var(--accent);}
+  strong{font-weight:700;}
+  em{font-style:italic;}
+
+  .lede{font-size:19.5px;color:var(--ink);}
+
+  /* Step cards */
+  .step{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--accent);
+    border-radius:3px;
+    padding:22px 26px 8px;
+    margin:22px 0;
+  }
+  .step-head{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.11em;
+    color:var(--accent);
+    margin-bottom:2px;
+  }
+  .step h3{margin-top:2px;}
+
+  .why{
+    background:var(--accent-soft);
+    border-radius:3px;
+    padding:12px 16px;
+    margin:8px 0 18px;
+    font-size:15.5px;
+    line-height:1.55;
+    color:#4a3b34;
+  }
+  .why b{color:var(--accent);}
+
+  .note{
+    border-left:3px solid var(--blue);
+    background:#eef1f3;
+    padding:12px 16px;
+    margin:20px 0;
+    font-size:16px;
+    color:#2b3742;
+    border-radius:2px;
+  }
+
+  .callout{
+    background:#fbf7ee;
+    border:1px solid var(--rule);
+    border-top:3px solid var(--blue);
+    padding:18px 22px 4px;
+    margin:26px 0;
+    border-radius:3px;
+  }
+  .callout .sub{color:var(--blue);}
+
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:9px;}
+
+  code{
+    background:var(--code);
+    padding:1px 5px;
+    border-radius:3px;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:14.5px;
+  }
+
+  .divider{border:none;border-top:1px solid var(--rule);margin:40px 0;}
+
+  .sources{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:14px;
+    line-height:1.5;
+    color:var(--muted);
+  }
+  .sources li{margin-bottom:11px;}
+  .sources a{border-bottom:none;}
+
+  .mjx-overflow{overflow-x:auto;overflow-y:hidden;}
+  mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%;}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:24px 0 60px;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:12.5px;
+    color:var(--faint);
+  }
+  .pill{
+    display:inline-block;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:var(--accent-soft);
+    color:var(--accent);
+    padding:3px 9px;
+    border-radius:10px;
+    margin-right:6px;
+  }
+  @media (max-width:640px){
+    body{font-size:17px;}
+    h1{font-size:27px;}
+    nav.tabs button{margin-right:16px;font-size:13px;}
+    .step{padding:18px 18px 6px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="kicker">Reading Companion</div>
+    <h1>The Task Model of the Labor Share</h1>
+    <p class="dek">Where the 2019 labor-share formula comes from, the argument it settled, and how the AI debate is using it now.</p>
+    <p class="papers">
+      <b>2018 &nbsp;·&nbsp;</b> Acemoglu &amp; Restrepo, &ldquo;The Race between Man and Machine: Implications of Technology for Growth, Factor Shares, and Employment,&rdquo; <i>American Economic Review</i> 108(6): 1488&ndash;1542.<br>
+      <b>2019 &nbsp;·&nbsp;</b> Acemoglu &amp; Restrepo, &ldquo;Automation and New Tasks: How Technology Displaces and Reinstates Labor,&rdquo; <i>Journal of Economic Perspectives</i> 33(2): 3&ndash;30.
+    </p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="active" data-tab="t1"><span class="num">01</span>The Derivation</button>
+    <button data-tab="t2"><span class="num">02</span>The Debate It Entered</button>
+    <button data-tab="t3"><span class="num">03</span>Citations &amp; the AI Turn</button>
+  </nav>
+
+  <!-- ================= TAB 1 ================= -->
+  <section class="panel active" id="t1">
+
+    <p class="lede">The 2019 paper leans on one equation for the labor share of value added. It arrives already assembled. This tab rebuilds it from primitives, the way the 2018 paper sets it up, so every symbol has a job you can trace.</p>
+
+    <p>Here is the target. The share of value added paid to labor is</p>
+
+    \[
+      s_L \;=\; \cfrac{1}{\,1 \;+\; \dfrac{1-\Gamma(I,N)}{\Gamma(I,N)}\left(\dfrac{R/A_K}{\,W/A_L\,}\right)^{1-\sigma}\,}\,.
+    \]
+
+    <p>Everything below is an account of what \(\Gamma\), \(\sigma\), \(I\), \(N\), and the factor-price ratio are, and why they combine this exact way. The nine steps move from the production technology to the finished formula, then to the fuller CES representation and the comparative statics that carry the paper's argument.</p>
+
+    <div class="note">
+      <b>One honesty note on sources.</b> The 2018 <i>AER</i> writes the technology with an extra layer: each task uses a task-specific intermediate \(q(i)\), with its own elasticity \(\zeta\) and share \(\eta\), which lets the model host both automation and directed technical change. The 2019 <i>JEP</i> strips that layer out and says it follows &ldquo;the same steps as in Acemoglu and Restrepo (2018a).&rdquo; The streamlined version below is that stripped-down path. It reproduces the published \(s_L\) exactly, and it is the cleanest way to see the mechanics. Where the 2018 machinery adds something, I flag it.
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 0 &nbsp;·&nbsp; Primitives</div>
+      <h3>Tasks, not capital and labor, are the unit of production</h3>
+      <p>A single final good \(Y\) is assembled from a continuum of tasks indexed by \(z\), running over the interval \([N-1,\,N]\). Fixing the length of that interval at 1 is a normalization: the measure of tasks in use stays at 1, so an increase in \(N\) upgrades the set of tasks rather than simply adding volume. Tasks combine with a constant elasticity of substitution \(\sigma>0\):</p>
+      \[
+        Y=\left(\int_{N-1}^{N} y(z)^{\frac{\sigma-1}{\sigma}}\,dz\right)^{\frac{\sigma}{\sigma-1}}.
+      \]
+      <p>Each task can be made by labor or by capital:</p>
+      \[
+        y(z)=A_L\,\gamma_L(z)\,\ell(z)\quad\text{or}\quad y(z)=A_K\,\gamma_K(z)\,k(z).
+      \]
+      <p>Here \(A_L,A_K\) are factor-augmenting productivities that apply to <i>every</i> task, while \(\gamma_L(z),\gamma_K(z)\) are the task-specific productivities that define comparative advantage. The wage is \(W\), the rental rate of capital is \(R\).</p>
+      <div class="why">
+        <b>Why this matters.</b> The one structural assumption is that \(\gamma_L(z)/\gamma_K(z)\) is increasing in \(z\): labor is relatively better at higher-indexed tasks. That single monotonicity is what makes the task allocation sort cleanly into a capital region and a labor region, with a threshold in between. No sorting assumption, no clean formula.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 1 &nbsp;·&nbsp; The price of a task</div>
+      <h3>Competition sets each task price to its cheapest unit cost</h3>
+      <p>Producing one unit of task \(z\) with labor takes \(1/[A_L\gamma_L(z)]\) units of labor, so it costs \(W/[A_L\gamma_L(z)]\). With capital it costs \(R/[A_K\gamma_K(z)]\). Tasks are sold competitively, so price equals the minimum unit cost:</p>
+      \[
+        p(z)=\min\left\{\frac{W}{A_L\gamma_L(z)},\;\frac{R}{A_K\gamma_K(z)}\right\}.
+      \]
+      <div class="why">
+        <b>Reading the fractions.</b> \(A_L\gamma_L(z)\) is output per worker on task \(z\), so \(W/[A_L\gamma_L(z)]\) is the wage bill per unit of task, the &ldquo;effective cost of labor.&rdquo; Dividing the factor price by productivity is the whole idea of an effective cost: a more productive factor is cheaper per unit of work done, even at the same wage or rental.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 2 &nbsp;·&nbsp; The threshold task</div>
+      <h3>A single cutoff \(I\) splits capital tasks from labor tasks</h3>
+      <p>Labor performs task \(z\) only if it is the cheaper option there, that is, if labor's effective cost is below capital's:</p>
+      \[
+        \frac{W}{A_L\gamma_L(z)}<\frac{R}{A_K\gamma_K(z)}.
+      \]
+      <p>Rearrange to get the productivity terms on one side. Cross-multiply. Every quantity here is positive, so the inequality direction is preserved:</p>
+      \[
+        W\,A_K\,\gamma_K(z) \;<\; R\,A_L\,\gamma_L(z).
+      \]
+      <p>Now divide both sides by \(R\,A_L\,\gamma_K(z)\), again positive so the direction holds:</p>
+      \[
+        \frac{W\,A_K}{R\,A_L} \;<\; \frac{\gamma_L(z)}{\gamma_K(z)}
+        \qquad\text{that is}\qquad
+        \frac{\gamma_L(z)}{\gamma_K(z)}>\frac{W/A_L}{R/A_K}.
+      \]
+      <p>The right-hand side is a fixed number: it holds \(W,R,A_L,A_K\), none of which depend on \(z\). The left-hand side, the comparative-advantage schedule, rises with \(z\) by the Step 0 assumption. A rising curve meets a flat line at most once, so there is a single cutoff \(I\) where the two effective costs are exactly equal:</p>
+      \[
+        \frac{\gamma_L(I)}{\gamma_K(I)}=\frac{W/A_L}{R/A_K}.
+      \]
+      <p>Above \(I\) the ratio exceeds the line, so labor is cheaper; below \(I\) capital is cheaper. Hence tasks \(z\le I\) go to capital and tasks \(z>I\) go to labor. Two technology shifts move the limits of the labor region:</p>
+      <ul>
+        <li><strong>Automation</strong> is a rise in \(I\): the range of tasks capital is <i>allowed</i> to perform expands, the cutoff slides right, and capital annexes tasks labor used to hold.</li>
+        <li><strong>New tasks</strong> are a rise in \(N\): fresh high-index tasks appear at the top, where labor has the advantage, while the lowest task drops out of use.</li>
+      </ul>
+      <div class="why">
+        <b>Why one cutoff and not a scatter.</b> Perfect substitutability inside a task means whichever factor is cheaper takes the whole task, all or nothing. Monotone comparative advantage then forces the winners to be contiguous: capital below \(I\), labor above. That is what lets the paper compress the entire allocation into two numbers, \(I\) and \(N\).
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 3 &nbsp;·&nbsp; Demand for each task</div>
+      <h3>Set up the Lagrangian and solve it line by line</h3>
+      <p>A producer wants to deliver \(Y\) units of final good as cheaply as possible, choosing how much of every task \(y(z)\) to buy at the prices \(p(z)\) from Step 1. That is a constrained minimization:</p>
+      \[
+        \min_{\{y(z)\}}\ \int_{N-1}^{N} p(z)\,y(z)\,dz
+        \qquad\text{subject to}\qquad
+        \left(\int_{N-1}^{N} y(z)^{\frac{\sigma-1}{\sigma}}\,dz\right)^{\frac{\sigma}{\sigma-1}}=Y.
+      \]
+      <p>To keep the exponents readable, abbreviate \(\rho\equiv\frac{\sigma-1}{\sigma}\). Three facts about \(\rho\) get used again and again below, all just algebra:</p>
+      \[
+        \frac{1}{\rho}=\frac{\sigma}{\sigma-1},\qquad 1-\rho=\frac{1}{\sigma},\qquad \rho-1=-\frac{1}{\sigma},\qquad \sigma\rho=\sigma-1.
+      \]
+
+      <p><b>3a. Write the Lagrangian.</b> Attach a multiplier \(\lambda\) to the output constraint:</p>
+      \[
+        \mathcal{L}=\int_{N-1}^{N} p(z)\,y(z)\,dz\;+\;\lambda\left[\,Y-\left(\int_{N-1}^{N} y(z)^{\rho}\,dz\right)^{\frac{1}{\rho}}\,\right].
+      \]
+      <div class="why">
+        <b>Reading the Lagrangian.</b> The first integral is total spending on tasks. The bracket is &ldquo;target output minus output actually produced,&rdquo; which equals zero when the constraint is met. \(\lambda\) is the shadow price of output: the extra task spending needed to raise \(Y\) by one unit. We will find that \(\lambda\) equals the price of the final good.
+      </div>
+
+      <p><b>3b. Differentiate with respect to one task \(y(z)\).</b> Only two pieces of \(\mathcal{L}\) contain \(y(z)\): its own spending term \(p(z)\,y(z)\), which differentiates to \(p(z)\), and the output aggregator inside the bracket. For the aggregator, let \(G\equiv\int y(z)^{\rho}\,dz\), so output is \(G^{1/\rho}\). By the chain rule,</p>
+      \[
+        \frac{\partial\,G^{1/\rho}}{\partial y(z)}=\frac{1}{\rho}\,G^{\frac{1}{\rho}-1}\cdot\frac{\partial G}{\partial y(z)}.
+      \]
+      <p>Inside \(G\), only the value at this one task responds to \(y(z)\), so differentiating under the integral leaves just the derivative of the integrand, \(\partial G/\partial y(z)=\rho\,y(z)^{\rho-1}\). The two \(\rho\)'s cancel:</p>
+      \[
+        \frac{\partial\,G^{1/\rho}}{\partial y(z)}=G^{\frac{1}{\rho}-1}\,y(z)^{\rho-1}.
+      \]
+
+      <p><b>3c. Simplify the exponent using the constraint.</b> On the constraint \(G^{1/\rho}=Y\), so \(G=Y^{\rho}\), which gives \(G^{\frac{1}{\rho}-1}=\left(Y^{\rho}\right)^{\frac{1}{\rho}-1}=Y^{\,1-\rho}=Y^{1/\sigma}\). And \(y(z)^{\rho-1}=y(z)^{-1/\sigma}\). So the marginal contribution of task \(z\) to output is</p>
+      \[
+        \frac{\partial\,G^{1/\rho}}{\partial y(z)}=Y^{1/\sigma}\,y(z)^{-1/\sigma}.
+      \]
+
+      <p><b>3d. Set the derivative to zero and solve for \(y(z)\).</b> The first-order condition \(\partial\mathcal{L}/\partial y(z)=0\) is</p>
+      \[
+        p(z)-\lambda\,Y^{1/\sigma}\,y(z)^{-1/\sigma}=0
+        \qquad\Longrightarrow\qquad
+        p(z)=\lambda\,Y^{1/\sigma}\,y(z)^{-1/\sigma}.
+      \]
+      <p>Isolate \(y(z)\): divide across, then raise both sides to the power \(-\sigma\) (which flips \(y(z)^{-1/\sigma}\) into \(y(z)\)):</p>
+      \[
+        y(z)^{-1/\sigma}=\frac{p(z)}{\lambda\,Y^{1/\sigma}}
+        \qquad\Longrightarrow\qquad
+        y(z)=\left(\frac{p(z)}{\lambda\,Y^{1/\sigma}}\right)^{-\sigma}=\lambda^{\sigma}\,Y\,p(z)^{-\sigma}.
+      \]
+
+      <p><b>3e. Pin down \(\lambda\) with the constraint.</b> Substitute this demand back into \(G^{1/\rho}=Y\). First raise the demand to the power \(\rho\), using \(\sigma\rho=\sigma-1\) so that \(p(z)^{-\sigma\rho}=p(z)^{1-\sigma}\):</p>
+      \[
+        y(z)^{\rho}=\left(\lambda^{\sigma}Y\right)^{\rho}p(z)^{-\sigma\rho}=\left(\lambda^{\sigma}Y\right)^{\rho}p(z)^{\,1-\sigma}.
+      \]
+      <p>Integrate over all tasks and raise to \(1/\rho\):</p>
+      \[
+        Y=\left(\int_{N-1}^{N} y(z)^{\rho}dz\right)^{1/\rho}=\lambda^{\sigma}\,Y\left(\int_{N-1}^{N}p(z)^{1-\sigma}dz\right)^{1/\rho}.
+      \]
+      <p>Cancel \(Y\) from both sides, then solve for \(\lambda\). Note \(-\frac{1}{\sigma\rho}=-\frac{1}{\sigma-1}=\frac{1}{1-\sigma}\):</p>
+      \[
+        \lambda^{\sigma}=\left(\int p^{1-\sigma}\right)^{-1/\rho}
+        \qquad\Longrightarrow\qquad
+        \lambda=\left(\int_{N-1}^{N}p(z)^{1-\sigma}dz\right)^{\frac{1}{1-\sigma}}\equiv P.
+      \]
+      <p>The multiplier is the <b>ideal price index</b> \(P\), the minimum cost of one unit of \(Y\), just as the shadow-price reading in 3a promised. Put \(\lambda=P\) back into the demand from 3d:</p>
+      \[
+        \boxed{\;y(z)=\left(\frac{p(z)}{P}\right)^{-\sigma}Y\;}
+      \]
+
+      <p><b>3f. Turn demand into a revenue share.</b> Multiply price by quantity:</p>
+      \[
+        p(z)\,y(z)=p(z)\left(\frac{p(z)}{P}\right)^{-\sigma}Y=p(z)^{\,1-\sigma}\,P^{\sigma}\,Y.
+      \]
+      <p>As a check, total revenue integrates to \(\int p(z)y(z)\,dz=P^{\sigma}Y\int p^{1-\sigma}dz=P^{\sigma}Y\cdot P^{1-\sigma}=PY\), exactly as it should. Dividing task revenue by total revenue \(PY\), the \(Y\)'s cancel and you are left with a pure share:</p>
+      \[
+        \frac{p(z)\,y(z)}{PY}=\frac{p(z)^{1-\sigma}P^{\sigma}Y}{PY}=\left(\frac{p(z)}{P}\right)^{1-\sigma}.
+      \]
+      <div class="why">
+        <b>What this buys us.</b> Each task's slice of total spending is just its relative price raised to \(1-\sigma\). Cheaper tasks take a bigger slice, and \(\sigma\) sets how much bigger: a task 1 percent cheaper draws \(\sigma\) percent more demand. From here we take the final good as the numeraire, \(P=1\), so value added is \(Y=\int p(z)y(z)\,dz\) and the revenue share is simply \(p(z)^{1-\sigma}\big/\!\int p^{1-\sigma}\).
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 4 &nbsp;·&nbsp; Labor share is the labor tasks' revenue share</div>
+      <h3>With one factor per task, revenue and factor payment coincide</h3>
+      <p>Each task is competitive and uses a single factor. On a labor task, all revenue is the wage bill; on a capital task, all revenue is the capital bill. So total labor payments equal the revenue earned on the labor region \((I,N]\):</p>
+      \[
+        W L=\int_{I}^{N} p(z)\,y(z)\,dz,
+        \qquad
+        R K=\int_{N-1}^{I} p(z)\,y(z)\,dz.
+      \]
+      <p>Dividing labor payments by value added, and using the revenue share from Step 3 with \(P=1\):</p>
+      \[
+        s_L=\frac{WL}{Y}=\frac{\displaystyle\int_{I}^{N} p(z)^{1-\sigma}\,dz}{\displaystyle\int_{N-1}^{N} p(z)^{1-\sigma}\,dz}.
+      \]
+      <div class="why">
+        <b>Why this is the crux.</b> The labor share is now literally the fraction of task revenue that falls in the labor region. Every result in both papers is a statement about how technology moves that region and reprices what is inside it.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 5 &nbsp;·&nbsp; Substitute the prices</div>
+      <h3>Split the integral into a labor block and a capital block</h3>
+      <p>Insert the task prices from Step 1. Take the labor region first, where \(p(z)=W/[A_L\gamma_L(z)]\), and raise it to the power \(1-\sigma\):</p>
+      \[
+        p(z)^{1-\sigma}=\left(\frac{W}{A_L\,\gamma_L(z)}\right)^{1-\sigma}
+        =\left(\frac{W}{A_L}\right)^{1-\sigma}\gamma_L(z)^{-(1-\sigma)}
+        =\left(\frac{W}{A_L}\right)^{1-\sigma}\gamma_L(z)^{\sigma-1}.
+      \]
+      <p>The productivity term flips sign in the exponent, from \(-(1-\sigma)\) to \(\sigma-1\), because \(\gamma_L(z)\) sat in the denominator of the price. The factor-price piece \((W/A_L)^{1-\sigma}\) does not depend on \(z\), so it comes out of the integral:</p>
+      \[
+        \int_{I}^{N} p(z)^{1-\sigma}dz=\left(\frac{W}{A_L}\right)^{1-\sigma}\underbrace{\int_{I}^{N}\gamma_L(z)^{\sigma-1}dz}_{\;\equiv\;B_L}.
+      \]
+      <p>The capital region, with \(p(z)=R/[A_K\gamma_K(z)]\), is identical in form:</p>
+      \[
+        \int_{N-1}^{I} p(z)^{1-\sigma}dz=\left(\frac{R}{A_K}\right)^{1-\sigma}\underbrace{\int_{N-1}^{I}\gamma_K(z)^{\sigma-1}dz}_{\;\equiv\;B_K}.
+      \]
+      <p>Substitute both into the labor share from Step 4. The numerator is the labor region only; the denominator is the whole interval, which is the labor region plus the capital region:</p>
+      \[
+        s_L=\frac{\left(\dfrac{W}{A_L}\right)^{1-\sigma}B_L}{\left(\dfrac{W}{A_L}\right)^{1-\sigma}B_L+\left(\dfrac{R}{A_K}\right)^{1-\sigma}B_K}.
+      \]
+      <div class="why">
+        <b>What \(B_L\) and \(B_K\) hold.</b> \(B_L\) is the labor region's stock of comparative advantage, \(B_K\) the capital region's, each task weighted by \(\gamma^{\sigma-1}\). They depend on \(I\) and \(N\) only through the integration limits, which is exactly the channel automation and new tasks act through.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 6 &nbsp;·&nbsp; Name the task content and finish</div>
+      <h3>Define \(\Gamma\), divide through, done</h3>
+      <p>Now clean up the expression from Step 5. Divide the numerator and the denominator by the numerator itself, \(\left(W/A_L\right)^{1-\sigma}B_L\). The numerator becomes 1, and the denominator becomes 1 plus the second term divided by the first:</p>
+      \[
+        s_L=\cfrac{1}{\,1+\cfrac{\left(R/A_K\right)^{1-\sigma}B_K}{\left(W/A_L\right)^{1-\sigma}B_L}\,}.
+      \]
+      <p>Split that leftover fraction into a factor-price part and a task part. Same-power terms combine into one ratio, and the \(B\)'s form their own ratio:</p>
+      \[
+        \frac{\left(R/A_K\right)^{1-\sigma}}{\left(W/A_L\right)^{1-\sigma}}=\left(\frac{R/A_K}{W/A_L}\right)^{1-\sigma},
+        \qquad
+        \frac{B_K}{B_L}=\frac{B_K/(B_L+B_K)}{B_L/(B_L+B_K)}.
+      \]
+      <p>Define the <strong>labor task content</strong> as the labor region's share of total comparative advantage:</p>
+      \[
+        \Gamma(I,N)\equiv\frac{B_L}{B_L+B_K},\qquad 1-\Gamma(I,N)=\frac{B_K}{B_L+B_K},
+        \qquad\text{so}\qquad
+        \frac{B_K}{B_L}=\frac{1-\Gamma(I,N)}{\Gamma(I,N)}.
+      \]
+      <p>Substitute both groupings back in:</p>
+      \[
+        \boxed{\;s_L=\cfrac{1}{\,1+\dfrac{1-\Gamma(I,N)}{\Gamma(I,N)}\left(\dfrac{R/A_K}{W/A_L}\right)^{1-\sigma}}\;}
+      \]
+      <p>This is the 2019 equation, symbol for symbol.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 7 &nbsp;·&nbsp; The clean special case</div>
+      <h3>When \(\sigma=1\), the task content is just \(\,N-I\)</h3>
+      <p>Set \(\sigma=1\). The exponent \(\sigma-1\) inside \(B_L\) and \(B_K\) becomes zero, so \(\gamma_L(z)^{0}=\gamma_K(z)^{0}=1\), and the integrals collapse to lengths:</p>
+      \[
+        B_L=\int_{I}^{N}1\,dz=N-I,\qquad B_K=\int_{N-1}^{I}1\,dz=I-(N-1).
+      \]
+      <p>Their sum is the full interval length, 1, so</p>
+      \[
+        \Gamma(I,N)=\frac{N-I}{(N-I)+(I-N+1)}=N-I.
+      \]
+      <div class="why">
+        <b>Why economists reach for this.</b> With Cobb-Douglas aggregation the task content is literally the length of the labor region. Automation shrinks it one-for-one (\(\partial\Gamma/\partial I=-1\)); a new task grows it (\(\partial\Gamma/\partial N=+1\)). The general \(\sigma\ne1\) case keeps the same signs, it just weights each task by \(\gamma^{\sigma-1}\).
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 8 &nbsp;·&nbsp; The full CES representation</div>
+      <h3>The same primitives collapse to a CES in \(K\) and \(L\)</h3>
+      <p>The 2019 paper also states output as an aggregate production function. Deriving it takes one more optimization, this time over quantities rather than the labor share. It is worth doing in full, because it shows exactly where the share parameter \(\Gamma\) and the productivity term \(\Pi\) come from. This step is denser than the others; skip to 8f for the payoff if you only want the result.</p>
+
+      <p><b>8a. Split output into two bundles.</b> The task aggregator is an integral, and an integral over \([N-1,N]\) is the integral over the capital region plus the integral over the labor region:</p>
+      \[
+        Y=\left(\int_{N-1}^{N}y(z)^{\rho}dz\right)^{1/\rho}
+        =\left(\underbrace{\int_{N-1}^{I}y(z)^{\rho}dz}_{\;=\;Y_K^{\rho}}\;+\;\underbrace{\int_{I}^{N}y(z)^{\rho}dz}_{\;=\;Y_L^{\rho}}\right)^{1/\rho},
+      \]
+      <p>where we name the two bundles \(Y_L\equiv\left(\int_I^N y^{\rho}dz\right)^{1/\rho}\) and \(Y_K\) the same way over the capital region. So \(Y=\left(Y_K^{\rho}+Y_L^{\rho}\right)^{1/\rho}\) exactly, no approximation: a CES aggregator nests inside itself at the same elasticity \(\sigma\).</p>
+
+      <p><b>8b. Allocate labor across the labor tasks.</b> Total labor \(L\) has to be split among tasks \(z\in(I,N]\) to make the labor bundle \(Y_L\) as large as possible. Using \(y(z)=A_L\gamma_L(z)\ell(z)\), the problem is</p>
+      \[
+        \max_{\{\ell(z)\}}\left(\int_{I}^{N}\big(A_L\gamma_L(z)\,\ell(z)\big)^{\rho}dz\right)^{1/\rho}
+        \qquad\text{s.t.}\qquad \int_{I}^{N}\ell(z)\,dz=L.
+      \]
+      <p>Maximizing \(Y_L\) is the same as maximizing \(Y_L^{\rho}\), a monotone transform, so work with the inside integral and attach a multiplier \(\mu\):</p>
+      \[
+        \mathcal{L}=\int_{I}^{N}\big(A_L\gamma_L(z)\,\ell(z)\big)^{\rho}dz+\mu\left(L-\int_{I}^{N}\ell(z)\,dz\right).
+      \]
+
+      <p><b>8c. First-order condition.</b> Differentiate with respect to \(\ell(z)\). Inside the integral only the term at \(z\) responds, giving</p>
+      \[
+        \rho\,\big(A_L\gamma_L(z)\big)^{\rho}\,\ell(z)^{\rho-1}-\mu=0
+        \qquad\Longrightarrow\qquad
+        \ell(z)^{\rho-1}=\frac{\mu}{\rho\,\big(A_L\gamma_L(z)\big)^{\rho}}.
+      \]
+      <p>Raise both sides to \(1/(\rho-1)\) and gather everything that does not depend on \(z\) into a constant \(\kappa\). The exponent on \(A_L\gamma_L(z)\) becomes \(-\rho/(\rho-1)=\rho/(1-\rho)=\sigma-1\):</p>
+      \[
+        \ell(z)=\kappa\,\big(A_L\gamma_L(z)\big)^{\sigma-1},\qquad \kappa\equiv\left(\frac{\mu}{\rho}\right)^{\frac{1}{\rho-1}}.
+      \]
+      <div class="why">
+        <b>What this says.</b> More labor is sent to tasks where labor is more productive, and \(\sigma\) governs how sharply. It is the same demand logic as Step 3, now applied within the labor region.
+      </div>
+
+      <p><b>8d. Use the labor constraint to fix \(\kappa\).</b> Plug the allocation into \(\int_I^N\ell(z)\,dz=L\), pulling the constant \(A_L^{\sigma-1}\) out of the integral:</p>
+      \[
+        \int_{I}^{N}\kappa\,\big(A_L\gamma_L(z)\big)^{\sigma-1}dz=\kappa\,A_L^{\sigma-1}\underbrace{\int_{I}^{N}\gamma_L(z)^{\sigma-1}dz}_{=\,B_L}=L
+        \;\Longrightarrow\;
+        \kappa=\frac{L}{A_L^{\sigma-1}B_L}.
+      \]
+
+      <p><b>8e. Compute the bundle \(Y_L\).</b> With the allocation in hand, each task's output is \(y(z)=A_L\gamma_L(z)\,\ell(z)=\kappa\,\big(A_L\gamma_L(z)\big)^{\sigma}\), so \(y(z)^{\rho}=\kappa^{\rho}A_L^{\sigma-1}\gamma_L(z)^{\sigma-1}\) (using \(\sigma\rho=\sigma-1\) once more). Integrating and raising to \(1/\rho\):</p>
+      \[
+        Y_L=\left(\int_I^N y(z)^{\rho}dz\right)^{1/\rho}=\left(\kappa^{\rho}A_L^{\sigma-1}B_L\right)^{1/\rho}=\kappa\,\left(A_L^{\sigma-1}B_L\right)^{1/\rho}.
+      \]
+      <p>Substitute \(\kappa=L/(A_L^{\sigma-1}B_L)\) and use \(\tfrac{1}{\rho}-1=\tfrac{1}{\sigma-1}\):</p>
+      \[
+        Y_L=\frac{L}{A_L^{\sigma-1}B_L}\left(A_L^{\sigma-1}B_L\right)^{1/\rho}=L\left(A_L^{\sigma-1}B_L\right)^{\frac{1}{\sigma-1}}=A_L\,L\,B_L^{\frac{1}{\sigma-1}}.
+      \]
+      <p>The identical argument on the capital region gives \(Y_K=A_K\,K\,B_K^{\frac{1}{\sigma-1}}\).</p>
+
+      <p><b>8f. Reassemble and factor.</b> Put the bundles back into \(Y=\left(Y_K^{\rho}+Y_L^{\rho}\right)^{1/\rho}\). Since \(\left(B_L^{1/(\sigma-1)}\right)^{\rho}=B_L^{\rho/(\sigma-1)}=B_L^{1/\sigma}\),</p>
+      \[
+        Y=\left(B_L^{1/\sigma}(A_L L)^{\rho}+B_K^{1/\sigma}(A_K K)^{\rho}\right)^{1/\rho}.
+      \]
+      <p>Factor \((B_L+B_K)^{1/\sigma}\) out of both terms, writing \(B_L^{1/\sigma}=\Gamma^{1/\sigma}(B_L+B_K)^{1/\sigma}\) and \(B_K^{1/\sigma}=(1-\Gamma)^{1/\sigma}(B_L+B_K)^{1/\sigma}\). The pulled-out piece raises to \((B_L+B_K)^{\frac{1}{\sigma\rho}}=(B_L+B_K)^{\frac{1}{\sigma-1}}\), which is precisely the TFP term:</p>
+      \[
+        Y=\Pi(I,N)\left(\Gamma^{\frac{1}{\sigma}}(A_L L)^{\frac{\sigma-1}{\sigma}}+(1-\Gamma)^{\frac{1}{\sigma}}(A_K K)^{\frac{\sigma-1}{\sigma}}\right)^{\frac{\sigma}{\sigma-1}},
+      \]
+      \[
+        \Gamma=\frac{B_L}{B_L+B_K},\qquad \Pi(I,N)=(B_L+B_K)^{\frac{1}{\sigma-1}}.
+      \]
+      <div class="why">
+        <b>Two knobs, two jobs.</b> \(\Gamma\) is the CES share parameter, and it is not a taste, it is technology: the allocation of tasks to factors. \(\Pi\) is total factor productivity, and it also moves with \(I\) and \(N\), because reallocating tasks toward cheaper factors raises output. That is the <b>productivity effect</b>. The derived elasticity of substitution between capital and labor is exactly \(\sigma\), the elasticity across tasks. As a check, feeding this CES into the marginal-product definition of the wage \(W=\partial Y/\partial L\) reproduces the same \(s_L\) as Steps 1&ndash;6.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Step 9 &nbsp;·&nbsp; Read the comparative statics</div>
+      <h3>Displacement, reinstatement, and the sign of \(\sigma-1\)</h3>
+      <p>The formula now does the work the papers ask of it.</p>
+      <ul>
+        <li><strong>Automation lowers the labor share.</strong> A rise in \(I\) moves tasks from the labor block \(B_L\) to the capital block \(B_K\), so \(\Gamma\) falls, \((1-\Gamma)/\Gamma\) rises, and \(s_L\) falls. This is the <b>displacement effect</b>, and it holds even though \(\Pi\) rises. Automation always cuts the labor share of value added.</li>
+        <li><strong>New tasks raise it.</strong> A rise in \(N\) adds to \(B_L\), lifts \(\Gamma\), and pushes \(s_L\) back up. This is the <b>reinstatement effect</b>, the exact mirror image.</li>
+        <li><strong>Factor prices act through \(\sigma\).</strong> Estimates put \(\sigma\) below 1 (the paper uses \(\sigma=0.8\) from Oberfield and Raval). Then \(1-\sigma>0\), capital and labor are gross complements, and cheaper effective capital (a fall in \(R/A_K\)) <i>raises</i> the labor share. The <b>substitution effect</b> from factor-augmenting technology is therefore small, which is why the paper argues the labor-share story has to run through the task content \(\Gamma\), not through prices alone.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <div class="sub">The one-paragraph version</div>
+      <p style="margin-bottom:16px;">The labor share is the share of task revenue earned where labor works. Technology changes it two ways that ordinary factor-augmenting progress cannot: automation ( \(I\uparrow\) ) hands tasks to capital and mechanically shrinks \(\Gamma\); new tasks ( \(N\uparrow\) ) hand fresh tasks to labor and grow it. Prices matter only weakly because \(\sigma<1\). That is the entire engine behind &ldquo;automation reduces the labor share&rdquo; and &ldquo;the future of work depends on the race between displacement and reinstatement.&rdquo;</p>
+    </div>
+
+  </section>
+
+  <!-- ================= TAB 2 ================= -->
+  <section class="panel" id="t2">
+
+    <p class="lede">By 2018 the profession had a pile of facts it could not fit into the standard model. The task framework was built to hold them. To see why it landed, start with what was breaking.</p>
+
+    <h2>The facts that needed a home</h2>
+    <p>Three stylized facts were pressing on labor economics in the mid-2010s. The US labor share of income had fallen from roughly the mid-60s in percentage terms to the high-50s, and Karabarbounis and Neiman had shown in 2014 that the decline was global, not a US quirk. Median wages had grown far slower than productivity since around 1980, opening the &ldquo;productivity-pay gap.&rdquo; And the wage structure had polarized: strong growth at the top and bottom, hollowing in the middle, which Autor, Levy, and Murnane (2003) had linked to the automation of routine tasks.</p>
+
+    <p>None of these sits comfortably in the canonical model. Write output as \(Y=F(A_K K,\,A_L L)\) with only factor-augmenting technical change. With an elasticity of substitution below 1, which is what the data suggest, capital-augmenting progress <i>raises</i> the labor share and labor-augmenting progress barely moves it. The canonical model's built-in presumption is that technology, by raising productivity, raises labor demand. A falling labor share alongside rising productivity is exactly what it struggles to produce.</p>
+
+    <div class="note">
+      This is the gap the two papers target. Their claim is not that the canonical model is wrong arithmetic, it is that it hides the margin that actually moves, the allocation of tasks to factors, inside a fixed production function. Open that black box and a falling labor share during productivity growth becomes the expected case, not an anomaly.</p>
+    </div>
+
+    <h2>What the framework answered</h2>
+    <p>The papers made four claims that the older setup could not cleanly deliver.</p>
+
+    <h3>Productivity growth need not lift labor demand</h3>
+    <p>Automation raises output while cutting the labor share, through the displacement effect derived in Tab 1. Whether workers gain depends on whether the productivity effect outweighs displacement. The paper coins <strong>so-so technologies</strong> for automation that displaces workers while delivering only small productivity gains, self-checkout and automated phone menus being the stock examples. So-so technology is the case where automation is unambiguously bad for labor, and the canonical model has no room for it.</p>
+
+    <h3>The labor share has a task-content driver, not just a price driver</h3>
+    <p>Decompose changes in the labor share and you get a substitution effect (factor prices moving along a fixed technology) plus a change in the task content of production. Because \(\sigma<1\), the substitution channel is weak, so most of the action has to be task content. This reframed the labor-share debate as a debate about \(\Gamma\).</p>
+
+    <h3>New tasks are a first-class force, not a footnote</h3>
+    <p>The reinstatement effect gave the optimistic side of the ledger a formal home. History kept the labor share roughly stable for a century not because automation was gentle but because new tasks kept arriving to counterbalance it. This is the &ldquo;man versus machine&rdquo; framing of the 2018 title: labor stays relevant as long as new-task creation keeps pace with automation, which is exactly the comparison horses lost.</p>
+
+    <h3>Stagnant wage growth follows mechanically</h3>
+    <p>Since displacement holds down the labor share, wages grow slower than productivity by construction whenever automation runs ahead of reinstatement. The productivity-pay gap stops being a puzzle and becomes a prediction.</p>
+
+    <h2>How it sat next to the competing explanations</h2>
+    <p>Four camps were offering accounts of the falling labor share around 2018. The task framework did not dismiss them so much as absorb some and pick a fight with others.</p>
+
+    <ul>
+      <li><strong>The relative price of capital</strong> (Karabarbounis&ndash;Neiman, 2014). Cheaper investment goods induce substitution toward capital. This is a substitution-effect story, and the task papers argue that with \(\sigma<1\) it is too weak to carry the decline on its own.</li>
+      <li><strong>Superstar firms and market power</strong> (Autor, Dorn, Katz, Patterson, Van Reenen, 2020; De Loecker &amp; Eeckhout on markups). The labor share falls because activity concentrates in low-labor-share, high-markup firms. This is a genuine rival: it locates the decline in reallocation and rents rather than task displacement. The framework's <b>composition effect</b> partly speaks to it, but the underlying mechanism differs.</li>
+      <li><strong>Globalization and the China shock</strong> (Autor&ndash;Dorn&ndash;Hanson). Trade exposure hit manufacturing employment hard. The task papers treat this as complementary rather than competing, and it shows up empirically as part of the composition effect.</li>
+      <li><strong>Automation and routine-biased technical change.</strong> This is the camp the task framework formalizes and extends, giving Autor&ndash;Levy&ndash;Murnane routinization a general-equilibrium engine with endogenous factor prices and, crucially, new tasks.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="sub">Intellectual lineage</div>
+      <p style="margin-bottom:16px;">The task apparatus is not new to 2018. Zeira (1998) modeled growth as the sequential automation of tasks; Acemoglu and Autor (2011) built the task-based account of the wage structure; Autor, Levy, and Murnane (2003) supplied the routine-task hypothesis. The 2018 and 2019 papers' contribution is to close the model: endogenous factor prices, a productivity effect, and an explicit reinstatement margin, all reducible to the single labor-share equation in Tab 1.</p>
+    </div>
+
+    <h2>The empirical companion</h2>
+    <p>The theory arrived with reduced-form evidence attached. &ldquo;Robots and Jobs&rdquo; (Acemoglu &amp; Restrepo, <i>JPE</i> 2020) used variation across US commuting zones and estimated that one additional robot per thousand workers lowered the employment-to-population ratio by about 0.2 percentage points and wages by about 0.42 percent, with no differential pre-trends before 1990. It was among the first credible causal estimates of automation's local labor-market bite, and it gave the framework empirical teeth in the contemporary debate.</p>
+
+    <h2>The pushback at the time</h2>
+    <p>The framework was influential immediately, but not uncontested. Three objections recurred. First, whether the labor-share decline is really automation or mainly market power and reallocation, the superstar-firm critique. Second, whether \(\sigma\) can be pinned down well enough to separate the substitution effect from task content, since the paper concedes the relevant aggregate elasticity cannot be estimated from aggregate data. Third, whether measuring the change in task content as a residual, whatever the labor share does beyond the substitution effect, risks attributing to &ldquo;automation&rdquo; anything the model leaves out. Those three threads carry directly into the AI-era debate in Tab 3.</p>
+
+  </section>
+
+  <!-- ================= TAB 3 ================= -->
+  <section class="panel" id="t3">
+
+    <p class="lede">A decade on, the vocabulary won. &ldquo;Displacement,&rdquo; &ldquo;reinstatement,&rdquo; &ldquo;task content,&rdquo; and &ldquo;so-so technology&rdquo; are now default terms. What remains contested is whether the framework's cautious reading of AI is right, and whether its central object can be measured at all.</p>
+
+    <h2>How it gets used now</h2>
+    <p>The framework became the standard toolkit for thinking about technology and labor demand, and the authors kept building on it. &ldquo;Tasks, Automation, and the Rise in US Wage Inequality&rdquo; (<i>Econometrica</i>, 2022) used the same machinery to attribute a large share, on the order of half to three-quarters, of changes in the US wage structure between 1980 and 2016 to automation-driven task displacement, concentrated among workers who specialized in routine tasks. &ldquo;Tasks at Work&rdquo; (Acemoglu, Kong &amp; Restrepo, 2024) consolidates the comparative-advantage apparatus. The equation in Tab 1 is the common spine.</p>
+
+    <p>The most important friendly extension is Autor, Chin, Salomons, and Seegmiller, &ldquo;New Frontiers: The Origins and Content of New Work, 1940&ndash;2018&rdquo; (<i>QJE</i>, 2024). It does empirically what the framework only posited: it measures new work, using eight decades of new job titles linked to census microdata and patents. The findings both validate and complicate the theory. Most current employment is in specialties that did not exist in 1940, confirming that reinstatement is real and large. But the locus of new work shifted, from middle-paid production and clerical jobs before 1980 to high-paid professional and low-paid service work after, and augmentation innovations reinstate labor while automation innovations displace it. Reinstatement is genuine, but it has not been distributed in a way that protects the middle.</p>
+
+    <h2>The AI turn</h2>
+    <p>The framework's sharpest recent use is Acemoglu's &ldquo;The Simple Macroeconomics of AI&rdquo; (2024), which applies the productivity effect of Tab 1 directly to generative AI. The logic is a Hulten-style accounting identity: the total-factor-productivity gain equals the share of tasks AI can do times the average cost saving on those tasks.</p>
+
+    <div class="callout">
+      <div class="sub">Acemoglu's AI arithmetic</div>
+      <p>Roughly 20 percent of US labor tasks are exposed to AI; of those, about 23 percent can be automated cost-effectively within a decade; average cost savings run near 27 percent. Multiplying through yields a TFP gain of about 0.53 to 0.66 percent <i>total</i> over ten years, or under 0.07 percent a year, with a GDP effect near 1 percent. In his reading, much of frontier AI is a so-so technology: it displaces without delivering commensurate productivity.</p>
+    </div>
+
+    <p>This is the same productivity-effect calculation from Step 8, now doing forecasting rather than accounting. It is also the most contested claim in the current debate.</p>
+
+    <h2>What economists value</h2>
+    <ul>
+      <li><strong>It opens the black box.</strong> Modeling production as tasks allocated by comparative advantage lets substitution and complementarity be reasoned about directly, instead of hiding in an aggregate elasticity.</li>
+      <li><strong>It is disciplined about optimism.</strong> The result that productivity growth need not raise labor demand, and that so-so automation can lower it, is a genuine correction to the reflexive view that technology always lifts wages eventually.</li>
+      <li><strong>It generates testable structure.</strong> The wage-inequality and labor-share predictions have held up reasonably well in subsequent work, and the displacement-versus-reinstatement decomposition organizes an enormous empirical literature.</li>
+      <li><strong>The language is portable.</strong> So-so technology, task content, and reinstatement now structure how policymakers and other economists frame AI, which is itself a marker of the framework's success.</li>
+    </ul>
+
+    <h2>Where the skepticism concentrates, especially on AI</h2>
+
+    <h3>Task content is measured as a residual</h3>
+    <p>In the empirical decomposition, the change in task content is whatever the labor share does <i>beyond</i> the substitution effect. That makes it a residual, and residuals absorb everything the model omits: markups, mismeasured capital, intangibles, rents. Critics from the market-power camp (the superstar-firm and markup literature, with Hubmer and Restrepo attempting a bridge) argue this loads reallocation and rents onto &ldquo;automation.&rdquo; The identification of the mechanism, as opposed to the accounting, is the recurring worry.</p>
+
+    <h3>Everything runs through \(\sigma\), which is hard to pin down</h3>
+    <p>The split between substitution and task content depends on the elasticity, and the paper itself notes that the relevant aggregate \(\sigma\) cannot be estimated from aggregate data. Results are sensitive to the choice, and the convenient values (\(\sigma=0.8\), or the Cobb-Douglas case) are doing real work in the conclusions.</p>
+
+    <h3>Reinstatement is exogenous</h3>
+    <p>The framework says new tasks matter enormously but does not endogenously predict when or where they arrive. New-task creation enters as a shift in \(N\). For historical accounting this is fine. For forecasting AI it is the whole ballgame, because the optimistic case is precisely that AI creates and augments faster than it displaces, and the model cannot rule that in or out from its own structure. This is the crux of the disagreement with Autor's more hopeful reading, in which AI could rebuild middle-skill work by extending expertise to more workers.</p>
+
+    <h3>The AI productivity estimate is the live fight</h3>
+    <p>&ldquo;The Simple Macroeconomics of AI&rdquo; drew immediate objections. The estimate focuses on extensive-margin automation and largely sets aside three channels the framework itself recognizes: deepening of existing automation, creation of new tasks, and acceleration of scientific discovery. Critics also note that it extrapolates exposure and cost-saving numbers from GPT-3.5 and GPT-4-era studies across a full decade, which may understate capability growth. Skeptics of the skeptic (Brynjolfsson and others on the optimistic side, and various commentators arguing the so-so characterization misreads frontier models) think the 1-percent GDP figure is too low. Whether frontier AI is a so-so technology or a general-purpose one is genuinely unsettled as of 2025, and the framework can accommodate either answer depending on how \(I\), \(N\), and the cost savings are filled in.</p>
+
+    <h3>Aggregation and the empirical base</h3>
+    <p>Two smaller threads persist. The single-sector CES-in-tasks abstracts from reallocation across firms and sectors, which the composition effect only partly restores. And the reduced-form robot estimates have been debated, with studies in other countries (for instance Dauth and coauthors on Germany) finding less negative or even offsetting effects, which bears on how much of the US result is about robots specifically versus local exposure.</p>
+
+    <div class="callout">
+      <div class="sub">Where the debate stands</div>
+      <p style="margin-bottom:16px;">The framework's <i>concepts</i> are now consensus infrastructure. Its <i>magnitudes</i> for AI are not. The unresolved question is the one the model deliberately leaves open: will reinstatement and genuine productivity gains keep pace with displacement, or is much of AI so-so automation that raises output modestly while eroding the labor share? Acemoglu reads the near term pessimistically, Autor more hopefully on augmentation, and the industry-facing optimists more bullishly still. All three are, revealingly, arguing inside the same task-based language.</p>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+  <h2 style="font-size:20px;">Sources</h2>
+  <ol class="sources">
+    <li>Acemoglu &amp; Restrepo (2018), &ldquo;The Race between Man and Machine,&rdquo; <i>AER</i> 108(6). <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20160696">aeaweb.org</a></li>
+    <li>Acemoglu &amp; Restrepo (2019), &ldquo;Automation and New Tasks,&rdquo; <i>JEP</i> 33(2): 3&ndash;30. <a href="https://www.aeaweb.org/articles?id=10.1257/jep.33.2.3">aeaweb.org</a></li>
+    <li>Acemoglu &amp; Restrepo (2020), &ldquo;Robots and Jobs: Evidence from US Labor Markets,&rdquo; <i>JPE</i> 128(6). <a href="https://www.journals.uchicago.edu/doi/abs/10.1086/705716">journals.uchicago.edu</a></li>
+    <li>Acemoglu &amp; Restrepo (2022), &ldquo;Tasks, Automation, and the Rise in US Wage Inequality,&rdquo; <i>Econometrica</i> 90(5). <a href="https://economics.mit.edu/sites/default/files/2022-10/Tasks%20Automation%20and%20the%20Rise%20in%20US%20Wage%20Inequality.pdf">economics.mit.edu (PDF)</a></li>
+    <li>Acemoglu (2024), &ldquo;The Simple Macroeconomics of AI,&rdquo; NBER WP 32487. <a href="https://www.nber.org/papers/w32487">nber.org</a> · <a href="https://economics.mit.edu/sites/default/files/2024-05/The%20Simple%20Macroeconomics%20of%20AI.pdf">PDF</a></li>
+    <li>Acemoglu, Kong &amp; Restrepo (2024), &ldquo;Tasks at Work: Comparative Advantage, Technology and Labor Demand,&rdquo; NBER WP 32872. <a href="https://www.nber.org/system/files/working_papers/w32872/w32872.pdf">nber.org (PDF)</a></li>
+    <li>Autor, Chin, Salomons &amp; Seegmiller (2024), &ldquo;New Frontiers: The Origins and Content of New Work, 1940&ndash;2018,&rdquo; <i>QJE</i> 139(3). <a href="https://academic.oup.com/qje/article-abstract/139/3/1399/7630187">QJE</a> · <a href="https://www.nber.org/papers/w30389">NBER</a></li>
+    <li>Autor, Dorn, Katz, Patterson &amp; Van Reenen (2020), &ldquo;The Fall of the Labor Share and the Rise of Superstar Firms,&rdquo; <i>QJE</i> 135(2).</li>
+    <li>Karabarbounis &amp; Neiman (2014), &ldquo;The Global Decline of the Labor Share,&rdquo; <i>QJE</i> 129(1). <a href="https://www.aeaweb.org/content/file?id=14039">related evidence (PDF)</a></li>
+    <li>Acemoglu &amp; Autor (2011), &ldquo;Skills, Tasks and Technologies,&rdquo; <i>Handbook of Labor Economics</i>; Autor, Levy &amp; Murnane (2003), <i>QJE</i> 118(4); Zeira (1998), <i>QJE</i> 113(4).</li>
+    <li>Oberfield &amp; Raval (2014/2021), estimates of the capital&ndash;labor elasticity of substitution used for \(\sigma\approx0.8\).</li>
+    <li>Critical commentary on the AI estimate: M. Tabarrok, &ldquo;Contra Acemoglu on AI.&rdquo; <a href="https://www.maximum-progress.com/p/contra-acemoglu-on-ai">maximum-progress.com</a></li>
+  </ol>
+
+  <footer>
+    <span class="pill">Reading companion</span>
+    Derivations reconstructed from Acemoglu &amp; Restrepo (2018 AER, 2019 JEP). The labor-share equation and CES representation reproduce the published forms exactly; the streamlined derivation drops the 2018 intermediate-goods layer (\(q(i),\,\zeta,\,\eta\)) as the 2019 paper does. Interpretive claims in Tabs 2&ndash;3 are sourced above.
+  </footer>
+</div>
+
+<script>
+  const btns = document.querySelectorAll('nav.tabs button');
+  const panels = document.querySelectorAll('.panel');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+    window.scrollTo({top:0, behavior:'instant'});
+    if (window.MathJax && MathJax.typesetPromise) { MathJax.typesetPromise(); }
+  }));
+</script>
+</body>
+</html>
