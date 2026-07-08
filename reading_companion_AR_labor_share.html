@@ -265,8 +265,9 @@
 
   <nav class="tabs" role="tablist">
     <button class="active" data-tab="t1"><span class="num">01</span>The Derivation</button>
-    <button data-tab="t2"><span class="num">02</span>The Debate It Entered</button>
-    <button data-tab="t3"><span class="num">03</span>Citations &amp; the AI Turn</button>
+    <button data-tab="tai"><span class="num">02</span>The Labor Share under AI</button>
+    <button data-tab="t2"><span class="num">03</span>The Debate It Entered</button>
+    <button data-tab="t3"><span class="num">04</span>Citations &amp; the AI Turn</button>
   </nav>
 
   <!-- ================= TAB 1 ================= -->
@@ -280,10 +281,10 @@
       s_L \;=\; \cfrac{1}{\,1 \;+\; \dfrac{1-\Gamma(I,N)}{\Gamma(I,N)}\left(\dfrac{R/A_K}{\,W/A_L\,}\right)^{1-\sigma}\,}\,.
     \]
 
-    <p>Everything below is an account of what \(\Gamma\), \(\sigma\), \(I\), \(N\), and the factor-price ratio are, and why they combine this exact way. The nine steps move from the production technology to the finished formula, then to the fuller CES representation and the comparative statics that carry the paper's argument.</p>
+    <p>Everything below is an account of what \(\Gamma\), \(\sigma\), \(I\), \(N\), and the factor-price ratio are, and why they combine this exact way. The ten steps (0 through 9) move from the production technology to the finished formula, then to the fuller CES representation and the comparative statics that carry the paper's argument.</p>
 
     <div class="note">
-      <b>One honesty note on sources.</b> The 2018 <i>AER</i> writes the technology with an extra layer: each task uses a task-specific intermediate \(q(i)\), with its own elasticity \(\zeta\) and share \(\eta\), which lets the model host both automation and directed technical change. The 2019 <i>JEP</i> strips that layer out and says it follows &ldquo;the same steps as in Acemoglu and Restrepo (2018a).&rdquo; The streamlined version below is that stripped-down path. It reproduces the published \(s_L\) exactly, and it is the cleanest way to see the mechanics. Where the 2018 machinery adds something, I flag it.
+      <b>One honesty note on sources.</b> The 2018 <i>AER</i> writes the technology with an extra layer: each task uses a task-specific intermediate \(q(i)\), with its own elasticity \(\zeta\) and share \(\eta\), which lets the model host both automation and directed technical change. The 2019 <i>JEP</i> strips that layer out and says it follows &ldquo;the same steps as in Acemoglu and Restrepo (2018a).&rdquo; The streamlined version below is that stripped-down path. It reproduces the published \(s_L\) exactly, and it is the cleanest way to see the mechanics. Where the 2018 machinery adds something, I flag it. One further simplification in the 2018 baseline: capital there has the <i>same</i> productivity in every task, so only labor gets a task-specific \(\gamma(i)\). Writing both \(\gamma_L(z)\) and \(\gamma_K(z)\), as below, is the more general form the authors use in later work (e.g., the 2022 <i>Econometrica</i> paper); nothing in the derivation changes, and setting \(\gamma_K\equiv 1\) recovers the 2018 setup.
     </div>
 
     <div class="step">
@@ -332,17 +333,23 @@
         \qquad\text{that is}\qquad
         \frac{\gamma_L(z)}{\gamma_K(z)}>\frac{W/A_L}{R/A_K}.
       \]
-      <p>The right-hand side is a fixed number: it holds \(W,R,A_L,A_K\), none of which depend on \(z\). The left-hand side, the comparative-advantage schedule, rises with \(z\) by the Step 0 assumption. A rising curve meets a flat line at most once, so there is a single cutoff \(I\) where the two effective costs are exactly equal:</p>
+      <p>The right-hand side is a fixed number: it holds \(W,R,A_L,A_K\), none of which depend on \(z\). The left-hand side, the comparative-advantage schedule, rises with \(z\) by the Step 0 assumption. A rising curve meets a flat line at most once, so there is a single <i>cost cutoff</i>, call it \(\tilde I\), where the two effective costs are exactly equal:</p>
       \[
-        \frac{\gamma_L(I)}{\gamma_K(I)}=\frac{W/A_L}{R/A_K}.
+        \frac{\gamma_L(\tilde I)}{\gamma_K(\tilde I)}=\frac{W/A_L}{R/A_K}.
       \]
-      <p>Above \(I\) the ratio exceeds the line, so labor is cheaper; below \(I\) capital is cheaper. Hence tasks \(z\le I\) go to capital and tasks \(z>I\) go to labor. Two technology shifts move the limits of the labor region:</p>
+      <p>Above \(\tilde I\) the ratio exceeds the line, so labor is cheaper; below \(\tilde I\) capital is cheaper.</p>
+      <p><b>One distinction the papers are careful about, worth keeping straight.</b> \(\tilde I\) is a <i>price</i> object: it moves whenever \(W\), \(R\), \(A_L\), or \(A_K\) move. It is not the same thing as the technology. In the papers, \(I\) denotes the <b>automation frontier</b>: tasks \(z\le I\) are the ones capital is technologically <i>able</i> to perform at all, while tasks \(z>I\) can only be done by labor no matter what prices are. Capital therefore ends up doing a task only if it is both allowed to (\(z\le I\)) and cheaper (\(z\le\tilde I\)), so the equilibrium cutoff is</p>
+      \[
+        I^{*}=\min\{I,\;\tilde I\,\}.
+      \]
+      <p>The 2018 paper writes exactly this (its equation for the threshold task); the 2019 paper simply assumes the interesting case, that automation is cost-effective wherever it is feasible, \(I &lt; \tilde I\), so the binding constraint is technology and \(I^{*}=I\). That assumption is what licenses reading &ldquo;a rise in \(I\)&rdquo; as a technology shock rather than a price movement, and it is why the comparative statics in Step 9 treat \(I\) as exogenous. The other case, \(\tilde I &lt; I\), is economically meaningful too: automation technology exists but sits unused because labor is still cheaper at the margin. That adoption margin is where installation costs, factor prices, and (later, for AI) inference costs decide whether feasible automation actually happens.</p>
+      <p>With the cost-effectiveness assumption in hand, tasks \(z\le I\) go to capital and tasks \(z>I\) go to labor. Two technology shifts move the limits of the labor region:</p>
       <ul>
         <li><strong>Automation</strong> is a rise in \(I\): the range of tasks capital is <i>allowed</i> to perform expands, the cutoff slides right, and capital annexes tasks labor used to hold.</li>
         <li><strong>New tasks</strong> are a rise in \(N\): fresh high-index tasks appear at the top, where labor has the advantage, while the lowest task drops out of use.</li>
       </ul>
       <div class="why">
-        <b>Why one cutoff and not a scatter.</b> Perfect substitutability inside a task means whichever factor is cheaper takes the whole task, all or nothing. Monotone comparative advantage then forces the winners to be contiguous: capital below \(I\), labor above. That is what lets the paper compress the entire allocation into two numbers, \(I\) and \(N\).
+        <b>Why one cutoff and not a scatter.</b> Perfect substitutability inside a task means whichever factor is cheaper takes the whole task, all or nothing. Monotone comparative advantage then forces the winners to be contiguous: capital below the cutoff, labor above. That is what lets the paper compress the entire allocation into two numbers, \(I\) and \(N\).
       </div>
     </div>
 
@@ -388,11 +395,15 @@
         \qquad\Longrightarrow\qquad
         p(z)=\lambda\,Y^{1/\sigma}\,y(z)^{-1/\sigma}.
       \]
-      <p>Isolate \(y(z)\): divide across, then raise both sides to the power \(-\sigma\) (which flips \(y(z)^{-1/\sigma}\) into \(y(z)\)):</p>
+      <p>Isolate \(y(z)\) in two moves. First divide both sides by \(\lambda\,Y^{1/\sigma}\) to get the \(y\) term alone:</p>
       \[
-        y(z)^{-1/\sigma}=\frac{p(z)}{\lambda\,Y^{1/\sigma}}
-        \qquad\Longrightarrow\qquad
-        y(z)=\left(\frac{p(z)}{\lambda\,Y^{1/\sigma}}\right)^{-\sigma}=\lambda^{\sigma}\,Y\,p(z)^{-\sigma}.
+        y(z)^{-1/\sigma}=\frac{p(z)}{\lambda\,Y^{1/\sigma}}.
+      \]
+      <p>Then raise both sides to the power \(-\sigma\). On the left the exponents multiply out to one, \(\left(y(z)^{-1/\sigma}\right)^{-\sigma}=y(z)^{(-1/\sigma)(-\sigma)}=y(z)\), which is the whole point of choosing \(-\sigma\). On the right, distribute the exponent over the fraction, using \(\left(Y^{1/\sigma}\right)^{\sigma}=Y\):</p>
+      \[
+        y(z)=\left(\frac{p(z)}{\lambda\,Y^{1/\sigma}}\right)^{-\sigma}
+        =\frac{\left(\lambda\,Y^{1/\sigma}\right)^{\sigma}}{p(z)^{\sigma}}
+        =\lambda^{\sigma}\,Y\,p(z)^{-\sigma}.
       \]
 
       <p><b>3e. Pin down \(\lambda\) with the constraint.</b> Substitute this demand back into \(G^{1/\rho}=Y\). First raise the demand to the power \(\rho\), using \(\sigma\rho=\sigma-1\) so that \(p(z)^{-\sigma\rho}=p(z)^{1-\sigma}\):</p>
@@ -403,10 +414,18 @@
       \[
         Y=\left(\int_{N-1}^{N} y(z)^{\rho}dz\right)^{1/\rho}=\lambda^{\sigma}\,Y\left(\int_{N-1}^{N}p(z)^{1-\sigma}dz\right)^{1/\rho}.
       \]
-      <p>Cancel \(Y\) from both sides, then solve for \(\lambda\). Note \(-\frac{1}{\sigma\rho}=-\frac{1}{\sigma-1}=\frac{1}{1-\sigma}\):</p>
+      <p>Now extract \(\lambda\) one move at a time. Divide both sides by \(Y\) (positive, so this is safe):</p>
+      \[
+        1=\lambda^{\sigma}\left(\int_{N-1}^{N}p(z)^{1-\sigma}dz\right)^{1/\rho}.
+      \]
+      <p>Move the integral to the other side, then take the \(\sigma\)-th root, i.e., raise both sides to \(1/\sigma\):</p>
       \[
         \lambda^{\sigma}=\left(\int p^{1-\sigma}\right)^{-1/\rho}
         \qquad\Longrightarrow\qquad
+        \lambda=\left(\int p^{1-\sigma}\right)^{-\frac{1}{\sigma\rho}}.
+      \]
+      <p>Finally clean the exponent with the Step 3 identities: \(\sigma\rho=\sigma-1\), so \(-\frac{1}{\sigma\rho}=-\frac{1}{\sigma-1}=\frac{1}{1-\sigma}\). Hence</p>
+      \[
         \lambda=\left(\int_{N-1}^{N}p(z)^{1-\sigma}dz\right)^{\frac{1}{1-\sigma}}\equiv P.
       \]
       <p>The multiplier is the <b>ideal price index</b> \(P\), the minimum cost of one unit of \(Y\), just as the shadow-price reading in 3a promised. Put \(\lambda=P\) back into the demand from 3d:</p>
@@ -430,7 +449,11 @@
     <div class="step">
       <div class="step-head">Step 4 &nbsp;·&nbsp; Labor share is the labor tasks' revenue share</div>
       <h3>With one factor per task, revenue and factor payment coincide</h3>
-      <p>Each task is competitive and uses a single factor. On a labor task, all revenue is the wage bill; on a capital task, all revenue is the capital bill. So total labor payments equal the revenue earned on the labor region \((I,N]\):</p>
+      <p>Each task is competitive and uses a single factor, so zero profits force all of a task's revenue to flow to that factor. It is worth seeing this cancellation once rather than asserting it. On a labor task, output is \(y(z)=A_L\gamma_L(z)\,\ell(z)\) and the price is \(p(z)=W/[A_L\gamma_L(z)]\), so revenue is</p>
+      \[
+        p(z)\,y(z)=\frac{W}{A_L\gamma_L(z)}\cdot A_L\gamma_L(z)\,\ell(z)=W\,\ell(z).
+      \]
+      <p>The productivity terms cancel exactly, leaving the wage bill on that task. The same one-line cancellation on a capital task leaves \(R\,k(z)\). Integrating over each region, total labor payments equal the revenue earned on the labor region \((I,N]\):</p>
       \[
         W L=\int_{I}^{N} p(z)\,y(z)\,dz,
         \qquad
@@ -541,9 +564,14 @@
         \qquad\Longrightarrow\qquad
         \ell(z)^{\rho-1}=\frac{\mu}{\rho\,\big(A_L\gamma_L(z)\big)^{\rho}}.
       \]
-      <p>Raise both sides to \(1/(\rho-1)\) and gather everything that does not depend on \(z\) into a constant \(\kappa\). The exponent on \(A_L\gamma_L(z)\) becomes \(-\rho/(\rho-1)=\rho/(1-\rho)=\sigma-1\):</p>
+      <p>To undo the exponent \(\rho-1\) on \(\ell(z)\), raise both sides to \(1/(\rho-1)\). It helps to know what that number actually is: from the Step 3 identities, \(\rho-1=-1/\sigma\), so \(1/(\rho-1)=-\sigma\). Raising both sides to \(-\sigma\):</p>
       \[
-        \ell(z)=\kappa\,\big(A_L\gamma_L(z)\big)^{\sigma-1},\qquad \kappa\equiv\left(\frac{\mu}{\rho}\right)^{\frac{1}{\rho-1}}.
+        \ell(z)=\left(\frac{\mu}{\rho}\right)^{-\sigma}\big(A_L\gamma_L(z)\big)^{(-\rho)(-\sigma)}
+        =\left(\frac{\mu}{\rho}\right)^{-\sigma}\big(A_L\gamma_L(z)\big)^{\sigma\rho}.
+      \]
+      <p>The exponent on the productivity term is \(\sigma\rho=\sigma-1\), the identity used throughout. Gather the \(z\)-free constant into \(\kappa\):</p>
+      \[
+        \ell(z)=\kappa\,\big(A_L\gamma_L(z)\big)^{\sigma-1},\qquad \kappa\equiv\left(\frac{\mu}{\rho}\right)^{-\sigma}.
       \]
       <div class="why">
         <b>What this says.</b> More labor is sent to tasks where labor is more productive, and \(\sigma\) governs how sharply. It is the same demand logic as Step 3, now applied within the labor region.
@@ -585,10 +613,19 @@
     <div class="step">
       <div class="step-head">Step 9 &nbsp;·&nbsp; Read the comparative statics</div>
       <h3>Displacement, reinstatement, and the sign of \(\sigma-1\)</h3>
-      <p>The formula now does the work the papers ask of it.</p>
+      <p>The formula now does the work the papers ask of it. Because \(I\) and \(N\) enter only as integration limits of \(B_L\) and \(B_K\), the fundamental theorem of calculus delivers the derivatives directly:</p>
+      \[
+        \frac{\partial B_L}{\partial I}=-\gamma_L(I)^{\sigma-1}<0,\qquad
+        \frac{\partial B_K}{\partial I}=+\gamma_K(I)^{\sigma-1}>0,
+      \]
+      \[
+        \frac{\partial B_L}{\partial N}=+\gamma_L(N)^{\sigma-1}>0,\qquad
+        \frac{\partial B_K}{\partial N}=-\gamma_K(N-1)^{\sigma-1}<0.
+      \]
+      <p>A rise in \(I\) drains the labor block and feeds the capital block, so \(\Gamma=B_L/(B_L+B_K)\) unambiguously falls. A rise in \(N\) does the reverse twice over: the new task at the top enters the labor block, and the obsolete task at the bottom exits the capital block, so \(\Gamma\) unambiguously rises. Everything else follows:</p>
       <ul>
         <li><strong>Automation lowers the labor share.</strong> A rise in \(I\) moves tasks from the labor block \(B_L\) to the capital block \(B_K\), so \(\Gamma\) falls, \((1-\Gamma)/\Gamma\) rises, and \(s_L\) falls. This is the <b>displacement effect</b>, and it holds even though \(\Pi\) rises. Automation always cuts the labor share of value added.</li>
-        <li><strong>New tasks raise it.</strong> A rise in \(N\) adds to \(B_L\), lifts \(\Gamma\), and pushes \(s_L\) back up. This is the <b>reinstatement effect</b>, the exact mirror image.</li>
+        <li><strong>New tasks raise it.</strong> A rise in \(N\) adds to \(B_L\) and subtracts from \(B_K\), lifts \(\Gamma\), and pushes \(s_L\) back up. This is the <b>reinstatement effect</b>, the exact mirror image.</li>
         <li><strong>Factor prices act through \(\sigma\).</strong> Estimates put \(\sigma\) below 1 (the paper uses \(\sigma=0.8\) from Oberfield and Raval). Then \(1-\sigma>0\), capital and labor are gross complements, and cheaper effective capital (a fall in \(R/A_K\)) <i>raises</i> the labor share. The <b>substitution effect</b> from factor-augmenting technology is therefore small, which is why the paper argues the labor-share story has to run through the task content \(\Gamma\), not through prices alone.</li>
       </ul>
     </div>
@@ -600,10 +637,104 @@
 
   </section>
 
+  <!-- ================= TAB: LABOR SHARE UNDER AI ================= -->
+  <section class="panel" id="tai">
+
+    <p class="lede">The labor-share equation has exactly five moving parts: the automation frontier \(I\), the new-task frontier \(N\), the elasticity \(\sigma\), and the two effective factor prices \(W/A_L\) and \(R/A_K\), with the productivity term \(\Pi\) governing what happens to wages alongside the share. Every claim anyone makes about AI and the labor share is, whether they know it or not, a claim about which of these AI moves, in which direction, and how fast. This tab goes variable by variable, then assembles the scenarios.</p>
+
+    \[
+      s_L \;=\; \cfrac{1}{\,1 \;+\; \dfrac{1-\Gamma(I,N)}{\Gamma(I,N)}\left(\dfrac{R/A_K}{\,W/A_L\,}\right)^{1-\sigma}\,},
+      \qquad \Gamma(I,N)=\frac{B_L(I,N)}{B_L(I,N)+B_K(I,N)}.
+    \]
+
+    <h2>The anatomy, variable by variable</h2>
+
+    <div class="step">
+      <div class="step-head">Variable 1 &nbsp;·&nbsp; \(I\), the automation frontier</div>
+      <h3>What AI does: expands the set of tasks capital <i>can</i> perform, faster and higher up the skill ladder than any prior technology</h3>
+      <p>In the framework, generative AI is a rise in \(I\): tasks that only labor could perform, writing a first draft, summarizing a document, producing boilerplate code, answering a support ticket, become technologically performable by capital. Two features distinguish the AI-era movement of \(I\) from the robot-era movement.</p>
+      <p>First, <strong>which tasks</strong>. Industrial robots and software automated <i>routine</i> tasks, codifiable, repetitive, concentrated in the middle of the wage distribution. That is the Autor&ndash;Levy&ndash;Murnane pattern that shaped forty years of labor-market change. AI's exposure profile is inverted: the task-level exposure studies (Eloundou, Manning, Mishkin &amp; Rock's GPT-4 study; Felten, Raj &amp; Seamans; Webb) find exposure rising with wages and education, peaking among analysts, writers, programmers, legal and financial occupations. In the model's terms, AI does not push \(I\) rightward along the same \(\gamma_L(z)/\gamma_K(z)\) schedule; it changes the <i>shape</i> of \(\gamma_K(z)\), raising capital's productivity in high-index cognitive tasks that were previously out of reach. A one-dimensional task index strains here, and the papers' authors know it: the 2022 <i>Econometrica</i> version moves to task-and-skill-group cells for exactly this reason.</p>
+      <p>Second, <strong>feasible is not adopted</strong>. Step 2's distinction between the technology frontier \(I\) and the cost cutoff \(\tilde I\) becomes the central empirical question. A model that can pass a bar exam moves \(I\); it moves employment only where \(\tilde I\) permits, i.e., where inference cost, integration cost, error correction, liability, and workflow redesign make the capital option actually cheaper than the worker. Acemoglu's 2024 accounting works precisely this margin: of roughly 20 percent of US labor tasks exposed, he takes only about a quarter as cost-effective to automate within a decade. The optimists' response is that \(R/A_K\) for cognition is collapsing at a rate with no historical precedent, which drags \(\tilde I\) rightward toward \(I\) quickly. Both sides accept the framework; they disagree about \(\tilde I\).</p>
+      <div class="why">
+        <b>Factors that govern \(I\) and its bite:</b> model capability growth (moves \(I\)); inference and deployment costs (move \(\tilde I\)); task measurability and error tolerance, since tasks with cheap verification automate first; regulation and liability in medicine, law, finance (hold \(\tilde I\) back); and whether &ldquo;a task&rdquo; is actually separable from the job bundle around it, the strongest practical brake on converting benchmark capability into displaced labor.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Variable 2 &nbsp;·&nbsp; \(N\), the new-task frontier</div>
+      <h3>What AI does: unknown, and this is where the whole forecast lives</h3>
+      <p>Reinstatement is the force that kept the labor share roughly stable through two centuries of relentless automation. The model takes \(N\) as exogenous, so it cannot tell you what AI does to it. The candidate channels, in rough order of how seriously the literature takes them:</p>
+      <ul>
+        <li><strong>Direct new tasks from the technology itself.</strong> Every automation wave has generated work operating, maintaining, directing, and checking the new capital: the engineers, machinists, and back-office workers of the Second Industrial Revolution; today the model trainers, evaluators, integration engineers, and AI-oversight roles. Autor, Chin, Salomons &amp; Seegmiller's evidence says this channel is historically large, most current employment sits in job categories that did not exist in 1940, but also that its <i>location</i> shifted after 1980 toward the top and bottom of the wage distribution rather than the middle.</li>
+        <li><strong>New tasks from cheaper complements.</strong> When a task input gets cheap, demand can explode for the surrounding labor-intensive tasks (the ATM-and-bank-teller story: fewer tellers per branch, more branches, tellers reallocated to relationship tasks). If AI makes first drafts free, the premium may migrate to tasks of judgment, verification, taste, and accountability, tasks that are new in the model's sense because they were previously bundled invisibly inside jobs.</li>
+        <li><strong>Autor's expertise channel.</strong> The most developed optimistic case: AI as a tool that extends <i>expertise</i> to workers who lack credentials, letting a nurse practitioner do more of a doctor's task set, a paralegal more of a lawyer's. In the model this is not only a rise in \(A_L\) for mid-skill workers; it reallocates high-index tasks to a larger set of workers, functionally a labor-favorable shift in task content.</li>
+        <li><strong>AI accelerating the creation of new tasks.</strong> Speculative but not dismissible: if new tasks come from innovation, and AI speeds R&amp;D, reinstatement itself could accelerate. This is also the channel Acemoglu's critics fault his low estimate for excluding.</li>
+      </ul>
+      <div class="why">
+        <b>Factors that govern \(N\):</b> the direction of innovation effort (automation vs. augmentation is a choice, the point of Acemoglu&ndash;Restrepo's &ldquo;Wrong Kind of AI&rdquo; and Brynjolfsson's &ldquo;Turing Trap&rdquo;); relative factor prices, since expensive labor invites automation while cheap labor invites new uses (the 2018 paper's self-correction mechanism); tax asymmetries between capital and labor; skills available to staff new tasks; and corporate strategy, since a business model built on removing headcount generates different \(N\) than one built on new products.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Variable 3 &nbsp;·&nbsp; \(\sigma\), the elasticity of substitution</div>
+      <h3>What AI does: possibly raises it, which flips the sign of the price channel</h3>
+      <p>Everything in the price channel runs through whether \(\sigma\) is above or below 1. The consensus estimate for the industrial era is below 1 (the papers use 0.8): capital-task output and labor-task output are gross complements, so making capital cheaper <i>raises</i> the labor share through prices. But \(\sigma\) is not a constant of nature; it is a property of the current task structure. Two reasons AI might push it up: digital outputs are more interchangeable than physical ones, and, more deeply, the model's \(\sigma\) is the elasticity <i>between tasks</i>, whereas AI competes with labor <i>within</i> tasks, where substitution is perfect once quality clears the bar. If effective \(\sigma\) crosses 1, cheap AI capital starts lowering the labor share through the price channel too, instead of cushioning it.</p>
+      <div class="why">
+        <b>Factors:</b> how differentiated AI output is from human output in the same task (quality-adjusted); whether buyers treat them as the same good; the granularity at which tasks are defined. This parameter is the quiet hinge of the whole debate, and it is the one the papers concede cannot be estimated from aggregate data.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Variable 4 &nbsp;·&nbsp; \(R/A_K\), the effective rental rate of capital</div>
+      <h3>What AI does: collapses it for cognitive tasks, at a pace hardware never managed</h3>
+      <p>The effective cost of an AI-performed task is inference price divided by capability, and it has been falling by orders of magnitude within single-digit years, through some combination of hardware, algorithmic efficiency, and competition. In the framework this does three things at once: it drags the adoption cutoff \(\tilde I\) toward the technology frontier \(I\) (more feasible automation becomes actual automation); it raises \(\Pi\), the productivity effect, because tasks reallocate to a much cheaper factor, and note from Tab 1 that the productivity gain from automating a task is increasing in the cost gap \(W/A_L\gamma_L - R/A_K\gamma_K\) at that task, so collapsing \(R/A_K\) is precisely what rescues automation from being &ldquo;so-so&rdquo;; and, as long as \(\sigma<1\), it partially <i>supports</i> the labor share through the price term. The same force is therefore simultaneously the displacement accelerant and the productivity case for optimism.</p>
+      <div class="why">
+        <b>Factors:</b> chip supply and energy costs; algorithmic efficiency; open-weight competition compressing margins; and the gap between marginal inference cost and the price actually charged, which is a markup question the competitive model assumes away.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-head">Variable 5 &nbsp;·&nbsp; \(W/A_L\), the effective wage</div>
+      <h3>What AI does: raises \(A_L\) wherever it augments instead of replaces</h3>
+      <p>Copilot-style deployment is labor-augmenting technical change: the worker keeps the task, produces more per hour. The early field evidence is genuinely about \(A_L\), and it has a consistent distributional signature: Brynjolfsson, Li &amp; Raymond's customer-support study found roughly 14&ndash;15 percent productivity gains concentrated among novice workers; Noy &amp; Zhang's writing experiment and Peng et al.'s coding experiment found the same compression, with the least-experienced gaining most. In the model, higher \(A_L\) barely moves the labor share (that is the Tab 1 result: with \(\sigma\) near 1 the substitution effect is small) but raises wages through the productivity effect. Augmentation is therefore good for labor <i>income</i> while being roughly neutral for labor's <i>share</i>, a distinction the public debate constantly elides.</p>
+      <div class="why">
+        <b>Factors:</b> whether deployment keeps the human in the loop as owner of the task or as temporary error-catcher for a system being trained to remove them (the same tool can be \(A_L\) today and \(I\) tomorrow); which skill groups get the augmentation; and whether augmented workers capture the surplus in wages, which depends on labor-market competition, not on the production function.
+      </div>
+    </div>
+
+    <h2>Four scenarios for how \(s_L\) evolves</h2>
+    <p>Fill in the variables differently and you get essentially every position in the current debate. The scenarios below are the four internally consistent ways to do it.</p>
+
+    <div class="callout">
+      <div class="sub">Scenario A · So-so automation (Acemoglu's modal case)</div>
+      <p style="margin-bottom:16px;">\(I\) creeps outward into tasks where labor was already decent and AI is merely adequate; \(N\) stays sluggish; \(\Pi\) barely moves because the cost gap on automated tasks is small. The labor share drifts down modestly, wages stagnate relative to productivity, and measured TFP disappoints, his arithmetic says roughly half a percentage point of TFP over a decade. This is the 1987&ndash;2017 pattern extended: displacement outrunning reinstatement at low productivity dividend, the worst combination for labor short of mass unemployment, delivered quietly.</p>
+    </div>
+
+    <div class="callout">
+      <div class="sub">Scenario B · Rapid displacement</div>
+      <p style="margin-bottom:16px;">Capabilities keep scaling, agents rather than copilots, and \(R/A_K\) keeps collapsing, so \(\tilde I\) races toward an \(I\) that is itself moving fast; effective \(\sigma\) rises above 1 as AI output becomes interchangeable with human output within tasks; \(N\) responds too slowly. The labor share falls sharply even as output booms, and income concentrates on capital owners; wages can fall for exposed groups even while GDP accelerates, because the productivity effect accrues increasingly to the capital side of the ledger. The 2018 paper contains the limiting case as its corner solution: with reinstatement dead, the balanced-growth path converges to full automation, Leontief's horses. Korinek and others' &ldquo;transformative AI&rdquo; scenarios live here; in this world the labor share is the single most important statistic in political economy, because labor income stops being the mechanism that distributes growth.</p>
+    </div>
+
+    <div class="callout">
+      <div class="sub">Scenario C · Augmentation and reinstatement (the Autor/Brynjolfsson case)</div>
+      <p style="margin-bottom:16px;">Deployment tilts toward \(A_L\): AI extends expertise down the skill ladder, the novice-gains evidence generalizes, and new judgment-, oversight-, and service-tasks arrive fast enough that \(\Gamma\) holds or rises. The labor share is stable to rising, wage inequality <i>compresses</i> (the mirror image of the routine-biased era), and the middle class gets partially rebuilt around AI-extended expertise. The framework's own history underwrites the possibility, this is what 1947&ndash;1987 looked like: displacement at 0.48 percent a year almost exactly offset by reinstatement at 0.47, but nothing in the model guarantees it, because \(N\) is exogenous. Whether we get C instead of B is, on the Brynjolfsson &ldquo;Turing Trap&rdquo; reading, a design and policy choice about the direction of innovation, not a fact about the technology.</p>
+    </div>
+
+    <div class="callout">
+      <div class="sub">Scenario D · Overshoot and self-correction (the 2018 paper's own dynamics)</div>
+      <p style="margin-bottom:16px;">The least discussed and most model-native scenario. In the full 2018 model with endogenous innovation, automation running ahead of new tasks lowers the effective price of labor, which erodes the return to further automation and raises the return to creating labor-intensive tasks; the balanced growth path is stable, and the labor share falls and then recovers. On this reading the AI shock is the downswing of an oscillation, not a trend. The paper's own caveats say when this fails: if the innovation-possibilities frontier itself has shifted toward automation (foundation models make automating the marginal task ever-cheaper, while nobody has a machine for inventing new tasks), or if policy blunts the correcting price signal, the US tax code's tilt toward capital equipment being the authors' standing example, then the self-correction stalls and Scenario A or B reasserts itself. The practical question D poses is whether the wage mechanism is being allowed to do its redirecting work.</p>
+    </div>
+
+    <div class="note">
+      <b>What to watch to tell the scenarios apart.</b> Not the unemployment rate, all four scenarios are consistent with low unemployment for years. Watch: industry-level labor shares in AI-exposed services (the model says displacement shows up there first, as it did in manufacturing after 1987); the reinstatement proxies, new job titles and emerging tasks in the Lin/O*NET tradition; the wage premium or penalty for AI-exposed occupations; measured TFP, which separates so-so from transformative; and the gap between benchmark capability and adoption, which is the live measurement of \(I-\tilde I\). As of the studies cited here, the aggregate statistics have not yet moved in a way that discriminates between the scenarios; the fight is being conducted with micro evidence and priors.
+    </div>
+
+  </section>
+
   <!-- ================= TAB 2 ================= -->
   <section class="panel" id="t2">
 
-    <p class="lede">By 2018 the profession had a pile of facts it could not fit into the standard model. The task framework was built to hold them. To see why it landed, start with what was breaking.</p>
+    <p class="lede">By 2018 the profession had a pile of facts it could not fit into the standard model. The task framework was built to hold them. But the papers were intervening in more arguments than the labor-share fight: a growth-theory problem about whether automation is even compatible with balanced growth, a labor-economics succession crisis as the skills paradigm ran out of explanatory room, a trade literature that had already reinvented tasks under another name, and a two-century-old argument about machinery that the profession keeps having. Start with what was breaking.</p>
 
     <h2>The facts that needed a home</h2>
     <p>Three stylized facts were pressing on labor economics in the mid-2010s. The US labor share of income had fallen from roughly the mid-60s in percentage terms to the high-50s, and Karabarbounis and Neiman had shown in 2014 that the decline was global, not a US quirk. Median wages had grown far slower than productivity since around 1980, opening the &ldquo;productivity-pay gap.&rdquo; And the wage structure had polarized: strong growth at the top and bottom, hollowing in the middle, which Autor, Levy, and Murnane (2003) had linked to the automation of routine tasks.</p>
@@ -611,7 +742,7 @@
     <p>None of these sits comfortably in the canonical model. Write output as \(Y=F(A_K K,\,A_L L)\) with only factor-augmenting technical change. With an elasticity of substitution below 1, which is what the data suggest, capital-augmenting progress <i>raises</i> the labor share and labor-augmenting progress barely moves it. The canonical model's built-in presumption is that technology, by raising productivity, raises labor demand. A falling labor share alongside rising productivity is exactly what it struggles to produce.</p>
 
     <div class="note">
-      This is the gap the two papers target. Their claim is not that the canonical model is wrong arithmetic, it is that it hides the margin that actually moves, the allocation of tasks to factors, inside a fixed production function. Open that black box and a falling labor share during productivity growth becomes the expected case, not an anomaly.</p>
+      This is the gap the two papers target. Their claim is not that the canonical model is wrong arithmetic, it is that it hides the margin that actually moves, the allocation of tasks to factors, inside a fixed production function. Open that black box and a falling labor share during productivity growth becomes the expected case, not an anomaly.
     </div>
 
     <h2>What the framework answered</h2>
@@ -629,13 +760,24 @@
     <h3>Stagnant wage growth follows mechanically</h3>
     <p>Since displacement holds down the labor share, wages grow slower than productivity by construction whenever automation runs ahead of reinstatement. The productivity-pay gap stops being a puzzle and becomes a prediction.</p>
 
+    <h2>The oldest debate in the discipline</h2>
+    <p>It helps to see how long this argument has been running. Ricardo added the &ldquo;On Machinery&rdquo; chapter to the third edition of the <i>Principles</i> in 1821 specifically to recant his earlier view, conceding that machinery could be &ldquo;injurious to the interests of the class of labourers&rdquo; even while raising net output, which is, almost exactly, the displacement effect with a small productivity effect. Keynes coined &ldquo;technological unemployment&rdquo; in 1930 while predicting it would be temporary. Leontief argued in the 1980s that workers would go the way of horses, whose population collapsed when engines removed their comparative advantage. The 2018 title, &ldquo;The Race between Man and Machine,&rdquo; is a direct answer to Leontief: the difference between workers and horses is that humans acquire comparative advantage in <i>new</i> tasks, and horses did not. What the task framework contributes to this two-century argument is not a new position but a formalization sharp enough to say which side is right under which parameter values, and to make &ldquo;the lump of labor fallacy&rdquo; accusation itself precise: labor demand is not fixed, but neither is it guaranteed to grow, because it depends on the race between \(I\) and \(N\).</p>
+
+    <h2>Labor economics: the succession from skills to tasks</h2>
+    <p>Within labor economics the papers completed a paradigm handoff that had been underway for fifteen years. The workhorse since Katz and Murphy (1992) was the <i>canonical model</i>: two skill types, factor-augmenting technology, and a race between education and skill-biased technical change (SBTC) that explained the college premium's rise remarkably well. But by the 2000s it was failing in specific ways: it could not produce wage <i>polarization</i> (growth at both ends, hollowing in the middle) documented by Autor, Katz and Kearney for the US and Goos and Manning for Britain; it could not produce falling real wages for any group alongside technical progress; and Card and DiNardo had pressed the timing problems. Autor, Levy and Murnane (2003) supplied the fix, technology substitutes for <i>routine tasks</i>, not for skill wholesale, and Acemoglu and Autor's 2011 Handbook chapter built the Ricardian task-assignment apparatus. What the 2018/2019 papers add to that lineage is general equilibrium: endogenous factor prices, the productivity effect, capital accumulation, and the reinstatement margin. In the Handbook model technology reshuffles who does what; in the 2018 model it also determines factor shares, growth, and whether labor demand rises at all. The follow-on <i>Econometrica</i> paper (2022) then closed the circle empirically, attributing 50&ndash;70 percent of the change in the US wage structure since 1980 to task displacement hitting groups specialized in routine work.</p>
+    <p>The framework also, quietly, took a side in a methods fight: it is a competitive, demand-side account. Wages equal marginal products throughout; there is no monopsony, no bargaining, no rent-sharing, institutions that the parallel empirical literature (minimum-wage studies, the union-decline literature, Card's monopsony revival) was simultaneously elevating. The 2019 paper acknowledges the omission explicitly, noting that firms being pushed off their labor demand curves, or changing markups, would confound its accounting. Where you land on automation-versus-institutions as the story of wage stagnation is still one of the sharpest dividing lines in empirical labor economics.</p>
+
+    <h2>The growth-theory stakes</h2>
+    <p>The 2018 paper is as much a growth paper as a labor paper, and its deepest technical contribution answers a growth-theory puzzle: how can an economy automate continuously without either exploding or converging to zero labor? The background constraint is Uzawa's theorem, which says balanced growth requires technical change to be (representable as) purely labor-augmenting. Automation looks flagrantly capital-biased, so how did two centuries of mechanization coexist with the Kaldor facts, stable labor share, stable interest rate, steady growth? The paper's answer is elegant: if automation \(I\) and new tasks \(N\) advance at equal rates, the task content \(\Gamma\) is constant, and the combined process is <i>equivalent to</i> labor-augmenting change even though no individual innovation is. Balanced growth with a stable labor share is a knife-edge that the economy walks because, in the full model with directed technical change, it is self-correcting: automation running ahead makes labor effectively cheap, which kills the return to further automation and raises the return to creating labor-using tasks, pulling the economy back. This is the induced-innovation tradition, Habakkuk on scarce American labor and mechanization, Allen on high wages and the Industrial Revolution, Acemoglu's own directed-technical-change apparatus, given a task-level engine. Two corollaries matter for everything downstream: the long-run capital response means the rental rate is pinned by preferences, so productivity gains ultimately accrue to labor, the inelastic factor, which is the model's structural case for optimism; and the model contains a corner solution, full automation with labor priced out of new task creation, which is Leontief's horse equilibrium sitting inside the math as a live possibility rather than a rhetorical flourish. Zeira (1998) had automation-driven growth; Aghion, Jones and Jones (2019) later pushed the complementary Baumol point that growth ends up constrained by the essential tasks automation <i>cannot</i> do. The task framework is the hinge between these literatures and the labor-market evidence.</p>
+
     <h2>How it sat next to the competing explanations</h2>
-    <p>Four camps were offering accounts of the falling labor share around 2018. The task framework did not dismiss them so much as absorb some and pick a fight with others.</p>
+    <p>Five broad camps were offering accounts of the falling labor share around 2018. The task framework did not dismiss them so much as absorb some and pick a fight with others.</p>
 
     <ul>
-      <li><strong>The relative price of capital</strong> (Karabarbounis&ndash;Neiman, 2014). Cheaper investment goods induce substitution toward capital. This is a substitution-effect story, and the task papers argue that with \(\sigma<1\) it is too weak to carry the decline on its own.</li>
-      <li><strong>Superstar firms and market power</strong> (Autor, Dorn, Katz, Patterson, Van Reenen, 2020; De Loecker &amp; Eeckhout on markups). The labor share falls because activity concentrates in low-labor-share, high-markup firms. This is a genuine rival: it locates the decline in reallocation and rents rather than task displacement. The framework's <b>composition effect</b> partly speaks to it, but the underlying mechanism differs.</li>
-      <li><strong>Globalization and the China shock</strong> (Autor&ndash;Dorn&ndash;Hanson). Trade exposure hit manufacturing employment hard. The task papers treat this as complementary rather than competing, and it shows up empirically as part of the composition effect.</li>
+      <li><strong>The relative price of capital</strong> (Karabarbounis&ndash;Neiman, 2014). Cheaper investment goods induce substitution toward capital. This is a substitution-effect story, and it needs \(\sigma>1\) to work, which is exactly what the task papers dispute: with \(\sigma<1\), cheaper capital <i>raises</i> the labor share through prices, so the price-of-capital story cannot carry the decline on its own.</li>
+      <li><strong>Superstar firms and market power</strong> (Autor, Dorn, Katz, Patterson, Van Reenen, 2020; De Loecker&ndash;Eeckhout&ndash;Unger on markups; Barkai on rising profit shares). The labor share falls because activity concentrates in low-labor-share, high-markup firms, or because product-market rents grow at the expense of both labor <i>and</i> capital shares. This is a genuine rival: it locates the decline in reallocation and rents rather than task displacement, and it implies antitrust remedies rather than innovation-policy ones. The framework's <b>composition effect</b> partly speaks to it, but the underlying mechanism differs. Hubmer and Restrepo's later work is the attempted bridge: automation adopted first by large firms produces both the within-firm displacement and the between-firm reallocation, making the two camps observationally entangled.</li>
+      <li><strong>Measurement</strong> (Elsby&ndash;Hobijn&ndash;Şahin on self-employment imputation and offshoring; Rognlie on housing; Koh, Santaeulàlia-Llopis &amp; Zheng on the capitalization of intellectual property in the national accounts). This camp asks whether the decline is even a technological fact: much of the measured fall dates to accounting changes and a few components. The task papers' industry-level, private-sector decomposition is partly armored against this, and Elsby et al.'s finding that the decline is a within-industry phenomenon uncorrelated with factor prices is actually <i>evidence for</i> a task-content story, but the measurement critique still disciplines how much decline there is to explain.</li>
+      <li><strong>Globalization and the China shock</strong> (Autor&ndash;Dorn&ndash;Hanson). Trade exposure hit manufacturing employment hard. The task papers treat this as complementary rather than competing: final-goods trade shows up in their composition effect, while <i>offshoring</i> is displacement by another name, foreign labor taking tasks rather than capital taking them. Grossman and Rossi-Hansberg's &ldquo;trade in tasks&rdquo; model (2008) had formalized precisely this, and the JEP's own regressions find task content correlating with offshoring but not with final-goods imports, exactly as the shared task logic predicts. The trade and automation literatures are, at the level of mechanism, one literature.</li>
       <li><strong>Automation and routine-biased technical change.</strong> This is the camp the task framework formalizes and extends, giving Autor&ndash;Levy&ndash;Murnane routinization a general-equilibrium engine with endogenous factor prices and, crucially, new tasks.</li>
     </ul>
 
@@ -644,8 +786,14 @@
       <p style="margin-bottom:16px;">The task apparatus is not new to 2018. Zeira (1998) modeled growth as the sequential automation of tasks; Acemoglu and Autor (2011) built the task-based account of the wage structure; Autor, Levy, and Murnane (2003) supplied the routine-task hypothesis. The 2018 and 2019 papers' contribution is to close the model: endogenous factor prices, a productivity effect, and an explicit reinstatement margin, all reducible to the single labor-share equation in Tab 1.</p>
     </div>
 
+    <h2>The empirical heart of the 2019 paper: two regimes</h2>
+    <p>The JEP is not only a theory paper; its decomposition of the US wage bill is the framework's flagship empirical result and worth having by heart. Using 40-plus industries over seven decades, the paper splits wage-bill growth into the productivity, composition, and substitution effects plus the change in task content, with task content measured as the residual movement in industry labor shares beyond what factor prices explain. The two halves of postwar history come out looking like different economies. In 1947&ndash;1987, the wage bill grew 2.5 percent a year, powered by a 2.4 percent productivity effect, and underneath a <i>stable</i> task content sat two large offsetting flows: displacement cutting labor demand 0.48 percent a year, reinstatement adding 0.47. Plenty of automation, matched by new tasks, the balanced-growth knife-edge in the data. In 1987&ndash;2017, wage-bill growth fell to 1.33 percent (stagnating outright after 2000): the productivity effect weakened to 1.54 percent, displacement accelerated to 0.7 percent a year, and reinstatement slowed to 0.35. The labor-share decline is thus dated, located (manufacturing above all, where displacement ran at 1.1 percent a year), and attributed: not to substitution through prices, which the paper estimates as small throughout, but to an automation wave without its historical counterweight. The paper then validates the residual against independent proxies, robot penetration, routine-job shares, automation-technology surveys on the displacement side; new job titles and O*NET emerging tasks on the reinstatement side, with the expected signs throughout.</p>
+
     <h2>The empirical companion</h2>
-    <p>The theory arrived with reduced-form evidence attached. &ldquo;Robots and Jobs&rdquo; (Acemoglu &amp; Restrepo, <i>JPE</i> 2020) used variation across US commuting zones and estimated that one additional robot per thousand workers lowered the employment-to-population ratio by about 0.2 percentage points and wages by about 0.42 percent, with no differential pre-trends before 1990. It was among the first credible causal estimates of automation's local labor-market bite, and it gave the framework empirical teeth in the contemporary debate.</p>
+    <p>The theory arrived with reduced-form evidence attached. &ldquo;Robots and Jobs&rdquo; (Acemoglu &amp; Restrepo, <i>JPE</i> 2020) used variation across US commuting zones and estimated that one additional robot per thousand workers lowered the employment-to-population ratio by about 0.2 percentage points and wages by about 0.42 percent, with no differential pre-trends before 1990. It was among the first credible causal estimates of automation's local labor-market bite, and it gave the framework empirical teeth in the contemporary debate. The international replications complicated the picture in an instructive way: Graetz and Michaels found robots raising productivity with little aggregate employment cost across countries, and Dauth et al. found German robot exposure destroying manufacturing jobs but fully offset by service-sector gains, displacement and reinstatement visible in the same data, with the net depending on institutions and industrial structure.</p>
+
+    <h2>Public finance and the policy fight it armed</h2>
+    <p>The framework converted &ldquo;should we worry about automation?&rdquo; into a welfare question with a specific market failure. In the model, automation chosen at competitive prices is efficient; but if the wage exceeds labor's opportunity cost, because of payroll taxes, bargaining, or efficiency wages, firms automate against a wage that overstates labor's true social cost, and the equilibrium exhibits <b>excessive automation</b>: privately profitable, socially wasteful, the formal skeleton of the &ldquo;so-so technology&rdquo; complaint. Layer on the US tax asymmetry, capital equipment enjoying accelerated depreciation and credits while labor carries payroll taxes, and you get the Acemoglu&ndash;Manera&ndash;Restrepo result that the tax code itself tilts the direction of technology toward displacement. This is the intellectual scaffolding under the robot-tax debate (Guerreiro, Rebelo &amp; Teles and others formalized optimal automation taxation), under proposals to rebalance R&amp;D toward labor-complementary technology, and under Acemoglu and Johnson's later, more political argument in <i>Power and Progress</i> that the direction of technical change is chosen, contestable, and currently chosen badly. Note what the framework does <i>not</i> support: it gives no comfort to halting automation as such, since the productivity effect is real and new tasks are the historical mechanism of wage growth. Its policy target is the <i>composition</i> of innovation, not its quantity.</p>
 
     <h2>The pushback at the time</h2>
     <p>The framework was influential immediately, but not uncontested. Three objections recurred. First, whether the labor-share decline is really automation or mainly market power and reallocation, the superstar-firm critique. Second, whether \(\sigma\) can be pinned down well enough to separate the substitution effect from task content, since the paper concedes the relevant aggregate elasticity cannot be estimated from aggregate data. Third, whether measuring the change in task content as a residual, whatever the labor share does beyond the substitution effect, risks attributing to &ldquo;automation&rdquo; anything the model leaves out. Those three threads carry directly into the AI-era debate in Tab 3.</p>
@@ -672,6 +820,12 @@
 
     <p>This is the same productivity-effect calculation from Step 8, now doing forecasting rather than accounting. It is also the most contested claim in the current debate.</p>
 
+    <h2>The micro evidence arriving underneath the macro fight</h2>
+    <p>While the macro numbers are argued over, a field-experiment literature has been measuring AI's task-level effects directly, and its findings map cleanly onto the framework's variables. Noy and Zhang (writing tasks, <i>Science</i> 2023) and Peng et al. (GitHub Copilot) found large productivity gains; Brynjolfsson, Li and Raymond (customer support) found roughly 14&ndash;15 percent gains overall; Dell'Acqua et al.'s consultant study found strong gains inside the model's capability frontier and <i>negative</i> effects when workers trusted it beyond that frontier, the &ldquo;jagged frontier&rdquo; result. The common distributional signature is the interesting part: gains concentrate among the least experienced, compressing performance within occupations. Through the framework's lens this is \(A_L\) rising fastest at the bottom of the skill distribution, the opposite of the routine-biased era, and it is the empirical seed of Autor's argument that AI could rebuild middle-skill work by extending expertise downward. The unresolved question is whether these are augmentation effects that persist, or a transitional phase while tasks are re-bundled for fuller automation, in the model's terms, whether today's \(A_L\) shock is tomorrow's rise in \(I\).</p>
+
+    <h2>Beyond the labor share: growth, distribution, and the direction of technology</h2>
+    <p>The framework's descendants now run well past labor-share accounting. In <b>growth theory</b>, Aghion, Jones and Jones turned Baumol's cost disease into the central AI question: if tasks are complements (\(\sigma<1\)), growth is governed not by what AI does well but by the essential tasks it cannot yet do, which simultaneously explains why spectacular capability gains can coexist with modest aggregate productivity and why full automation of a task set can produce growth discontinuities. Korinek and coauthors' transformative-AI scenarios work the other corner: if the set of tasks humans can do is finite and \(I\) reaches its edge, wages eventually collapse to the capital rental on the marginal task and the labor share ceases to be the mechanism distributing growth, the Leontief corner from the 2018 paper, now treated as a scenario to price rather than a curiosity. In <b>distribution</b>, Moll, Rachel and Restrepo showed automation raises the return to wealth, tying task displacement to wealth inequality on top of wage inequality; the 2022 <i>Econometrica</i> paper had already made displacement the leading quantitative account of four decades of US wage-structure change. In <b>political economy</b>, Acemoglu and Johnson's <i>Power and Progress</i> (2023) recasts the whole apparatus historically: whether productivity gains reach workers has always depended on who directs technology and who holds bargaining power, with the medieval mill and the Gilded Age factory as prior rounds of the same fight. And in <b>policy</b>, the excessive-automation result now underwrites concrete fights over the tax treatment of equipment versus labor, robot and AI taxation, and public R&amp;D direction. A framework built to explain a share of national income has become the profession's default machine for thinking about what AI does to growth, inequality, and the distribution of power, which is why getting its parameters right matters beyond the labor share itself.</p>
+
     <h2>What economists value</h2>
     <ul>
       <li><strong>It opens the black box.</strong> Modeling production as tasks allocated by comparative advantage lets substitution and complementarity be reasoned about directly, instead of hiding in an aggregate elasticity.</li>
@@ -692,7 +846,7 @@
     <p>The framework says new tasks matter enormously but does not endogenously predict when or where they arrive. New-task creation enters as a shift in \(N\). For historical accounting this is fine. For forecasting AI it is the whole ballgame, because the optimistic case is precisely that AI creates and augments faster than it displaces, and the model cannot rule that in or out from its own structure. This is the crux of the disagreement with Autor's more hopeful reading, in which AI could rebuild middle-skill work by extending expertise to more workers.</p>
 
     <h3>The AI productivity estimate is the live fight</h3>
-    <p>&ldquo;The Simple Macroeconomics of AI&rdquo; drew immediate objections. The estimate focuses on extensive-margin automation and largely sets aside three channels the framework itself recognizes: deepening of existing automation, creation of new tasks, and acceleration of scientific discovery. Critics also note that it extrapolates exposure and cost-saving numbers from GPT-3.5 and GPT-4-era studies across a full decade, which may understate capability growth. Skeptics of the skeptic (Brynjolfsson and others on the optimistic side, and various commentators arguing the so-so characterization misreads frontier models) think the 1-percent GDP figure is too low. Whether frontier AI is a so-so technology or a general-purpose one is genuinely unsettled as of 2025, and the framework can accommodate either answer depending on how \(I\), \(N\), and the cost savings are filled in.</p>
+    <p>&ldquo;The Simple Macroeconomics of AI&rdquo; drew immediate objections. The estimate focuses on extensive-margin automation and largely sets aside three channels the framework itself recognizes: deepening of existing automation, creation of new tasks, and acceleration of scientific discovery. Critics also note that it extrapolates exposure and cost-saving numbers from GPT-3.5 and GPT-4-era studies across a full decade, which may understate capability growth. Skeptics of the skeptic (Brynjolfsson and others on the optimistic side, and various commentators arguing the so-so characterization misreads frontier models) think the 1-percent GDP figure is too low. Whether frontier AI is a so-so technology or a general-purpose one remains unsettled, and the framework can accommodate either answer depending on how \(I\), \(N\), and the cost savings are filled in; the &ldquo;Labor Share under AI&rdquo; tab works through the possibilities variable by variable.</p>
 
     <h3>Aggregation and the empirical base</h3>
     <p>Two smaller threads persist. The single-sector CES-in-tasks abstracts from reallocation across firms and sectors, which the composition effect only partly restores. And the reduced-form robot estimates have been debated, with studies in other countries (for instance Dauth and coauthors on Germany) finding less negative or even offsetting effects, which bears on how much of the US result is about robots specifically versus local exposure.</p>
@@ -718,6 +872,12 @@
     <li>Karabarbounis &amp; Neiman (2014), &ldquo;The Global Decline of the Labor Share,&rdquo; <i>QJE</i> 129(1). <a href="https://www.aeaweb.org/content/file?id=14039">related evidence (PDF)</a></li>
     <li>Acemoglu &amp; Autor (2011), &ldquo;Skills, Tasks and Technologies,&rdquo; <i>Handbook of Labor Economics</i>; Autor, Levy &amp; Murnane (2003), <i>QJE</i> 118(4); Zeira (1998), <i>QJE</i> 113(4).</li>
     <li>Oberfield &amp; Raval (2014/2021), estimates of the capital&ndash;labor elasticity of substitution used for \(\sigma\approx0.8\).</li>
+    <li>Labor-share measurement debates: Elsby, Hobijn &amp; Şahin (2013), <i>BPEA</i>; Rognlie (2015), <i>BPEA</i>; Koh, Santaeulàlia-Llopis &amp; Zheng (2020), <i>Econometrica</i>; Barkai (2020), <i>JF</i>; De Loecker, Eeckhout &amp; Unger (2020), <i>QJE</i>.</li>
+    <li>Trade in tasks and robots abroad: Grossman &amp; Rossi-Hansberg (2008), <i>AER</i>; Graetz &amp; Michaels (2018), <i>REStat</i>; Dauth, Findeisen, Suedekum &amp; Woessner (2021), <i>JEEA</i>.</li>
+    <li>Growth and distribution extensions: Aghion, Jones &amp; Jones (2019), &ldquo;AI and Economic Growth&rdquo;; Zeira (1998), <i>QJE</i>; Moll, Rachel &amp; Restrepo (2022), <i>Econometrica</i>; Korinek &amp; Suh (2024), &ldquo;Scenarios for the Transition to AGI,&rdquo; NBER WP 32255; Hubmer &amp; Restrepo (2021), NBER WP 28579.</li>
+    <li>Policy and direction of technology: Acemoglu &amp; Restrepo (2019), &ldquo;The Wrong Kind of AI?&rdquo;; Acemoglu, Manera &amp; Restrepo (2020), &ldquo;Does the US Tax Code Favor Automation?&rdquo; <i>BPEA</i>; Guerreiro, Rebelo &amp; Teles (2022), <i>REStud</i>; Brynjolfsson (2022), &ldquo;The Turing Trap,&rdquo; <i>Daedalus</i>; Acemoglu &amp; Johnson (2023), <i>Power and Progress</i>.</li>
+    <li>AI micro evidence and exposure: Eloundou, Manning, Mishkin &amp; Rock (2023); Felten, Raj &amp; Seamans (2021); Noy &amp; Zhang (2023), <i>Science</i>; Peng et al. (2023); Brynjolfsson, Li &amp; Raymond (2025), <i>QJE</i>; Dell'Acqua et al. (2023), &ldquo;Navigating the Jagged Technological Frontier.&rdquo;</li>
+    <li>Skills-to-tasks lineage: Katz &amp; Murphy (1992), <i>QJE</i>; Autor, Katz &amp; Kearney (2006); Goos &amp; Manning (2007); Card &amp; DiNardo (2002); Autor (2024), &ldquo;Applying AI to Rebuild Middle-Class Jobs,&rdquo; NBER WP 32140.</li>
     <li>Critical commentary on the AI estimate: M. Tabarrok, &ldquo;Contra Acemoglu on AI.&rdquo; <a href="https://www.maximum-progress.com/p/contra-acemoglu-on-ai">maximum-progress.com</a></li>
   </ol>
 
